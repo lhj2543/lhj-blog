@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lhj-blog-manage.iml" filepath="$PROJECT_DIR$/lhj-blog-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhj-model/lhj-model.iml" filepath="$PROJECT_DIR$/lhj-model/lhj-model.iml" />
+    </modules>
+  </component>
+</project>

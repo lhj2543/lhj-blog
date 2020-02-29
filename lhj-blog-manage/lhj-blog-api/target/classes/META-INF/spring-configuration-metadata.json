@@ -1,0 +1,32 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
+      "name": "mainConfig",
+      "type": "com.lhj.blog.configuration.MainConfigurationBean"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
+      "name": "mainConfig.array",
+      "type": "java.util.List"
+    },
+    {
+      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
+      "name": "mainConfig.array2",
+      "type": "java.util.List<java.util.Map<java.lang.String,java.lang.Object>>"
+    },
+    {
+      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
+      "name": "mainConfig.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
+      "name": "mainConfig.obj",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>"
+    }
+  ]
+}
