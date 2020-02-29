@@ -1,0 +1,109 @@
+/* ===============================V0.1============================= */
+/*.carouse-item{
+    height: 390px;
+    background:#ccc;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .carousel-title{
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    width: 1000px;
+    margin-left:-500px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .carousel-title .motto{
+    font-size: 33px;
+    color: #fff;
+  }
+  .carousel-title .source{
+    font-size: 20px;
+    margin-top:15px;
+    color: #fff;
+  }
+
+  .index-content{
+    background: rgb(238, 238, 238) ;
+    padding: 20px 0 35px 0;
+  }
+  .card-item{
+    width:300px;
+    
+    float: left;
+    margin: 15px 0 0 15px;
+    z-index: 99;
+  }
+  .card-item *{
+    text-align: center;
+  }
+  .card-item-img{
+    width:265px;
+    height:250px;
+  }*/
+  /* ===============================V0.1============================= */
+
+
+
+  /* ===============================V0.2============================= */
+  #index{
+    height: 100% !important;
+    background:#DDAAAA !important;
+  }
+
+  .index-content{
+    width:120rem;
+    height:50rem;
+    border: 1px solid red;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%)  translateY(-50%);
+  }
+  .left-bg-img{
+    background:#ccc;
+    height:100%;width:80%;
+  }
+  .business-card{
+    background: #F4CD29;
+    width: 45%;
+    height: 70%;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateX(0%)  translateY(-50%);
+  }
+
+  .personal-plan{
+    height: 100% !important;
+    padding: 6%;
+    border: 1px solid #000;
+  }
+  .personal-info{
+    border:1px solid red;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translateX(0%)  translateY(-50%);
+  }
+  .head-portrait{
+    height: 100%;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateX(0%)  translateY(-50%);
+  }
+  .head-portrait-avatar{
+    width:100% !important;
+    height:85% !important;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%)  translateY(-50%);
+  }
+  /* ===============================V0.2============================= */
+
+  

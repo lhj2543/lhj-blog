@@ -1,0 +1,787 @@
+
+
+
+  /* ===============================V0.2============================= */
+  /* #app{
+    padding: 2rem;
+  } */
+  #index-body{
+    height: 100% ;
+    overflow: hidden;
+    background: rgba(0,0,0,0.01);
+  }
+  #index{
+    height: 100% !important;
+    /* background-attachment: fixed;
+    background-color: #e1e6e1;
+    background-image: url("/static/index/ingex-bg2.png"), url("/static/index/index-bg1.png");
+    background-repeat: repeat, repeat-x;
+    background-size: 128 128, cover; */
+
+  }
+  /* ============================首页内容1===================== */
+
+  /* 共通 */
+  .index-content{
+    position: absolute;
+    width:100%;height:100%;
+    z-index: 0;
+    /* opacity: 0; */
+  }
+  .index-content.delay{/* 延迟效果 */
+    -webkit-transition: -webkit-transform 1s, visibility  1;
+    transition: transform 1s, visibility 1s;
+  }
+  .index-content.activeUp{
+    transform: translateY(100%) rotate(0deg);
+    -webkit-transform: translateY(100%) rotate(0deg);
+    visibility: hidden;
+  }
+  .index-content.activeDown{
+    transform: translateY(-100%) rotate(0deg);
+    -webkit-transform: translateY(-100%) rotate(0deg);
+    visibility: hidden;
+  }
+  .index-content.active{
+    /* opacity: 1; */
+    transform: translateY(0%) rotate(0deg);
+    -webkit-transform: translateY(0%) rotate(0deg);
+    -webkit-transition: -webkit-transform 1s;
+	  transition: transform 1s;
+  }
+  
+  .right-tab-panel{
+    position: absolute;
+    right: 0;
+    z-index: 11;
+    margin-right: 3rem;
+    font-weight: bold;
+    font-size: 10rem;
+  }
+  .right-tab-panel.theme-0 .right-tab{
+    background-color: #999;
+  }
+
+  .right-tab{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 2rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  .right-tab.active{
+    background-color: #FF7C24 !important;
+  }
+
+  /* 共通end */
+
+  .index-content1{
+    width:113rem;
+    height:50rem;
+  }
+  .left-bg-img{
+    background:#ccc;
+    height:100%;width:75%;
+  }
+  .business-card{
+    background: #FFBB39;
+    width: 45%;
+    height: 60%;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateX(0%)  translateY(-50%);
+    -webkit-transform: translate(0%,-50%);
+    -ms-transform: translate(0%,-50%);
+  }
+
+  .personal-plan{
+    height: 100% !important;
+  }
+  .personal-info{
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translateX(0%)  translateY(-50%);
+    -webkit-transform: translate(0%,-50%);
+    -ms-transform: translate(0%,-50%);
+  }
+  .head-portrait{
+    height: 100%;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateX(0%)  translateY(-50%);
+    -webkit-transform: translate(0%,-50%);
+    -ms-transform: translate(0%,-50%);
+  }
+  .head-portrait-avatar{
+    width:16rem !important;
+    height:16rem !important;
+  }
+  .personal-info-detial{
+    width: 88%;
+  }
+  .user-name{
+    /* font-size: 1.3rem; */
+    font-size: 2.5rem;
+  }
+  .welcome-speech{
+    font-size: 2.3rem;
+    /* font-weight:bold; */
+    /* color: #fff; */
+  }
+  .resume-deail{
+    width:10rem;
+    height: 3.6rem;
+    line-height: 3.6rem;
+    text-align: center;
+    background-color: #323231;
+    color: #F4CD29;
+    font-size: 1.3rem;
+    margin-top: 5.5rem;
+  }
+  /* ============================首页内容1===================== */
+
+  /* ============================首页内容2===================== */
+
+  .index-content2{
+    width:100%;height:100%;
+    background: url('/static/index/conent2-bg1.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .content2-main-panel{
+    width:100rem;
+    height:35rem;
+  }
+
+  /* ============================首页内容2===================== */
+
+  /* ============================首页内容3===================== */
+
+  .index-content3{
+    /* background: #C0CCD6; */
+    /* background: #B1B7BB; */
+    background: #F0F3F7;
+  }
+  .content3-topbg{
+    width:100%;
+    /* height:30rem; */
+    height:40%;
+    background-size: cover;
+    background-position: center;
+    background-image: url(/static/index/carousel-0.jpg)
+  }
+
+  .content3-title{
+    font-size: 2.5rem;
+    width:100rem;
+    /* border: 0.1rem solid red; */
+    position: relative;
+    top: -9rem;
+    height: 0rem;
+    cursor:default; 
+  }
+  .content3-more{
+    font-size: 1.3rem;
+    width:9rem;
+    background-color: #fff;
+    position: relative;
+    top: -9rem;
+    text-align: center;
+    float: right;
+    height: 3rem;
+    line-height: 3rem;
+    color: #000 !important
+  }
+
+  .content3-main-panel{
+    /* border:0.1rem solid red; */
+    /* width:110rem; */
+    width:85%;
+    height:40rem;
+    top: 55% !important;
+
+    display: flex;/* 弹性盒子 */
+    flex-direction: row;/* 默认值。元素将水平显示 */
+    flex-wrap: wrap;/* 规定元素在必要的时候拆行或拆列 */
+    justify-content: center;/* 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 项目位于容器的中心 */
+  }
+
+  .card-item{
+   /*  border: 0.1rem solid #EBEBEB; */
+    background: #fff;
+    width: 28rem;
+    height: 100%;
+    margin-left: 4rem;
+    /* border-radius: 0.2rem; */
+    
+    /* 弹性盒子 */
+    /* display: flex;
+    align-items:flex-end; */
+
+    background-size: cover;
+    background-position: center;
+  }
+  .card-item:first-child{
+    margin-left: 0rem;
+  }
+  .card-img{
+    width: 100%;
+    height: 25rem;
+  }
+  .card-item:last-child .card-img{
+    position: relative;
+    top: -3rem;
+  }
+  .card-detail{
+    width: 70%;
+    height: 10rem;
+    background-color: #F0F3F7;
+    position: relative;
+    top: -5rem;
+    left: 15%;
+    display: flex;/* 弹性盒子 */
+    flex-direction: column;/* 默认值。元素将水平显示 */
+    justify-content: center;/* 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 项目位于容器的中心 */
+
+  }
+  .card-detail-name,.card-detail-desc{
+    text-align: center;
+    padding: 0.2rem;
+  }
+  .card-detail-name{
+    font-size: 2rem;
+    color: #000 !important;
+  }
+  .card-detail-desc{
+    font-size: 1.1rem;
+    color: #666 !important;
+  }
+  .card-info{
+    color: #666 !important;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    top: -2.6rem;
+  }
+  
+  .card-item-panel:hover{
+    box-shadow:0.8rem 0.8rem 1rem 0.1rem #ACACAC;
+    /* box-shadow:0.8rem 0.8rem 1rem 0.1rem #E8E8E8; */
+  }
+  .card-item-panel:hover .card-detail,.card-item-panel:hover .card-detail-name{
+    color: #fff !important;
+    -webkit-transition: color 0.8s,background-color 0.8s,box-shadow 0.8s;
+    transition: color 0.8s,background-color 0.8s,box-shadow 0.8s;
+  }
+  .card-item-panel .card-detail,.card-item-panel .card-detail-name{
+    -webkit-transition: color 0.8s,background-color 0.8s,box-shadow 0.8s;
+    transition: color 0.8s,background-color 0.8s,box-shadow 0.8s;
+  }
+  .card-item-panel:hover .card-detail{
+    background-color: #061138;
+  }
+  /* ============================首页内容3===================== */
+
+
+
+  /* ============================首页内容4===================== */
+  .index-content4{
+    background: url('/static/index/content4-bg.jpg');
+    background-position: center bottom;
+    background-repeat:no-repeat;
+    background-size: cover;
+  }
+
+  .content4-main-panel{
+    /* border:0.1rem solid red; */
+    width:110rem;
+    height:55rem;
+    /* margin-left: -2rem; */
+
+    display: flex;/* 弹性盒子 */
+    flex-direction: row;/* 默认值。元素将水平显示 */
+    flex-wrap: wrap;/* 规定元素在必要的时候拆行或拆列 */
+    justify-content: left;/* 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 项目位于容器的中心 */
+  }
+
+  .content4-main-panel .card-item{
+    border: 0.1rem solid F0F3F7;
+    background: #fff;
+    width: 25rem;
+    height: 50%;
+    margin:0 0 2rem 2rem; 
+    /* border-radius: 0.2rem; */
+    
+    /* 弹性盒子 */
+    /* display: flex;
+    align-items:flex-end; */
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow: 0 0 32rem 0 rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+  }
+
+  .content4-main-panel .card-item div{
+    text-align: center;
+    /* border:0.1rem solid red; */
+  }
+  .cnt4-icon-d{
+    height: 10rem;
+    line-height: 10rem;
+    padding-top: 1rem;
+  }
+  .cnt4-icon{
+    color: #D5AE82;
+    font-size: 5.5rem;
+  }
+  .cnt4-title-name{
+    font-size: 2.2rem;
+  }
+  .cnt4-title-desc{
+    font-size: 1.1rem;  
+    color: #9CA2B5;
+    padding: 1rem 0;
+  }
+  .cnt4-button-d{
+    height: 10rem;
+    line-height: 10rem;
+  }
+  .content4-button{
+    font-size: 1.3rem;
+    width:9rem;
+    background-color: #fff;
+    text-align: center;
+    height: 3rem;
+    line-height: 3rem;
+    border: 0.15rem solid #061138;
+    padding: 1rem 4rem;
+    color: #061138 ;
+  }
+  .content4-button:hover{
+    color: #fff ;
+    background-color: #061138;
+  }
+  /* ============================首页内容5===================== */
+  .index-content5{
+    /* background: url('/static/index/map-image.png');
+    background-position: center bottom;
+    background-repeat:no-repeat;
+    background-size: cover; */
+    background: #F0F3F7;
+  }
+  .content5-main-panel{
+    width:100rem;
+    height:43rem;
+    top:29rem !important;
+    /* border: 0.1rem solid red; */
+  }
+  .content5-title{
+    font-size: 2rem;
+    /* height: 2rem;
+    line-height: 2rem; */
+    position: absolute;
+    width: 3rem;
+    height:43rem;
+    top:30.5rem !important;
+    left: 4rem !important;
+  }
+
+  .content5-card-panel{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 100%;
+    height: 37rem;
+  }
+
+  .content5-card-item{
+    background: #fff;
+    width: 48%;
+    height: 50%;
+    margin: 1.5% 1.5% 0 0;
+    display: flex;
+    flex-direction: row;
+  }
+  .content5-card-item-left{
+    height:100%;width:34%;
+  }
+  .content5-card-item-right{
+    height:100%;width:66%;
+    padding: 1.8rem 2.5rem;
+  }
+  .content5-card-item-right .title{
+    font-size: 2rem;
+  }
+  .content5-card-item-right .title-icon{
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  .content5-card-item-right .title-icon *{
+    color: #7f8a99;
+  }
+  .content5-card-item-right .descs{
+    /* color: #696F7C; */
+    color: #7f8a99;
+    font-size: 1.1rem;
+    height: 7rem;
+  }
+  .content5-card-item-right .button{
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+    border: 0.1rem solid rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+  }
+  .content5-card-item-right .button:hover{
+    background: #D5AE82;
+    color: #fff;
+    border:0.1rem solid #D5AE82;
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+  }
+
+  .content5-bottom-panel{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 19rem;
+    background: #373B3A;
+  }
+
+  .content5-bottom-card{
+    height: 100%;
+    width:100rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 6.5rem;
+  }
+  .content5-bottom-card-item{
+    width: 26rem;
+    height: 100%;
+    position: relative;
+  }
+
+  .icon-box {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -2rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  .icon-box::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    margin-top: 0.8rem;
+    border-left: 0.1rem solid 
+    rgba(255,255,255,0.50);
+    height: 7.5rem;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+  }
+  .icon-box::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    margin-top: 0.8rem;
+    border-left: 0.1rem solid rgba(255, 255, 255, 0.9);
+    height: 7.5rem;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+  }
+  .octagonWrap{
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    float: left;
+    /* overflow: hidden; */
+  }
+  .octagon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    /* border: 0.1rem solid rgba(255,255,255,0.70); */
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    background: #D5AE82;
+  }
+  .octagon::before{
+    position: absolute;
+    top: -0.1rem;
+    right: -0.1rem;
+    bottom: -0.1rem;
+    left: -0.1rem;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: '';
+    /* border: inherit; */
+  }
+  .octagonWrap-icon{
+    /* color: #D5AE82; */
+    color: #fff;
+    font-size: 3rem;
+    margin:0.6rem 0 0 0.4rem;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .content5-bottom-card-item .content{
+    margin-left: 5.5rem;
+    height: 100%;
+    padding: 4rem 0;
+  }
+  .content5-bottom-card-item .content *{
+    color: #fff;
+  }
+  .content5-bottom-card-item .content .content-title{
+    font-size: 2rem;
+  }
+  .content5-bottom-card-item .content .content-desc{
+    height: 5rem;
+    color: #9B9D9D;
+  }
+  .content5-bottom-card-item .content .content-more{
+    font-weight: bold;
+  }
+
+  /* ============================首页内容5===================== */
+
+
+
+  /* ============================首页内容6===================== */
+  .index-content6{
+    background-color: #061138;
+  }
+  .content6-topbg{
+    width:100%;
+    /* height:30rem; */
+    height:60%;
+    background-size: cover;
+    background-position: center;
+    background-image: url(/static/index/carousel/4.jpg)
+  }
+  .content6-main-panel{
+    height: 40%;
+    display: flex;/* 弹性盒子 */
+    flex-direction: row;/* 默认值。元素将水平显示 */
+    flex-wrap: wrap;/* 规定元素在必要的时候拆行或拆列 */
+    justify-content: center;/* 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 项目位于容器的中心 */
+  }
+  .content6-left{
+    width: 40%;
+  }
+  .content6-left-right{
+    height: 100%;
+    float: right;
+    width: 60%;
+    background: url(/static/index/pattern-image-2.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    opacity: 0.3;
+  }
+  .content6-left-title{
+    font-size: 3rem;
+    /* float: right;
+    border: 0.1rem solid #fff; */
+  }
+  .content6-right{
+    width: 60%;
+    display: flex;/* 弹性盒子 */
+    flex-direction: column;/* 默认值。元素将水平显示 */
+    flex-wrap: wrap;/* 规定元素在必要的时候拆行或拆列 */
+    justify-content: center;/* 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 项目位于容器的中心 */
+  }
+  .leaving-panel{
+    width: 80%;
+    padding: 2rem 5rem;
+  }
+  .leavingName,.leavingContent{
+    width: 100%;
+    background: none;
+    border: 0.1rem solid #868da5;
+    color: #868da5 !important;
+    padding: 1rem;
+  }
+  .leavingName-icon{
+    position: relative;
+    top: 2.6rem;
+    left: 0.5rem;
+    font-size: 1.5rem;
+    color: #868da5 !important;
+  }
+  .leavin-div{
+    padding: 0.6rem;
+  }
+  .leavingName{
+    height: 3.5rem;
+    padding-left: 2.2rem;
+  }
+  .leavingContent{
+    height: 10rem;
+  }
+
+  /* ============================首页内容6===================== */
+
+  /*===================== 首页右侧菜单==================== */
+
+  .index-body{
+    overflow-x: hidden;
+  }
+
+  .index-body .shade{ /* 遮罩层 */
+    width:100%;height:100%;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .index{
+    -webkit-transition: -webkit-transform 0.5s;
+	  transition: transform 0.5s;
+  }
+
+  .index::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    background: rgba(0,0,0,0.2);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+  }
+  
+  .mnue-more-open .index::after {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+  }
+
+  .index-body,.mnue-more-open{
+    -webkit-perspective: 120em;
+		perspective: 120em;
+  }
+  
+  .mnue-more-open .index {
+		-webkit-transform: translate3d(-18rem, 0rem, -60rem) rotateY(25deg);
+		transform: translate3d(-18rem, 0rem, -60rem) rotateY(25deg);
+  }
+
+  .mnue-more-panel{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 25rem;
+    z-index: 100;
+    background: #1A1A1A;
+
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+
+    visibility: hidden;/* 隐藏也会占据空间 */
+    /* backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden; */
+  }
+
+  .mnue-more-open .mnue-more-panel{
+    visibility: visible;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  .mnue-more-panel *{
+    font-size: 1.2rem;
+    color: #fff;
+  }
+
+  .mnue-close{
+    font-size: 2.5rem ;
+    float:right;
+    vertical-align:middle;
+    margin-top: -0.2rem;
+  }
+  .mnue-more-top{
+    border-bottom:0.01rem solid #6D6D6D;
+    padding: 1rem;
+  }
+
+
+  .mnue-more-item{
+   height: 12.5rem;
+   border-right:0.01rem solid #6D6D6D;
+   border-bottom:0.01rem solid #6D6D6D;
+   text-align: center;
+   padding:3.5rem 1rem;
+   cursor: pointer;
+  }
+
+  .mnue-more-icon{
+    font-size: 3rem ;
+  }
+
+  .mnue-more-item:hover *{
+    color:coral;
+  }
+  .mnue-more-item:hover .mnue-more-icon{
+    font-size: 3.3rem;
+    transition: font-size 0.5s;
+  }
+  
+  /*===================== 首页右侧菜单==================== */
+
+
+
+
+  /* ===============================V0.2============================= */
+
+  

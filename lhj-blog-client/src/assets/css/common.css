@@ -1,0 +1,74 @@
+html,body,#app{
+    height: 100%;
+}
+html{
+    font-size: 15px;
+}
+body{
+    font-size: inherit !important;
+}
+body *{
+    color: #000;
+}
+
+
+.theme-0,.theme-0 *{
+    color: #000;
+    -webkit-transition: color 1s;
+    transition: color 1s;
+}
+
+.theme-1,.theme-1 *{
+    color: #fff;
+    -webkit-transition: color 1s;
+    transition: color 1s;
+}
+
+.hove-color:hover,.hove-color:hover *{
+    /* color:  #FF7C24 !important; */
+    color:  #1DB954 !important;
+    -webkit-transition: color 1s;
+    transition: color 0.5s;
+}
+
+.content-width{
+    width: 100%;
+    max-width: 1300px;
+    min-width: 680px;
+    margin: 0 auto;
+    padding:0 15px;
+}
+.cursor-pointer{
+    cursor:pointer;
+}
+.display-block{
+    display: block;
+}
+.display-none{
+    display: none;
+}
+
+.plan-centre{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%)  translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+.plan-left-centre{
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translateX(0%)  translateY(-50%);
+    -webkit-transform: translate(0%,-50%);
+    -ms-transform: translate(0%,-50%);
+}
+.plan-right-centre{
+    position: absolute;
+    right:0%;
+    top: 50%;
+    transform: translateX(0%)  translateY(-50%);
+    -webkit-transform: translate(0%,-50%);
+    -ms-transform: translate(0%,-50%);
+}
