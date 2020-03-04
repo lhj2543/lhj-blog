@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhj.model.system.SysRoleMenu">
+
+	<!-- ==================================字段属性配置========================================= -->
+
+	<!-- SYS_ROLE_MENU     as ""字段 -->
+	<sql id="columns_SysRoleMenu">
+		sid  ,
+		role_id  ,
+		menu_id  ,
+		status  ,
+		notes  ,
+		created_by  ,
+		created_date  ,
+		update_by  ,
+		update_date  
+	</sql>
+	
+	<!-- 新增SYS_ROLE_MENU 信息字段 -->
+  	<sql id="columns_insertSysRoleMenu">
+	    (
+			sid ,
+			role_id ,
+			menu_id ,
+			status ,
+			notes ,
+			created_by ,
+			created_date ,
+			update_by ,
+			update_date 
+	    )
+  	</sql>
+  
+    <!-- 新增SYS_ROLE_MENU 传入参数值 -->
+    <sql id="columns_SysRoleMenuParams">
+	     (
+			#{sid,jdbcType=VARCHAR} ,
+			#{roleId,jdbcType=VARCHAR} ,
+			#{menuId,jdbcType=VARCHAR} ,
+			#{status,jdbcType=VARCHAR} ,
+			#{notes,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=VARCHAR} ,
+			#{createdDate,jdbcType=TIMESTAMP} ,
+			#{updateBy,jdbcType=VARCHAR} ,
+			#{updateDate,jdbcType=TIMESTAMP} 
+	     )
+    </sql>
+  
+	<!-- 修改SYS_ROLE_MENU属性字段 -->
+	<sql id="SysRoleMenu_update">
+			sid = #{sid,jdbcType=VARCHAR} ,
+			role_id = #{roleId,jdbcType=VARCHAR} ,
+			menu_id = #{menuId,jdbcType=VARCHAR} ,
+			status = #{status,jdbcType=VARCHAR} ,
+			notes = #{notes,jdbcType=VARCHAR} ,
+			created_by = #{createdBy,jdbcType=VARCHAR} ,
+			created_date = #{createdDate,jdbcType=TIMESTAMP} ,
+			update_by = #{updateBy,jdbcType=VARCHAR} ,
+			update_date = #{updateDate,jdbcType=TIMESTAMP} 
+	</sql>
+	
+	<!-- SYS_ROLE_MENU 查询(包括条件按查询) -->
+	<sql id="SysRoleMenu_where">
+	 		<if test="sid != null and sid != ''">
+	 			and sid = #{sid}
+	 		</if>
+	 		<if test="roleId != null and roleId != ''">
+	 			and role_id = #{roleId}
+	 		</if>
+	 		<if test="menuId != null and menuId != ''">
+	 			and menu_id = #{menuId}
+	 		</if>
+	 		<if test="status != null and status != ''">
+	 			and status = #{status}
+	 		</if>
+	 		<if test="notes != null and notes != ''">
+	 			and notes = #{notes}
+	 		</if>
+	 		<if test="createdDate != null">
+	 			and created_date = #{createdDate}
+	 		</if>
+	 		<if test="updateBy != null and updateBy != ''">
+	 			and update_by = #{updateBy}
+	 		</if>
+	 		<if test="updateDate != null">
+	 			and update_date = #{updateDate}
+	 		</if>
+	</sql>
+
+	<!-- SYS_ROLE_MENU 表关联项目信息表结果集属性声明 -->
+	<resultMap type="SysRoleMenu" id="SysRoleMenuResultMap">
+		<id column="SID" property="sid" />
+			<result property="roleId" column="role_id"/>
+			<result property="menuId" column="menu_id"/>
+			<result property="status" column="status"/>
+			<result property="notes" column="notes"/>
+			<result property="createdBy" column="created_by"/>
+			<result property="createdDate" column="created_date"/>
+			<result property="updateBy" column="update_by"/>
+			<result property="updateDate" column="update_date"/>
+	</resultMap>
+
+	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- SYS_ROLE_MENU 信息查询语句 -->
+	<select id="findSysRoleMenu" resultMap="SysRoleMenuResultMap">
+		SELECT 
+			<include refid="columns_SysRoleMenu" />
+		FROM  SYS_ROLE_MENU 
+		<where>
+			<include refid="SysRoleMenu_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.lhj.system.orderby"/>
+	</select>
+	
+	<!-- SYS_ROLE_MENU  数量查询SQL -->
+	<select id="countSysRoleMenu" resultType="SysRoleMenu">
+		SELECT count(*) total FROM  SYS_ROLE_MENU
+		<where>
+			<include refid="SysRoleMenu_where" />
+		</where>
+	</select>
+
+  
+  	<!-- 新增SYS_ROLE_MENU 信息 -->
+	<insert id="addSysRoleMenu" parameterType="SysRoleMenu">
+		INSERT INTO SYS_ROLE_MENU <include refid="columns_insertSysRoleMenu"/>
+		VALUES <include refid="columns_SysRoleMenuParams"/>
+	</insert>
+	
+	<!-- 修改SYS_ROLE_MENU 信息 -->
+	<update id="updateSysRoleMenu" parameterType="SysRoleMenu">
+		UPDATE SYS_ROLE_MENU
+		SET    <include refid="SysRoleMenu_update" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除SYS_ROLE_MENU 信息 -->
+	<update id="deleteSysRoleMenu" parameterType="SysRoleMenu">
+		DELETE FROM SYS_ROLE_MENU WHERE  SID=#{sid}
+	</update>
+</mapper>

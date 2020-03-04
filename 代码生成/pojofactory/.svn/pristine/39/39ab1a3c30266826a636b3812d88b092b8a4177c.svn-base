@@ -1,0 +1,121 @@
+package com.uniwcp.pojofactory.jdbc;
+
+public class FieldMeta {
+	
+	private String colName;
+	private String colNameCn;
+	private boolean isKey;
+	private boolean isForenKey;
+	private String name;
+	private String type;
+	private String dbType;
+	private int    len;
+
+	
+	public String getMethodName(){
+		String temp=(name.charAt(0)+"").toUpperCase();
+		if(name.length()>1){
+			temp+=name.substring(1,name.length());
+		}
+		return temp;
+	}
+	
+	
+	/**
+	 * @return the colName
+	 */
+	public String getColName() {
+		return colName;
+	}
+	/**
+	 * @param colName the colName to set
+	 */
+	public void setColName(String colName) {
+		this.colName = colName;
+	}
+	/**
+	 * @return the colNameCn
+	 */
+	public String getColNameCn() {
+		return colNameCn;
+	}
+	/**
+	 * @param colNameCn the colNameCn to set
+	 */
+	public void setColNameCn(String colNameCn) {
+		this.colNameCn = colNameCn;
+	}
+	/**
+	 * @return the isKey
+	 */
+	public boolean isKey() {
+		return isKey;
+	}
+	/**
+	 * @param isKey the isKey to set
+	 */
+	public void setKey(boolean isKey) {
+		this.isKey = isKey;
+	}
+	/**
+	 * @return the isForenKey
+	 */
+	public boolean isForenKey() {
+		return isForenKey;
+	}
+	/**
+	 * @param isForenKey the isForenKey to set
+	 */
+	public void setForenKey(boolean isForenKey) {
+		this.isForenKey = isForenKey;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
+	}
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+	/**
+	 * @return the len
+	 */
+	public int getLen() {
+		return len;
+	}
+	/**
+	 * @param len the len to set
+	 */
+	public void setLen(int len) {
+		this.len = len;
+	}
+	/**
+	 * @return the dbType
+	 */
+	public String getDbType() {
+		return dbType;
+	}
+	/**
+	 * @param dbType the dbType to set
+	 */
+	public void setDbType(String dbType) {
+		this.dbType = dbType;
+	}
+	
+}

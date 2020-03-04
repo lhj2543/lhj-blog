@@ -15,6 +15,8 @@
         <module>lhj-blog-core</module>
         <module>lhj-blog-service</module>
         <module>lhj-blog-common</module>
+        <module>lhj-blog-mybatis</module>
+        <module>lhj-blog-system</module>
     </modules>
 
     <parent>
@@ -54,6 +56,35 @@
             <optional>true</optional>
         </dependency>
 
+        <!--spring boot jdbc-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!--mysql 驱动包-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--整合阿里 druid数据源 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.21</version>
+        </dependency>
+
+        <!-- 热部署模块 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <!-- optional=true,依赖不会往下传递，如果有项目依赖本项目，并且想要使用devtools，需要重新引入 -->
+            <optional>true</optional>
+            <scope>true</scope>
+        </dependency>
+
 
         <!--sprignBoot 单元测试-->
         <dependency>
@@ -67,6 +98,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
     </dependencies>
 
 

@@ -42,7 +42,15 @@
 .top-menus *{
     color: #fff !important;
 }
+
+.top-menus ul{
+     background: none;
+     border: none;
+     height: 0;
+}
+
 .top-menus li:hover,.top-menus li:hover *,.top-menus .ivu-menu-item-active,.top-menus .ivu-menu-item-active *{
     color: #f60 !important;
+    border-bottom: 1px solid #373B3A !important;
 }
 /* ==================首页布局========================= */

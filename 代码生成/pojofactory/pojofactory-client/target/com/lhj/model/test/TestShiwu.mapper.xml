@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.lhj.model.test.TestShiwu">
+
+	<!-- ==================================字段属性配置========================================= -->
+
+	<!-- TEST_SHIWU  字段 -->
+	<sql id="columns_TestShiwu">
+		sid as "sid" ,
+		name as "name" ,
+		count as "count" 
+	</sql>
+	
+	<!-- 新增TEST_SHIWU 信息字段 -->
+  	<sql id="columns_insertTestShiwu">
+	    (
+			sid ,
+			name ,
+			count 
+	    )
+  	</sql>
+  
+    <!-- 新增TEST_SHIWU 传入参数值 -->
+    <sql id="columns_TestShiwuParams">
+	     (
+			#{sid,jdbcType=VARCHAR} ,
+			#{name,jdbcType=VARCHAR} ,
+			#{count,jdbcType=INTEGER} 
+	     )
+    </sql>
+  
+	<!-- 修改TEST_SHIWU属性字段 -->
+	<sql id="TestShiwu_update">
+			sid = #{sid,jdbcType=VARCHAR} ,
+			name = #{name,jdbcType=VARCHAR} ,
+			count = #{count,jdbcType=INTEGER} 
+	</sql>
+	
+	<!-- TEST_SHIWU 查询(包括条件按查询) -->
+	<sql id="TestShiwu_where">
+	 		<if test="sid != null and sid != ''">
+	 			and sid = #{sid}
+	 		</if>
+	 		<if test="name != null and name != ''">
+	 			and name = #{name}
+	 		</if>
+	 		<if test="count != null">
+	 			and count = #{count}
+	 		</if>
+	</sql>
+
+	<!-- TEST_SHIWU 表关联项目信息表结果集属性声明 -->
+	<resultMap type="TestShiwu" id="TestShiwuResultMap">
+		<id column="SID" property="sid" />
+			<result property="name" column="name"/>
+			<result property="count" column="count"/>
+	</resultMap>
+
+	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- TEST_SHIWU 信息查询语句 -->
+	<select id="findTestShiwu" resultMap="TestShiwuResultMap">
+		SELECT 
+			<include refid="columns_TestShiwu" />
+		FROM  TEST_SHIWU 
+		<where>
+			<include refid="TestShiwu_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.aifa.system.orderby"/>
+	</select>
+	
+	<!-- TEST_SHIWU  数量查询SQL -->
+	<select id="countTestShiwu" resultType="TestShiwu">
+		SELECT count(*) total FROM  TEST_SHIWU
+		<where>
+			<include refid="TestShiwu_where" />
+		</where>
+	</select>
+  
+  	<!-- 新增TEST_SHIWU 信息 -->
+	<insert id="addTestShiwu" parameterType="TestShiwu">
+		INSERT INTO TEST_SHIWU <include refid="columns_insertTestShiwu"/>
+		VALUES <include refid="columns_TestShiwuParams"/>
+	</insert>
+	
+	<!-- 修改TEST_SHIWU 信息 -->
+	<update id="updateTestShiwu" parameterType="TestShiwu">
+		UPDATE TEST_SHIWU
+		SET    <include refid="TestShiwu_update" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除TEST_SHIWU 信息 -->
+	<update id="deleteTestShiwu" parameterType="TestShiwu">
+		DELETE FROM TEST_SHIWU WHERE  SID=#{sid}
+	</update>
+</mapper>

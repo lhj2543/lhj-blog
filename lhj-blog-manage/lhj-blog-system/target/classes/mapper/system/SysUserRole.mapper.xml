@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhj.model.system.SysUserRole">
+
+	<!-- ==================================字段属性配置========================================= -->
+
+	<!-- SYS_USER_ROLE     as ""字段 -->
+	<sql id="columns_SysUserRole">
+		sid  ,
+		user_cd  ,
+		role_id  ,
+		status  ,
+		start_date  ,
+		end_date  ,
+		notes  ,
+		created_by  ,
+		created_date  ,
+		update_by  ,
+		update_date  
+	</sql>
+	
+	<!-- 新增SYS_USER_ROLE 信息字段 -->
+  	<sql id="columns_insertSysUserRole">
+	    (
+			sid ,
+			user_cd ,
+			role_id ,
+			status ,
+			start_date ,
+			end_date ,
+			notes ,
+			created_by ,
+			created_date ,
+			update_by ,
+			update_date 
+	    )
+  	</sql>
+  
+    <!-- 新增SYS_USER_ROLE 传入参数值 -->
+    <sql id="columns_SysUserRoleParams">
+	     (
+			#{sid,jdbcType=VARCHAR} ,
+			#{userCd,jdbcType=VARCHAR} ,
+			#{roleId,jdbcType=VARCHAR} ,
+			#{status,jdbcType=VARCHAR} ,
+			#{startDate,jdbcType=TIMESTAMP} ,
+			#{endDate,jdbcType=TIMESTAMP} ,
+			#{notes,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=VARCHAR} ,
+			#{createdDate,jdbcType=TIMESTAMP} ,
+			#{updateBy,jdbcType=VARCHAR} ,
+			#{updateDate,jdbcType=TIMESTAMP} 
+	     )
+    </sql>
+  
+	<!-- 修改SYS_USER_ROLE属性字段 -->
+	<sql id="SysUserRole_update">
+			sid = #{sid,jdbcType=VARCHAR} ,
+			user_cd = #{userCd,jdbcType=VARCHAR} ,
+			role_id = #{roleId,jdbcType=VARCHAR} ,
+			status = #{status,jdbcType=VARCHAR} ,
+			start_date = #{startDate,jdbcType=TIMESTAMP} ,
+			end_date = #{endDate,jdbcType=TIMESTAMP} ,
+			notes = #{notes,jdbcType=VARCHAR} ,
+			created_by = #{createdBy,jdbcType=VARCHAR} ,
+			created_date = #{createdDate,jdbcType=TIMESTAMP} ,
+			update_by = #{updateBy,jdbcType=VARCHAR} ,
+			update_date = #{updateDate,jdbcType=TIMESTAMP} 
+	</sql>
+	
+	<!-- SYS_USER_ROLE 查询(包括条件按查询) -->
+	<sql id="SysUserRole_where">
+	 		<if test="sid != null and sid != ''">
+	 			and sid = #{sid}
+	 		</if>
+	 		<if test="userCd != null and userCd != ''">
+	 			and user_cd = #{userCd}
+	 		</if>
+	 		<if test="roleId != null and roleId != ''">
+	 			and role_id = #{roleId}
+	 		</if>
+	 		<if test="status != null and status != ''">
+	 			and status = #{status}
+	 		</if>
+	 		<if test="startDate != null">
+	 			and start_date = #{startDate}
+	 		</if>
+	 		<if test="endDate != null">
+	 			and end_date = #{endDate}
+	 		</if>
+	 		<if test="notes != null and notes != ''">
+	 			and notes = #{notes}
+	 		</if>
+	 		<if test="createdDate != null">
+	 			and created_date = #{createdDate}
+	 		</if>
+	 		<if test="updateBy != null and updateBy != ''">
+	 			and update_by = #{updateBy}
+	 		</if>
+	 		<if test="updateDate != null">
+	 			and update_date = #{updateDate}
+	 		</if>
+	</sql>
+
+	<!-- SYS_USER_ROLE 表关联项目信息表结果集属性声明 -->
+	<resultMap type="SysUserRole" id="SysUserRoleResultMap">
+		<id column="SID" property="sid" />
+			<result property="userCd" column="user_cd"/>
+			<result property="roleId" column="role_id"/>
+			<result property="status" column="status"/>
+			<result property="startDate" column="start_date"/>
+			<result property="endDate" column="end_date"/>
+			<result property="notes" column="notes"/>
+			<result property="createdBy" column="created_by"/>
+			<result property="createdDate" column="created_date"/>
+			<result property="updateBy" column="update_by"/>
+			<result property="updateDate" column="update_date"/>
+	</resultMap>
+
+	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- SYS_USER_ROLE 信息查询语句 -->
+	<select id="findSysUserRole" resultMap="SysUserRoleResultMap">
+		SELECT 
+			<include refid="columns_SysUserRole" />
+		FROM  SYS_USER_ROLE 
+		<where>
+			<include refid="SysUserRole_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.lhj.system.orderby"/>
+	</select>
+	
+	<!-- SYS_USER_ROLE  数量查询SQL -->
+	<select id="countSysUserRole" resultType="SysUserRole">
+		SELECT count(*) total FROM  SYS_USER_ROLE
+		<where>
+			<include refid="SysUserRole_where" />
+		</where>
+	</select>
+
+  
+  	<!-- 新增SYS_USER_ROLE 信息 -->
+	<insert id="addSysUserRole" parameterType="SysUserRole">
+		INSERT INTO SYS_USER_ROLE <include refid="columns_insertSysUserRole"/>
+		VALUES <include refid="columns_SysUserRoleParams"/>
+	</insert>
+	
+	<!-- 修改SYS_USER_ROLE 信息 -->
+	<update id="updateSysUserRole" parameterType="SysUserRole">
+		UPDATE SYS_USER_ROLE
+		SET    <include refid="SysUserRole_update" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除SYS_USER_ROLE 信息 -->
+	<update id="deleteSysUserRole" parameterType="SysUserRole">
+		DELETE FROM SYS_USER_ROLE WHERE  SID=#{sid}
+	</update>
+</mapper>

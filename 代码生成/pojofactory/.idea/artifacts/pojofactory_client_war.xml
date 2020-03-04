@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pojofactory-client:war">
+    <output-path>$PROJECT_DIR$/pojofactory-client/target</output-path>
+    <root id="archive" name="pojofactory-client-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="pojofactory-client:war exploded" />
+    </root>
+  </artifact>
+</component>

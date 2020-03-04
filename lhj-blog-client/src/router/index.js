@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index'
+
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history', //（使用history模式） 去掉访问路径里面加#
   routes: [
     {
       path: '/',
       name: 'index',
-      component: Index
+      component:()=>import ('@/components/Index'),
     },
     {
       path:'/manage',

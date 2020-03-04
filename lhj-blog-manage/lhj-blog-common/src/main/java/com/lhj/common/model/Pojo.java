@@ -13,9 +13,6 @@ public class Pojo<T> implements Serializable{
 	private static final long serialVersionUID = -4658799939880991528L;
 	private String id;
 	private String sid;
-	private String orgField = "org_id";
-
-	private String orgId;
 
 	private String userId;
 
@@ -23,16 +20,15 @@ public class Pojo<T> implements Serializable{
 
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private Date created;
-
+	private Date createdDate;
 
 	private String createdBy;
 
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private Date lastUpdated;
+	private Date updateDate;
 
-	private String lastUpdatedBy;
+	private String updateBy;
 
 	private boolean success;
 
@@ -44,19 +40,29 @@ public class Pojo<T> implements Serializable{
 
 	public Pojo() {}
 
-	public Date getCreated()
-	{
-		return this.created;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
-
-
-	public void setCreated(Date created)
-	{
-		this.created = created;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
+	public Date getUpdateDate() {
+		return updateDate;
+	}
 
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public String getUpdateBy() {
+		return updateBy;
+	}
+
+	public void setUpdateBy(String updateBy) {
+		this.updateBy = updateBy;
+	}
 
 	public String getCreatedBy()
 	{
@@ -70,33 +76,6 @@ public class Pojo<T> implements Serializable{
 		this.createdBy = createdBy;
 	}
 
-
-
-	public Date getLastUpdated()
-	{
-		return this.lastUpdated;
-	}
-
-
-
-	public void setLastUpdated(Date lastUpdated)
-	{
-		this.lastUpdated = lastUpdated;
-	}
-
-
-
-	public String getLastUpdatedBy()
-	{
-		return this.lastUpdatedBy;
-	}
-
-
-
-	public void setLastUpdatedBy(String lastUpdatedBy)
-	{
-		this.lastUpdatedBy = lastUpdatedBy;
-	}
 
 
 
@@ -186,54 +165,20 @@ public class Pojo<T> implements Serializable{
 		return serialVersionUID;
 	}
 
-	public String getOrgId()
-	{
-		return this.orgId;
-	}
-
-
-
-	public void setOrgId(String orgId)
-	{
-		this.orgId = orgId;
-	}
-
-
-
 	public String getUserId()
 	{
 		return this.userId;
 	}
-
-
 
 	public void setUserId(String userId)
 	{
 		this.userId = userId;
 	}
 
-
-
-	public String getOrgField()
-	{
-		return this.orgField;
-	}
-
-
-
-	public void setOrgField(String orgField)
-	{
-		this.orgField = orgField;
-	}
-
-
-
 	public String getOrderby()
 	{
 		return this.orderby;
 	}
-
-
 
 	public void setOrderby(String orderby)
 	{

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhj.model.system.SysAccountAttr">
+
+	<!-- ==================================字段属性配置========================================= -->
+
+	<!-- SYS_ACCOUNT_ATTR     as ""字段 -->
+	<sql id="columns_SysAccountAttr">
+		sid  ,
+		user_cd  ,
+		attr_name  ,
+		attr_value  ,
+		notes  ,
+		created_by  ,
+		created_date  ,
+		update_by  ,
+		update_date  
+	</sql>
+	
+	<!-- 新增SYS_ACCOUNT_ATTR 信息字段 -->
+  	<sql id="columns_insertSysAccountAttr">
+	    (
+			sid ,
+			user_cd ,
+			attr_name ,
+			attr_value ,
+			notes ,
+			created_by ,
+			created_date ,
+			update_by ,
+			update_date 
+	    )
+  	</sql>
+  
+    <!-- 新增SYS_ACCOUNT_ATTR 传入参数值 -->
+    <sql id="columns_SysAccountAttrParams">
+	     (
+			#{sid,jdbcType=VARCHAR} ,
+			#{userCd,jdbcType=VARCHAR} ,
+			#{attrName,jdbcType=VARCHAR} ,
+			#{attrValue,jdbcType=VARCHAR} ,
+			#{notes,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=VARCHAR} ,
+			#{createdDate,jdbcType=TIMESTAMP} ,
+			#{updateBy,jdbcType=VARCHAR} ,
+			#{updateDate,jdbcType=TIMESTAMP} 
+	     )
+    </sql>
+  
+	<!-- 修改SYS_ACCOUNT_ATTR属性字段 -->
+	<sql id="SysAccountAttr_update">
+			sid = #{sid,jdbcType=VARCHAR} ,
+			user_cd = #{userCd,jdbcType=VARCHAR} ,
+			attr_name = #{attrName,jdbcType=VARCHAR} ,
+			attr_value = #{attrValue,jdbcType=VARCHAR} ,
+			notes = #{notes,jdbcType=VARCHAR} ,
+			created_by = #{createdBy,jdbcType=VARCHAR} ,
+			created_date = #{createdDate,jdbcType=TIMESTAMP} ,
+			update_by = #{updateBy,jdbcType=VARCHAR} ,
+			update_date = #{updateDate,jdbcType=TIMESTAMP} 
+	</sql>
+	
+	<!-- SYS_ACCOUNT_ATTR 查询(包括条件按查询) -->
+	<sql id="SysAccountAttr_where">
+	 		<if test="sid != null and sid != ''">
+	 			and sid = #{sid}
+	 		</if>
+	 		<if test="userCd != null and userCd != ''">
+	 			and user_cd = #{userCd}
+	 		</if>
+	 		<if test="attrName != null and attrName != ''">
+	 			and attr_name = #{attrName}
+	 		</if>
+	 		<if test="attrValue != null and attrValue != ''">
+	 			and attr_value = #{attrValue}
+	 		</if>
+	 		<if test="notes != null and notes != ''">
+	 			and notes = #{notes}
+	 		</if>
+	 		<if test="createdDate != null">
+	 			and created_date = #{createdDate}
+	 		</if>
+	 		<if test="updateBy != null and updateBy != ''">
+	 			and update_by = #{updateBy}
+	 		</if>
+	 		<if test="updateDate != null">
+	 			and update_date = #{updateDate}
+	 		</if>
+	</sql>
+
+	<!-- SYS_ACCOUNT_ATTR 表关联项目信息表结果集属性声明 -->
+	<resultMap type="SysAccountAttr" id="SysAccountAttrResultMap">
+		<id column="SID" property="sid" />
+			<result property="userCd" column="user_cd"/>
+			<result property="attrName" column="attr_name"/>
+			<result property="attrValue" column="attr_value"/>
+			<result property="notes" column="notes"/>
+			<result property="createdBy" column="created_by"/>
+			<result property="createdDate" column="created_date"/>
+			<result property="updateBy" column="update_by"/>
+			<result property="updateDate" column="update_date"/>
+	</resultMap>
+
+	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- SYS_ACCOUNT_ATTR 信息查询语句 -->
+	<select id="findSysAccountAttr" resultMap="SysAccountAttrResultMap">
+		SELECT 
+			<include refid="columns_SysAccountAttr" />
+		FROM  SYS_ACCOUNT_ATTR 
+		<where>
+			<include refid="SysAccountAttr_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.lhj.system.orderby"/>
+	</select>
+	
+	<!-- SYS_ACCOUNT_ATTR  数量查询SQL -->
+	<select id="countSysAccountAttr" resultType="SysAccountAttr">
+		SELECT count(*) total FROM  SYS_ACCOUNT_ATTR
+		<where>
+			<include refid="SysAccountAttr_where" />
+		</where>
+	</select>
+
+  
+  	<!-- 新增SYS_ACCOUNT_ATTR 信息 -->
+	<insert id="addSysAccountAttr" parameterType="SysAccountAttr">
+		INSERT INTO SYS_ACCOUNT_ATTR <include refid="columns_insertSysAccountAttr"/>
+		VALUES <include refid="columns_SysAccountAttrParams"/>
+	</insert>
+	
+	<!-- 修改SYS_ACCOUNT_ATTR 信息 -->
+	<update id="updateSysAccountAttr" parameterType="SysAccountAttr">
+		UPDATE SYS_ACCOUNT_ATTR
+		SET    <include refid="SysAccountAttr_update" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除SYS_ACCOUNT_ATTR 信息 -->
+	<update id="deleteSysAccountAttr" parameterType="SysAccountAttr">
+		DELETE FROM SYS_ACCOUNT_ATTR WHERE  SID=#{sid}
+	</update>
+</mapper>

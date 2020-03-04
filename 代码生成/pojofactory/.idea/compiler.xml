@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pojofactory-builder" />
+        <module name="pojofactory-client" />
+        <module name="pojofactory-jdbc" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pojofactory" target="1.5" />
+      <module name="pojofactory-builder" target="1.5" />
+      <module name="pojofactory-client" target="1.5" />
+      <module name="pojofactory-jdbc" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

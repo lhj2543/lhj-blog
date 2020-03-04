@@ -1,0 +1,213 @@
+package com.uniwcp.pojofactory.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.uniwcp.pojofactory.jdbc.type.MysqlTypeMaps;
+import com.uniwcp.pojofactory.jdbc.type.TypeMap;
+
+public class JdbcConnector {
+	
+	
+	private static final JdbcConnector instance=new JdbcConnector();
+	private JdbcConnector(){
+		try {
+			Class.forName(driver);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	public static JdbcConnector getInstance(){
+		return instance;
+	}
+	
+	private String driver="com.mysql.jdbc.Driver";
+	private String url="jdbc:mysql://127.0.0.1:3306/uniwcp_vip?useUnicode=true&characterEncoding=GBK";
+	private String username="root";
+	private String password="jeking";
+	
+	private static TypeMap typeMap=new MysqlTypeMaps();
+	
+	/**
+	 * @param driver the driver to set
+	 */
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
+	/**
+	 * @param url the url to set
+	 */
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	/**
+	 * @param username the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	private static Connection conn;
+	public synchronized Connection open(){
+		if(conn==null){
+			try {
+				conn=DriverManager.getConnection(url, username, password);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return conn;
+	}
+	
+	
+	public synchronized void close(){
+		if(conn!=null){
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		conn=null;
+	}
+	
+	
+	
+	public TableMeta loadTableMeta(String database,String tableName){
+		TableMeta table=new TableMeta();
+		this.open();
+		try {
+			table.setName(tableName.toUpperCase());
+			
+			//Process Entry Class Name 
+			String attr[]=tableName.split("_");
+			String className="";
+			for(String temp:attr){
+				className+=(temp.charAt(0)+"").toUpperCase();
+				if(temp.length()>1){
+					className+=temp.substring(1,temp.length());
+				}
+			}
+			table.setClassName(className);
+			
+//			System.out.println("============ table data ===========");
+			ResultSet result = conn.getMetaData().getTables(null, database,tableName,new String[]{"TABLE"});
+			while(result.next()){
+				String nameCn=result.getString("REMARKS");
+				table.setNameCn(nameCn);
+				break;
+			}
+			
+			Map<String, FieldMeta> fieldMap=new HashMap<String, FieldMeta>();
+			result = conn.getMetaData().getColumns(null, database, tableName, null);
+//			System.out.println("============ col data ===========");
+			while (result.next()) {
+				String colName = result.getString("COLUMN_NAME");
+				
+				String colNameCn = result.getString("REMARKS");
+				String type = result.getString("TYPE_NAME");
+				int    len = result.getInt("COLUMN_SIZE"); 
+				
+				FieldMeta field=new FieldMeta();
+				field.setColName(colName);
+				field.setColNameCn(colNameCn);
+				field.setLen(len);
+				field.setDbType(type.toUpperCase());
+				String javatype=typeMap.getJavaType(type.toUpperCase());
+				table.getDependens().add(javatype);
+				
+				if(javatype==null){
+					System.err.println("table name:"+tableName+" col name:"+colName+" type:"+type);
+				}
+				
+				String ns[]=colName.toLowerCase().split("_");
+				String name =ns[0];
+				for(int index=1;index<ns.length;index++){
+					if(ns[index].length()>0){
+						name+=(ns[index].charAt(0)+"").toUpperCase();
+						if(ns[index].length()>1){
+							name+=ns[index].substring(1,ns[index].length());
+						}
+					}
+				}
+				field.setName(name);
+				
+				field.setType(javatype.substring(javatype.lastIndexOf(".")+1,javatype.length()));
+				table.getFields().add(field);
+				fieldMap.put(colName, field);
+			}
+			
+//			System.out.println("============ key col data ===========");
+			result = conn.getMetaData().getPrimaryKeys(null, null, tableName);
+			while(result.next()){
+				 String  primaryKey = result.getString("COLUMN_NAME");
+				 fieldMap.get(primaryKey).setKey(true);
+			}
+			
+//			System.out.println("============ foren key col data ===========");
+			result = conn.getMetaData().getImportedKeys(null, null, tableName);
+			while(result.next()){
+				 String  fKey = result.getString("FKCOLUMN_NAME");
+				 fieldMap.get(fKey).setForenKey(true);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return table;
+	}
+	
+	
+	
+	public List<TableMeta> loadTableMetaes(String database){
+		List<TableMeta> list=new ArrayList<TableMeta>();
+		try {
+			this.open();
+			ResultSet resultSet = conn.getMetaData().getTables(null, database,null,new String[]{"TABLE"});
+			while(resultSet.next()){
+				String tableName=resultSet.getString("TABLE_NAME");
+				TableMeta entry=this.loadTableMeta(database, tableName);
+				list.add(entry);
+				
+				System.out.println("table name:"+entry.getName()+"  field count:"+entry.getFields().size());
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		JdbcConnector jdbc=JdbcConnector.getInstance();
+		Connection conn=jdbc.open();
+		System.out.println(conn);
+		
+		
+//		jdbc.loadTableEntriy("jcms", "cms_site");
+		
+		jdbc.loadTableMetaes("jcms");
+		
+		
+		jdbc.close();
+		
+	}
+	
+	
+	
+
+}

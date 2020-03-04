@@ -1,6 +1,6 @@
 package com.lhj.test;
 
-import com.lhj.blog.configuration.MainConfigurationBean;
+import com.lhj.blog.configuration.OtherConfig;
 import com.lhj.common.support.JsonSupport;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,10 +15,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ConfigurationPropertiesTest {
 
     @Autowired
-    MainConfigurationBean mainConfigurationBean;
+    OtherConfig otherConfig;
 
     @Autowired
     JsonSupport jsonSupport;
+
 
     /*日志*/
     Logger logger = LoggerFactory.getLogger(getClass());
@@ -26,7 +27,7 @@ public class ConfigurationPropertiesTest {
     @Test
     public  void getMainConfigurationProperties(){
 
-        String result = jsonSupport.toJson(mainConfigurationBean);
+        String result = jsonSupport.toJson(otherConfig);
         System.err.println(result);
 
     }
@@ -50,5 +51,6 @@ public class ConfigurationPropertiesTest {
             logger.error("异常日志",e);
         }
     }
+
 
 }

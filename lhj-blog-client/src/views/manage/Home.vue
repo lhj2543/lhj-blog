@@ -15,8 +15,8 @@
               </div>
             <div class="layout-nav">
                 <div class="top-menus" :style="{float:'right'}" >
-                    <Menu mode="horizontal" theme="" @on-select="topSelectMenu" :active-name="topMenuActiveName">
-                        <MenuItem :url="menu.url" :name="menu.id" :id="menu.id" v-for="menu in menus" :key="menu.id" >
+                    <Menu mode="horizontal"   @on-select="topSelectMenu" :active-name="topMenuActiveName">
+                        <MenuItem :url="menu.url" :name="menu.id" :id="menu.id" v-for="menu in menus" :key="menu.id"  >
                             <Icon :type="menu.icon" />
                             {{menu.name}}
                         </MenuItem>

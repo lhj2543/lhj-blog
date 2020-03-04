@@ -2,30 +2,21 @@
   "hints": [],
   "groups": [
     {
-      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
-      "name": "mainConfig",
-      "type": "com.lhj.blog.configuration.MainConfigurationBean"
+      "sourceType": "com.lhj.blog.configuration.OtherConfig",
+      "name": "otherConfig",
+      "type": "com.lhj.blog.configuration.OtherConfig"
+    },
+    {
+      "sourceType": "com.lhj.blog.configuration.DruidConfig",
+      "name": "spring.datasource",
+      "sourceMethod": "druid()",
+      "type": "javax.sql.DataSource"
     }
   ],
   "properties": [
     {
-      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
-      "name": "mainConfig.array",
-      "type": "java.util.List"
-    },
-    {
-      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
-      "name": "mainConfig.array2",
-      "type": "java.util.List<java.util.Map<java.lang.String,java.lang.Object>>"
-    },
-    {
-      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
-      "name": "mainConfig.name",
-      "type": "java.lang.String"
-    },
-    {
-      "sourceType": "com.lhj.blog.configuration.MainConfigurationBean",
-      "name": "mainConfig.obj",
+      "sourceType": "com.lhj.blog.configuration.OtherConfig",
+      "name": "otherConfig.map",
       "type": "java.util.Map<java.lang.String,java.lang.Object>"
     }
   ]

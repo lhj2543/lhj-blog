@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhj.system">
+	
+	<!-- 机构 数据查询权限通用sql -->
+	<sql id="orgAuthority">
+		<if test="userId != null and userId != ''">
+			and (
+			    ${orgField} = #{orgId}
+				or exists (select 1 from sys_users_organs um where um.organ_id=${orgField} and um.user_id=#{userId})
+				or exists (
+					select 1 from sys_users_roles sur, sys_roles_organs sor 
+					where sur.user_id=#{userId} and sur.role_id=sor.role_id and sor.organ_id=${orgField}
+				)
+			)
+		</if>
+	</sql>
+	
+	<!-- 通用查询排序 -->
+	<sql id="orderby">
+		<if test="orderby !=null and orderby !='' ">
+			order by ${orderby}
+		</if>
+		<if test="(orderby ==null or orderby == '') and sortName !=null and sortName !='' ">
+			order by ${sortName} ${sortOrder}
+		</if>
+	</sql>
+
+</mapper>

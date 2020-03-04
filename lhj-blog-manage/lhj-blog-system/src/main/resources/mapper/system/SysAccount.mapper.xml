@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhj.model.system.SysAccount">
+
+	<!-- ==================================字段属性配置========================================= -->
+
+	<!-- SYS_ACCOUNT     as ""字段 -->
+	<sql id="columns_SysAccount">
+		sid  ,
+		user_cd  ,
+		password  ,
+		locale_id  ,
+		licence  ,
+		type  ,
+		start_date  ,
+		end_date  ,
+		lock_date  ,
+		login_failure_count  ,
+		notes  ,
+		created_by  ,
+		created_date  ,
+		update_by  ,
+		update_date  
+	</sql>
+	
+	<!-- 新增SYS_ACCOUNT 信息字段 -->
+  	<sql id="columns_insertSysAccount">
+	    (
+			sid ,
+			user_cd ,
+			password ,
+			locale_id ,
+			licence ,
+			type ,
+			start_date ,
+			end_date ,
+			lock_date ,
+			login_failure_count ,
+			notes ,
+			created_by ,
+			created_date ,
+			update_by ,
+			update_date 
+	    )
+  	</sql>
+  
+    <!-- 新增SYS_ACCOUNT 传入参数值 -->
+    <sql id="columns_SysAccountParams">
+	     (
+			#{sid,jdbcType=VARCHAR} ,
+			#{userCd,jdbcType=VARCHAR} ,
+			#{password,jdbcType=VARCHAR} ,
+			#{localeId,jdbcType=VARCHAR} ,
+			#{licence,jdbcType=VARCHAR} ,
+			#{type,jdbcType=VARCHAR} ,
+			#{startDate,jdbcType=TIMESTAMP} ,
+			#{endDate,jdbcType=TIMESTAMP} ,
+			#{lockDate,jdbcType=TIMESTAMP} ,
+			#{loginFailureCount,jdbcType=DECIMAL} ,
+			#{notes,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=VARCHAR} ,
+			#{createdDate,jdbcType=TIMESTAMP} ,
+			#{updateBy,jdbcType=VARCHAR} ,
+			#{updateDate,jdbcType=TIMESTAMP} 
+	     )
+    </sql>
+  
+	<!-- 修改SYS_ACCOUNT属性字段 -->
+	<sql id="SysAccount_update">
+			sid = #{sid,jdbcType=VARCHAR} ,
+			user_cd = #{userCd,jdbcType=VARCHAR} ,
+			password = #{password,jdbcType=VARCHAR} ,
+			locale_id = #{localeId,jdbcType=VARCHAR} ,
+			licence = #{licence,jdbcType=VARCHAR} ,
+			type = #{type,jdbcType=VARCHAR} ,
+			start_date = #{startDate,jdbcType=TIMESTAMP} ,
+			end_date = #{endDate,jdbcType=TIMESTAMP} ,
+			lock_date = #{lockDate,jdbcType=TIMESTAMP} ,
+			login_failure_count = #{loginFailureCount,jdbcType=DECIMAL} ,
+			notes = #{notes,jdbcType=VARCHAR} ,
+			created_by = #{createdBy,jdbcType=VARCHAR} ,
+			created_date = #{createdDate,jdbcType=TIMESTAMP} ,
+			update_by = #{updateBy,jdbcType=VARCHAR} ,
+			update_date = #{updateDate,jdbcType=TIMESTAMP} 
+	</sql>
+	
+	<!-- SYS_ACCOUNT 查询(包括条件按查询) -->
+	<sql id="SysAccount_where">
+	 		<if test="sid != null and sid != ''">
+	 			and sid = #{sid}
+	 		</if>
+	 		<if test="userCd != null and userCd != ''">
+	 			and user_cd = #{userCd}
+	 		</if>
+	 		<if test="password != null and password != ''">
+	 			and password = #{password}
+	 		</if>
+	 		<if test="localeId != null and localeId != ''">
+	 			and locale_id = #{localeId}
+	 		</if>
+	 		<if test="licence != null and licence != ''">
+	 			and licence = #{licence}
+	 		</if>
+	 		<if test="type != null and type != ''">
+	 			and type = #{type}
+	 		</if>
+	 		<if test="startDate != null">
+	 			and start_date = #{startDate}
+	 		</if>
+	 		<if test="endDate != null">
+	 			and end_date = #{endDate}
+	 		</if>
+	 		<if test="lockDate != null">
+	 			and lock_date = #{lockDate}
+	 		</if>
+	 		<if test="loginFailureCount != null">
+	 			and login_failure_count = #{loginFailureCount}
+	 		</if>
+	 		<if test="notes != null and notes != ''">
+	 			and notes = #{notes}
+	 		</if>
+	 		<if test="createdDate != null">
+	 			and created_date = #{createdDate}
+	 		</if>
+	 		<if test="updateBy != null and updateBy != ''">
+	 			and update_by = #{updateBy}
+	 		</if>
+	 		<if test="updateDate != null">
+	 			and update_date = #{updateDate}
+	 		</if>
+	</sql>
+
+	<!-- SYS_ACCOUNT 表关联项目信息表结果集属性声明 -->
+	<resultMap type="SysAccount" id="SysAccountResultMap">
+		<id column="SID" property="sid" />
+			<result property="userCd" column="user_cd"/>
+			<result property="password" column="password"/>
+			<result property="localeId" column="locale_id"/>
+			<result property="licence" column="licence"/>
+			<result property="type" column="type"/>
+			<result property="startDate" column="start_date"/>
+			<result property="endDate" column="end_date"/>
+			<result property="lockDate" column="lock_date"/>
+			<result property="loginFailureCount" column="login_failure_count"/>
+			<result property="notes" column="notes"/>
+			<result property="createdBy" column="created_by"/>
+			<result property="createdDate" column="created_date"/>
+			<result property="updateBy" column="update_by"/>
+			<result property="updateDate" column="update_date"/>
+	</resultMap>
+
+	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- SYS_ACCOUNT 信息查询语句 -->
+	<select id="findSysAccount" resultMap="SysAccountResultMap">
+		SELECT 
+			<include refid="columns_SysAccount" />
+		FROM  SYS_ACCOUNT 
+		<where>
+			<include refid="SysAccount_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.lhj.system.orderby"/>
+	</select>
+	
+	<!-- SYS_ACCOUNT  数量查询SQL -->
+	<select id="countSysAccount" resultType="SysAccount">
+		SELECT count(*) total FROM  SYS_ACCOUNT
+		<where>
+			<include refid="SysAccount_where" />
+		</where>
+	</select>
+
+  
+  	<!-- 新增SYS_ACCOUNT 信息 -->
+	<insert id="addSysAccount" parameterType="SysAccount">
+		INSERT INTO SYS_ACCOUNT <include refid="columns_insertSysAccount"/>
+		VALUES <include refid="columns_SysAccountParams"/>
+	</insert>
+	
+	<!-- 修改SYS_ACCOUNT 信息 -->
+	<update id="updateSysAccount" parameterType="SysAccount">
+		UPDATE SYS_ACCOUNT
+		SET    <include refid="SysAccount_update" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除SYS_ACCOUNT 信息 -->
+	<update id="deleteSysAccount" parameterType="SysAccount">
+		DELETE FROM SYS_ACCOUNT WHERE  SID=#{sid}
+	</update>
+</mapper>

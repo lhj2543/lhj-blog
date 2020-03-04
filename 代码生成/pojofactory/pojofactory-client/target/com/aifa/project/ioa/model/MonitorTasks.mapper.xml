@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.project.ioa.model.MonitorTasks">
+
+	<!-- ==================================字段属性配置========================================= -->
+
+	<!-- MONITOR_TASKS  字段 -->
+	<sql id="columns_MonitorTasks">
+		SID as "sid" ,
+		TARGET_TYPE as "targetType" ,
+		TARGET_ID as "targetId" ,
+		ORG_ID as "orgId" ,
+		ORG_NAME as "orgName" ,
+		USER_ID as "userId" ,
+		USER_NAME as "userName" ,
+		PROJ_ID as "projId" ,
+		PROJ_NAME as "projName" ,
+		TASK_TITLE as "taskTitle" ,
+		TASK_DESCS as "taskDescs" ,
+		TASK_SOURCE as "taskSource" ,
+		WORK_TYPE as "workType" ,
+		TASK_TYPE as "taskType" ,
+		PLAN_TIME_USE as "planTimeUse" ,
+		REALITY_TIME_USE as "realityTimeUse" ,
+		DELAY_TIME_USE as "delayTimeUse" ,
+		TIME_BEGIN as "timeBegin" ,
+		TIME_END as "timeEnd" ,
+		FINISH_TIME as "finishTime" ,
+		PLAN_ACHIEVEMENT as "planAchievement" ,
+		OUTCOME as "outcome" ,
+		FINISH_STATUS as "finishStatus" ,
+		TASK_CAUSE_DESCRIPTION as "taskCauseDescription" ,
+		CHECK_USER_ID as "checkUserId" ,
+		CHECK_USER_NAME as "checkUserName" ,
+		CHECK_RESULT as "checkResult" ,
+		TASK_SATURABILITY as "taskSaturability" ,
+		MONITOR_DATE as "monitorDate" ,
+		REMARKS as "remarks" ,
+		CREATED_BY as "createdBy" ,
+		CREATED as "created" ,
+		LAST_UPDATED_BY as "lastUpdatedBy" ,
+		LAST_UPDATED as "lastUpdated" 
+	</sql>
+	
+	<!-- 新增MONITOR_TASKS 信息字段 -->
+  	<sql id="columns_insertMonitorTasks">
+	    (
+			SID ,
+			TARGET_TYPE ,
+			TARGET_ID ,
+			ORG_ID ,
+			ORG_NAME ,
+			USER_ID ,
+			USER_NAME ,
+			PROJ_ID ,
+			PROJ_NAME ,
+			TASK_TITLE ,
+			TASK_DESCS ,
+			TASK_SOURCE ,
+			WORK_TYPE ,
+			TASK_TYPE ,
+			PLAN_TIME_USE ,
+			REALITY_TIME_USE ,
+			DELAY_TIME_USE ,
+			TIME_BEGIN ,
+			TIME_END ,
+			FINISH_TIME ,
+			PLAN_ACHIEVEMENT ,
+			OUTCOME ,
+			FINISH_STATUS ,
+			TASK_CAUSE_DESCRIPTION ,
+			CHECK_USER_ID ,
+			CHECK_USER_NAME ,
+			CHECK_RESULT ,
+			TASK_SATURABILITY ,
+			MONITOR_DATE ,
+			REMARKS ,
+			CREATED_BY ,
+			CREATED ,
+			LAST_UPDATED_BY ,
+			LAST_UPDATED 
+	    )
+  	</sql>
+  
+    <!-- 新增MONITOR_TASKS 传入参数值 -->
+    <sql id="columns_MonitorTasksParams">
+	     (
+			#{sid,jdbcType=VARCHAR} ,
+			#{targetType,jdbcType=INTEGER} ,
+			#{targetId,jdbcType=VARCHAR} ,
+			#{orgId,jdbcType=VARCHAR} ,
+			#{orgName,jdbcType=VARCHAR} ,
+			#{userId,jdbcType=VARCHAR} ,
+			#{userName,jdbcType=VARCHAR} ,
+			#{projId,jdbcType=VARCHAR} ,
+			#{projName,jdbcType=VARCHAR} ,
+			#{taskTitle,jdbcType=VARCHAR} ,
+			#{taskDescs,jdbcType=VARCHAR} ,
+			#{taskSource,jdbcType=VARCHAR} ,
+			#{workType,jdbcType=VARCHAR} ,
+			#{taskType,jdbcType=VARCHAR} ,
+			#{planTimeUse,jdbcType=FLOAT} ,
+			#{realityTimeUse,jdbcType=FLOAT} ,
+			#{delayTimeUse,jdbcType=FLOAT} ,
+			#{timeBegin,jdbcType=TIMESTAMP} ,
+			#{timeEnd,jdbcType=TIMESTAMP} ,
+			#{finishTime,jdbcType=TIMESTAMP} ,
+			#{planAchievement,jdbcType=VARCHAR} ,
+			#{outcome,jdbcType=VARCHAR} ,
+			#{finishStatus,jdbcType=VARCHAR} ,
+			#{taskCauseDescription,jdbcType=VARCHAR} ,
+			#{checkUserId,jdbcType=VARCHAR} ,
+			#{checkUserName,jdbcType=VARCHAR} ,
+			#{checkResult,jdbcType=VARCHAR} ,
+			#{taskSaturability,jdbcType=VARCHAR} ,
+			#{monitorDate,jdbcType=DATE} ,
+			#{remarks,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=VARCHAR} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=VARCHAR} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} 
+	     )
+    </sql>
+  
+	<!-- 修改MONITOR_TASKS属性字段 -->
+	<sql id="MonitorTasks_update">
+			SID = #{sid,jdbcType=VARCHAR} ,
+			TARGET_TYPE = #{targetType,jdbcType=INTEGER} ,
+			TARGET_ID = #{targetId,jdbcType=VARCHAR} ,
+			ORG_ID = #{orgId,jdbcType=VARCHAR} ,
+			ORG_NAME = #{orgName,jdbcType=VARCHAR} ,
+			USER_ID = #{userId,jdbcType=VARCHAR} ,
+			USER_NAME = #{userName,jdbcType=VARCHAR} ,
+			PROJ_ID = #{projId,jdbcType=VARCHAR} ,
+			PROJ_NAME = #{projName,jdbcType=VARCHAR} ,
+			TASK_TITLE = #{taskTitle,jdbcType=VARCHAR} ,
+			TASK_DESCS = #{taskDescs,jdbcType=VARCHAR} ,
+			TASK_SOURCE = #{taskSource,jdbcType=VARCHAR} ,
+			WORK_TYPE = #{workType,jdbcType=VARCHAR} ,
+			TASK_TYPE = #{taskType,jdbcType=VARCHAR} ,
+			PLAN_TIME_USE = #{planTimeUse,jdbcType=FLOAT} ,
+			REALITY_TIME_USE = #{realityTimeUse,jdbcType=FLOAT} ,
+			DELAY_TIME_USE = #{delayTimeUse,jdbcType=FLOAT} ,
+			TIME_BEGIN = #{timeBegin,jdbcType=TIMESTAMP} ,
+			TIME_END = #{timeEnd,jdbcType=TIMESTAMP} ,
+			FINISH_TIME = #{finishTime,jdbcType=TIMESTAMP} ,
+			PLAN_ACHIEVEMENT = #{planAchievement,jdbcType=VARCHAR} ,
+			OUTCOME = #{outcome,jdbcType=VARCHAR} ,
+			FINISH_STATUS = #{finishStatus,jdbcType=VARCHAR} ,
+			TASK_CAUSE_DESCRIPTION = #{taskCauseDescription,jdbcType=VARCHAR} ,
+			CHECK_USER_ID = #{checkUserId,jdbcType=VARCHAR} ,
+			CHECK_USER_NAME = #{checkUserName,jdbcType=VARCHAR} ,
+			CHECK_RESULT = #{checkResult,jdbcType=VARCHAR} ,
+			TASK_SATURABILITY = #{taskSaturability,jdbcType=VARCHAR} ,
+			MONITOR_DATE = #{monitorDate,jdbcType=DATE} ,
+			REMARKS = #{remarks,jdbcType=VARCHAR} ,
+			CREATED_BY = #{createdBy,jdbcType=VARCHAR} ,
+			CREATED = #{created,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{lastUpdatedBy,jdbcType=VARCHAR} ,
+			LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP} 
+	</sql>
+	
+	<!-- MONITOR_TASKS 查询(包括条件按查询) -->
+	<sql id="MonitorTasks_where">
+	 		<if test="sid != null and sid != ''">
+	 			and SID = #{sid}
+	 		</if>
+	 		<if test="targetType != null">
+	 			and TARGET_TYPE = #{targetType}
+	 		</if>
+	 		<if test="targetId != null and targetId != ''">
+	 			and TARGET_ID = #{targetId}
+	 		</if>
+	 		<if test="orgId != null and orgId != ''">
+	 			and ORG_ID = #{orgId}
+	 		</if>
+	 		<if test="orgName != null and orgName != ''">
+	 			and ORG_NAME = #{orgName}
+	 		</if>
+	 		<if test="userId != null and userId != ''">
+	 			and USER_ID = #{userId}
+	 		</if>
+	 		<if test="userName != null and userName != ''">
+	 			and USER_NAME = #{userName}
+	 		</if>
+	 		<if test="projId != null and projId != ''">
+	 			and PROJ_ID = #{projId}
+	 		</if>
+	 		<if test="projName != null and projName != ''">
+	 			and PROJ_NAME = #{projName}
+	 		</if>
+	 		<if test="taskTitle != null and taskTitle != ''">
+	 			and TASK_TITLE = #{taskTitle}
+	 		</if>
+	 		<if test="taskDescs != null and taskDescs != ''">
+	 			and TASK_DESCS = #{taskDescs}
+	 		</if>
+	 		<if test="taskSource != null and taskSource != ''">
+	 			and TASK_SOURCE = #{taskSource}
+	 		</if>
+	 		<if test="workType != null and workType != ''">
+	 			and WORK_TYPE = #{workType}
+	 		</if>
+	 		<if test="taskType != null and taskType != ''">
+	 			and TASK_TYPE = #{taskType}
+	 		</if>
+	 		<if test="planTimeUse != null">
+	 			and PLAN_TIME_USE = #{planTimeUse}
+	 		</if>
+	 		<if test="realityTimeUse != null">
+	 			and REALITY_TIME_USE = #{realityTimeUse}
+	 		</if>
+	 		<if test="delayTimeUse != null">
+	 			and DELAY_TIME_USE = #{delayTimeUse}
+	 		</if>
+	 		<if test="timeBegin != null">
+	 			and TIME_BEGIN = #{timeBegin}
+	 		</if>
+	 		<if test="timeEnd != null">
+	 			and TIME_END = #{timeEnd}
+	 		</if>
+	 		<if test="finishTime != null">
+	 			and FINISH_TIME = #{finishTime}
+	 		</if>
+	 		<if test="planAchievement != null and planAchievement != ''">
+	 			and PLAN_ACHIEVEMENT = #{planAchievement}
+	 		</if>
+	 		<if test="outcome != null and outcome != ''">
+	 			and OUTCOME = #{outcome}
+	 		</if>
+	 		<if test="finishStatus != null and finishStatus != ''">
+	 			and FINISH_STATUS = #{finishStatus}
+	 		</if>
+	 		<if test="taskCauseDescription != null and taskCauseDescription != ''">
+	 			and TASK_CAUSE_DESCRIPTION = #{taskCauseDescription}
+	 		</if>
+	 		<if test="checkUserId != null and checkUserId != ''">
+	 			and CHECK_USER_ID = #{checkUserId}
+	 		</if>
+	 		<if test="checkUserName != null and checkUserName != ''">
+	 			and CHECK_USER_NAME = #{checkUserName}
+	 		</if>
+	 		<if test="checkResult != null and checkResult != ''">
+	 			and CHECK_RESULT = #{checkResult}
+	 		</if>
+	 		<if test="taskSaturability != null and taskSaturability != ''">
+	 			and TASK_SATURABILITY = #{taskSaturability}
+	 		</if>
+	 		<if test="monitorDate != null">
+	 			and MONITOR_DATE = #{monitorDate}
+	 		</if>
+	 		<if test="remarks != null and remarks != ''">
+	 			and REMARKS = #{remarks}
+	 		</if>
+	</sql>
+
+	<!-- MONITOR_TASKS 表关联项目信息表结果集属性声明 -->
+	<resultMap type="MonitorTasks" id="MonitorTasksResultMap">
+		<id column="SID" property="sid" />
+			<result property="targetType" column="TARGET_TYPE"/>
+			<result property="targetId" column="TARGET_ID"/>
+			<result property="orgId" column="ORG_ID"/>
+			<result property="orgName" column="ORG_NAME"/>
+			<result property="userId" column="USER_ID"/>
+			<result property="userName" column="USER_NAME"/>
+			<result property="projId" column="PROJ_ID"/>
+			<result property="projName" column="PROJ_NAME"/>
+			<result property="taskTitle" column="TASK_TITLE"/>
+			<result property="taskDescs" column="TASK_DESCS"/>
+			<result property="taskSource" column="TASK_SOURCE"/>
+			<result property="workType" column="WORK_TYPE"/>
+			<result property="taskType" column="TASK_TYPE"/>
+			<result property="planTimeUse" column="PLAN_TIME_USE"/>
+			<result property="realityTimeUse" column="REALITY_TIME_USE"/>
+			<result property="delayTimeUse" column="DELAY_TIME_USE"/>
+			<result property="timeBegin" column="TIME_BEGIN"/>
+			<result property="timeEnd" column="TIME_END"/>
+			<result property="finishTime" column="FINISH_TIME"/>
+			<result property="planAchievement" column="PLAN_ACHIEVEMENT"/>
+			<result property="outcome" column="OUTCOME"/>
+			<result property="finishStatus" column="FINISH_STATUS"/>
+			<result property="taskCauseDescription" column="TASK_CAUSE_DESCRIPTION"/>
+			<result property="checkUserId" column="CHECK_USER_ID"/>
+			<result property="checkUserName" column="CHECK_USER_NAME"/>
+			<result property="checkResult" column="CHECK_RESULT"/>
+			<result property="taskSaturability" column="TASK_SATURABILITY"/>
+			<result property="monitorDate" column="MONITOR_DATE"/>
+			<result property="remarks" column="REMARKS"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="created" column="CREATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+	</resultMap>
+
+	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- MONITOR_TASKS 信息查询语句 -->
+	<select id="findMonitorTasks" resultMap="MonitorTasksResultMap">
+		SELECT 
+			<include refid="columns_MonitorTasks" />
+		FROM  MONITOR_TASKS 
+		<where>
+			<include refid="MonitorTasks_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.aifa.system.orderby"/>
+	</select>
+	
+	<!-- MONITOR_TASKS  数量查询SQL -->
+	<select id="countMonitorTasks" resultType="MonitorTasks">
+		SELECT count(*) total FROM  MONITOR_TASKS
+		<where>
+			<include refid="MonitorTasks_where" />
+		</where>
+	</select>
+  
+  	<!-- 新增MONITOR_TASKS 信息 -->
+	<insert id="addMonitorTasks" parameterType="MonitorTasks">
+		INSERT INTO MONITOR_TASKS <include refid="columns_insertMonitorTasks"/>
+		VALUES <include refid="columns_MonitorTasksParams"/>
+	</insert>
+	
+	<!-- 修改MONITOR_TASKS 信息 -->
+	<update id="updateMonitorTasks" parameterType="MonitorTasks">
+		UPDATE MONITOR_TASKS
+		SET    <include refid="MonitorTasks_update" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除MONITOR_TASKS 信息 -->
+	<update id="deleteMonitorTasks" parameterType="MonitorTasks">
+		DELETE FROM MONITOR_TASKS WHERE  SID=#{sid}
+	</update>
+</mapper>

@@ -1,5 +1,6 @@
 package com.lhj.common.support;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
@@ -9,8 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-
-@Service
+//把普通pojo实例化到spring容器中，相当于配置文件中的<bean id="" class=""/>
+@Component
 public class DateSupport {
 	public DateSupport() {}
 

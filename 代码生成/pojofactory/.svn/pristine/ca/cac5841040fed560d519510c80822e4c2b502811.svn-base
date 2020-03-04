@@ -1,0 +1,55 @@
+package ${table.packageName};
+
+<#list table.dependens as dep>
+import ${dep};
+</#list>
+
+import com.aifa.model.Pages;
+
+/**
+ * table name:		${table.name} <br/>
+ * table nameCn:	${table.nameCn} <br/>
+ * entity name:		${table.className} <br/>
+ * @author pojofactory pojo builder
+ * @version 1.0
+ * @created ${.now}
+ */
+public class ${table.className} extends Pages<${table.className}>{
+	
+	// fields start
+	<#list table.fields as field>
+	<#if field.name?lower_case!="created" && field.name?lower_case!="createdby" && 
+		 field.name?lower_case!="lastupdated" && field.name?lower_case!="lastupdatedby"
+	>
+	/**
+	 * @colName 	${field.colName}
+	 * @colNameCn 	${field.colNameCn}
+	 * @type 		${field.type}
+	 * @isKey 		${field.key?string('true','false')}
+	 * @isForenKey 	${field.forenKey?string('true','false')}
+	 * @len 		${field.len}
+	 */
+	private ${field.type} ${field.name};
+	</#if>
+	</#list>
+	// fields end
+	
+	
+	// get,set methods
+	<#list table.fields as field>
+	<#if field.name?lower_case!="created" && field.name?lower_case!="createdby" && 
+	 	 field.name?lower_case!="lastupdated" && field.name?lower_case!="lastupdatedby"
+	 >
+	public ${field.type} get${field.methodName}(){
+		return ${field.name};
+	}
+	public void set${field.methodName}(${field.type} ${field.name}){
+		this.${field.name}=${field.name};
+	}
+	</#if>
+	
+	</#list>
+	//get,set methods end
+	
+
+}

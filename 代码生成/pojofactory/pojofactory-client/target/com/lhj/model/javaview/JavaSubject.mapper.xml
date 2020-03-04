@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.lhj.model.javaview.JavaSubject">
+
+	<!-- ==================================字段属性配置========================================= -->
+
+	<!-- JAVA_SUBJECT  字段 -->
+	<sql id="columns_JavaSubject">
+		SID as "sid" ,
+		TITLE as "title" ,
+		ANSWER as "answer" ,
+		DESC as "desc" ,
+		ORDER as "order" ,
+		CREATED as "created" ,
+		CREATED_BY as "createdBy" ,
+		LAST_UPDATED as "lastUpdated" ,
+		LAST_UPDATED_BY as "lastUpdatedBy" 
+	</sql>
+	
+	<!-- 新增JAVA_SUBJECT 信息字段 -->
+  	<sql id="columns_insertJavaSubject">
+	    (
+			SID ,
+			TITLE ,
+			ANSWER ,
+			DESC ,
+			ORDER ,
+			CREATED ,
+			CREATED_BY ,
+			LAST_UPDATED ,
+			LAST_UPDATED_BY 
+	    )
+  	</sql>
+  
+    <!-- 新增JAVA_SUBJECT 传入参数值 -->
+    <sql id="columns_JavaSubjectParams">
+	     (
+			#{sid,jdbcType=VARCHAR} ,
+			#{title,jdbcType=VARCHAR} ,
+			#{answer,jdbcType=VARCHAR} ,
+			#{desc,jdbcType=VARCHAR} ,
+			#{order,jdbcType=VARCHAR} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{createdBy,jdbcType=VARCHAR} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=VARCHAR} 
+	     )
+    </sql>
+  
+	<!-- 修改JAVA_SUBJECT属性字段 -->
+	<sql id="JavaSubject_update">
+			SID = #{sid,jdbcType=VARCHAR} ,
+			TITLE = #{title,jdbcType=VARCHAR} ,
+			ANSWER = #{answer,jdbcType=VARCHAR} ,
+			DESC = #{desc,jdbcType=VARCHAR} ,
+			ORDER = #{order,jdbcType=VARCHAR} ,
+			CREATED = #{created,jdbcType=TIMESTAMP} ,
+			CREATED_BY = #{createdBy,jdbcType=VARCHAR} ,
+			LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{lastUpdatedBy,jdbcType=VARCHAR} 
+	</sql>
+	
+	<!-- JAVA_SUBJECT 查询(包括条件按查询) -->
+	<sql id="JavaSubject_where">
+	 		<if test="sid != null and sid != ''">
+	 			and SID = #{sid}
+	 		</if>
+	 		<if test="title != null and title != ''">
+	 			and TITLE = #{title}
+	 		</if>
+	 		<if test="answer != null and answer != ''">
+	 			and ANSWER = #{answer}
+	 		</if>
+	 		<if test="desc != null and desc != ''">
+	 			and DESC = #{desc}
+	 		</if>
+	 		<if test="order != null and order != ''">
+	 			and ORDER = #{order}
+	 		</if>
+	</sql>
+
+	<!-- JAVA_SUBJECT 表关联项目信息表结果集属性声明 -->
+	<resultMap type="JavaSubject" id="JavaSubjectResultMap">
+		<id column="SID" property="sid" />
+			<result property="title" column="TITLE"/>
+			<result property="answer" column="ANSWER"/>
+			<result property="desc" column="DESC"/>
+			<result property="order" column="ORDER"/>
+			<result property="created" column="CREATED"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+	</resultMap>
+
+	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- JAVA_SUBJECT 信息查询语句 -->
+	<select id="findJavaSubject" resultMap="JavaSubjectResultMap">
+		SELECT 
+			<include refid="columns_JavaSubject" />
+		FROM  JAVA_SUBJECT 
+		<where>
+			<include refid="JavaSubject_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.aifa.system.orderby"/>
+	</select>
+	
+	<!-- JAVA_SUBJECT  数量查询SQL -->
+	<select id="countJavaSubject" resultType="JavaSubject">
+		SELECT count(*) total FROM  JAVA_SUBJECT
+		<where>
+			<include refid="JavaSubject_where" />
+		</where>
+	</select>
+  
+  	<!-- 新增JAVA_SUBJECT 信息 -->
+	<insert id="addJavaSubject" parameterType="JavaSubject">
+		INSERT INTO JAVA_SUBJECT <include refid="columns_insertJavaSubject"/>
+		VALUES <include refid="columns_JavaSubjectParams"/>
+	</insert>
+	
+	<!-- 修改JAVA_SUBJECT 信息 -->
+	<update id="updateJavaSubject" parameterType="JavaSubject">
+		UPDATE JAVA_SUBJECT
+		SET    <include refid="JavaSubject_update" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除JAVA_SUBJECT 信息 -->
+	<update id="deleteJavaSubject" parameterType="JavaSubject">
+		DELETE FROM JAVA_SUBJECT WHERE  SID=#{sid}
+	</update>
+</mapper>

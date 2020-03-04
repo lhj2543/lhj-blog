@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhj.model.system.SysUser">
+
+	<!-- ==================================字段属性配置========================================= -->
+
+	<!-- SYS_USER     as ""字段 -->
+	<sql id="columns_SysUser">
+		sid  ,
+		user_cd  ,
+		locale_id  ,
+		user_name  ,
+		user_search_name  ,
+		sex  ,
+		country_cd  ,
+		address  ,
+		phone_number  ,
+		email  ,
+		status  ,
+		sort_key  ,
+		notes  ,
+		created_by  ,
+		created_date  ,
+		update_by  ,
+		update_date  
+	</sql>
+	
+	<!-- 新增SYS_USER 信息字段 -->
+  	<sql id="columns_insertSysUser">
+	    (
+			sid ,
+			user_cd ,
+			locale_id ,
+			user_name ,
+			user_search_name ,
+			sex ,
+			country_cd ,
+			address ,
+			phone_number ,
+			email ,
+			status ,
+			sort_key ,
+			notes ,
+			created_by ,
+			created_date ,
+			update_by ,
+			update_date 
+	    )
+  	</sql>
+  
+    <!-- 新增SYS_USER 传入参数值 -->
+    <sql id="columns_SysUserParams">
+	     (
+			#{sid,jdbcType=VARCHAR} ,
+			#{userCd,jdbcType=VARCHAR} ,
+			#{localeId,jdbcType=VARCHAR} ,
+			#{userName,jdbcType=VARCHAR} ,
+			#{userSearchName,jdbcType=VARCHAR} ,
+			#{sex,jdbcType=VARCHAR} ,
+			#{countryCd,jdbcType=VARCHAR} ,
+			#{address,jdbcType=VARCHAR} ,
+			#{phoneNumber,jdbcType=VARCHAR} ,
+			#{email,jdbcType=VARCHAR} ,
+			#{status,jdbcType=VARCHAR} ,
+			#{sortKey,jdbcType=DECIMAL} ,
+			#{notes,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=VARCHAR} ,
+			#{createdDate,jdbcType=TIMESTAMP} ,
+			#{updateBy,jdbcType=VARCHAR} ,
+			#{updateDate,jdbcType=TIMESTAMP} 
+	     )
+    </sql>
+  
+	<!-- 修改SYS_USER属性字段 -->
+	<sql id="SysUser_update">
+			sid = #{sid,jdbcType=VARCHAR} ,
+			user_cd = #{userCd,jdbcType=VARCHAR} ,
+			locale_id = #{localeId,jdbcType=VARCHAR} ,
+			user_name = #{userName,jdbcType=VARCHAR} ,
+			user_search_name = #{userSearchName,jdbcType=VARCHAR} ,
+			sex = #{sex,jdbcType=VARCHAR} ,
+			country_cd = #{countryCd,jdbcType=VARCHAR} ,
+			address = #{address,jdbcType=VARCHAR} ,
+			phone_number = #{phoneNumber,jdbcType=VARCHAR} ,
+			email = #{email,jdbcType=VARCHAR} ,
+			status = #{status,jdbcType=VARCHAR} ,
+			sort_key = #{sortKey,jdbcType=DECIMAL} ,
+			notes = #{notes,jdbcType=VARCHAR} ,
+			created_by = #{createdBy,jdbcType=VARCHAR} ,
+			created_date = #{createdDate,jdbcType=TIMESTAMP} ,
+			update_by = #{updateBy,jdbcType=VARCHAR} ,
+			update_date = #{updateDate,jdbcType=TIMESTAMP} 
+	</sql>
+	
+	<!-- SYS_USER 查询(包括条件按查询) -->
+	<sql id="SysUser_where">
+	 		<if test="sid != null and sid != ''">
+	 			and sid = #{sid}
+	 		</if>
+	 		<if test="userCd != null and userCd != ''">
+	 			and user_cd = #{userCd}
+	 		</if>
+	 		<if test="localeId != null and localeId != ''">
+	 			and locale_id = #{localeId}
+	 		</if>
+	 		<if test="userName != null and userName != ''">
+	 			and user_name = '%'+#{userName}+'%'
+	 		</if>
+	 		<if test="userSearchName != null and userSearchName != ''">
+	 			and user_search_name = #{userSearchName}
+	 		</if>
+	 		<if test="sex != null and sex != ''">
+	 			and sex = #{sex}
+	 		</if>
+	 		<if test="countryCd != null and countryCd != ''">
+	 			and country_cd = #{countryCd}
+	 		</if>
+	 		<if test="address != null and address != ''">
+	 			and address = #{address}
+	 		</if>
+	 		<if test="phoneNumber != null and phoneNumber != ''">
+	 			and phone_number = #{phoneNumber}
+	 		</if>
+	 		<if test="email != null and email != ''">
+	 			and email = #{email}
+	 		</if>
+	 		<if test="status != null and status != ''">
+	 			and status = #{status}
+	 		</if>
+	 		<if test="sortKey != null">
+	 			and sort_key = #{sortKey}
+	 		</if>
+	 		<if test="notes != null and notes != ''">
+	 			and notes = #{notes}
+	 		</if>
+	 		<if test="createdDate != null">
+	 			and created_date = #{createdDate}
+	 		</if>
+	 		<if test="updateBy != null and updateBy != ''">
+	 			and update_by = #{updateBy}
+	 		</if>
+	 		<if test="updateDate != null">
+	 			and update_date = #{updateDate}
+	 		</if>
+	</sql>
+
+	<!-- SYS_USER 表关联项目信息表结果集属性声明 -->
+	<resultMap type="SysUser" id="SysUserResultMap">
+		<id column="SID" property="sid" />
+			<result property="userCd" column="user_cd"/>
+			<result property="localeId" column="locale_id"/>
+			<result property="userName" column="user_name"/>
+			<result property="userSearchName" column="user_search_name"/>
+			<result property="sex" column="sex"/>
+			<result property="countryCd" column="country_cd"/>
+			<result property="address" column="address"/>
+			<result property="phoneNumber" column="phone_number"/>
+			<result property="email" column="email"/>
+			<result property="status" column="status"/>
+			<result property="sortKey" column="sort_key"/>
+			<result property="notes" column="notes"/>
+			<result property="createdBy" column="created_by"/>
+			<result property="createdDate" column="created_date"/>
+			<result property="updateBy" column="update_by"/>
+			<result property="updateDate" column="update_date"/>
+	</resultMap>
+
+	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- SYS_USER 信息查询语句 -->
+	<select id="findSysUser" resultMap="SysUserResultMap">
+		SELECT 
+			<include refid="columns_SysUser" />
+		FROM  SYS_USER 
+		<where>
+			<include refid="SysUser_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.lhj.system.orderby"/>
+	</select>
+	
+	<!-- SYS_USER  数量查询SQL -->
+	<select id="countSysUser" resultType="SysUser">
+		SELECT count(*) total FROM  SYS_USER
+		<where>
+			<include refid="SysUser_where" />
+		</where>
+	</select>
+
+  
+  	<!-- 新增SYS_USER 信息 -->
+	<insert id="addSysUser" parameterType="SysUser">
+		INSERT INTO SYS_USER <include refid="columns_insertSysUser"/>
+		VALUES <include refid="columns_SysUserParams"/>
+	</insert>
+	
+	<!-- 修改SYS_USER 信息 -->
+	<update id="updateSysUser" parameterType="SysUser">
+		UPDATE SYS_USER
+		SET    <include refid="SysUser_update" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除SYS_USER 信息 -->
+	<update id="deleteSysUser" parameterType="SysUser">
+		DELETE FROM SYS_USER WHERE  SID=#{sid}
+	</update>
+</mapper>
