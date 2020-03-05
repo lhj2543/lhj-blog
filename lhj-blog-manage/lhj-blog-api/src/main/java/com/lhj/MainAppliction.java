@@ -17,11 +17,10 @@ import org.springframework.context.annotation.ImportResource;
 
 /**
  *  @SpringBootApplication 来标注一个主程序类，说明这是一个Spring Boot应用
+ *  scanBasePackages 扫描包路径
  */
-@SpringBootApplication
-@EnableAutoConfiguration
+@SpringBootApplication(scanBasePackages = "com.lhj")
 public class MainAppliction {
-
 
     public static void main(String[] args) {
         // Spring boot 应用启动
