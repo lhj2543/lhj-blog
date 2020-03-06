@@ -5,12 +5,12 @@
   /* #app{
     padding: 2rem;
   } */
-  #index-body{
+  .index-body{
     height: 100% ;
     overflow: hidden;
     background: rgba(0,0,0,0.01);
   }
-  #index{
+  .index{
     height: 100% !important;
     /* background-attachment: fixed;
     background-color: #e1e6e1;

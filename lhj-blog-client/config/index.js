@@ -21,7 +21,7 @@ module.exports = {
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
     
     /* 开发模式下处理跨域请求 */
-    proxyTable: {
+   /*  proxyTable: {
       '/api': {
         target: 'http://127.0.0.1:9090',  //目标接口域名
         pathRewrite: {
@@ -29,7 +29,7 @@ module.exports = {
         },
         changeOrigin: true,  //是否跨域
       },
-    },
+    }, */
 
     
     /**

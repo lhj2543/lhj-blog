@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Pojo<T> implements Serializable{
-	
+
 	private static final long serialVersionUID = -4658799939880991528L;
 	private String id;
 	private String sid;
@@ -76,74 +76,50 @@ public class Pojo<T> implements Serializable{
 		this.createdBy = createdBy;
 	}
 
-
-
-
 	public boolean isSuccess()
 	{
 		return this.success;
 	}
-
-
 
 	public void setSuccess(boolean success)
 	{
 		this.success = success;
 	}
 
-
-
 	public String getMessage()
 	{
 		return this.message;
 	}
-
-
 
 	public void setMessage(String message)
 	{
 		this.message = message;
 	}
 
-
-
 	public String getHistory()
 	{
 		return this.history;
 	}
-
-
 
 	public void setHistory(String history)
 	{
 		this.history = history;
 	}
 
-
-
 	public Set<Object> getErrors()
 	{
 		return this.errors;
 	}
-
-
 
 	public void setErrors(Set<Object> errors)
 	{
 		this.errors = errors;
 	}
 
-
-
-
-
 	/*public String toString()
 	{
 		return ReflectionToStringBuilder.toString(this);
 	}*/
-
-
-
 
 	public String getId() {
 		return id;
@@ -152,7 +128,7 @@ public class Pojo<T> implements Serializable{
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getSid() {
 		return sid;
 	}

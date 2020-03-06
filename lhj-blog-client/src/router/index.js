@@ -8,9 +8,14 @@ export default new Router({
   mode: 'history', //（使用history模式） 去掉访问路径里面加#
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component:()=>import ('@/views/websit/Login'),
+    },
+    {
       path: '/',
       name: 'index',
-      component:()=>import ('@/components/Index'),
+      component:()=>import ('@/views/websit/Index'),
     },
     {
       path:'/manage',
@@ -65,7 +70,7 @@ export default new Router({
     {
       path: '/error',
       name:'error',
-      component: ()=>import('@/components/errors/404.vue'),
+      component: ()=>import('@//views/errors/404.vue'),
     },
 		{//其他路径跳转到首页
 			path:'*',

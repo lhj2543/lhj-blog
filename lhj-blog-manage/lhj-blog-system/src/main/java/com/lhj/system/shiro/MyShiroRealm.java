@@ -1,51 +1,60 @@
 package com.lhj.system.shiro;
 
-import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MyShiroRealm extends AuthorizingRealm {
 
-    @Autowired
-    //private ShiroService shiroService;
-
-    /**
-     * 授权(验证权限时候调用
-     *@param
-     *@return org.apache.shiro.authz.AuthorizationInfo
-     */
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        System.err.println("doGetAuthorizationInfo");
+        return null;
+    }
+
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        System.err.println("doGetAuthenticationInfo");
+        return null;
+    }
+
+
+   /* *//**
+     * 授权(验证权限时候调用
+     *//*
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        System.err.println("doGetAuthorizationInfo");
         //1. 从 PrincipalCollection 中来获取登录用户的信息
         //User user = (User) principals.getPrimaryPrincipal();
         //Integer userId = user.getUserId();
         //2.添加角色和权限
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
-        /*for (Role role : user.getRoles()) {
+        *//*for (Role role : user.getRoles()) {
             //2.1添加角色
             simpleAuthorizationInfo.addRole(role.getRoleName());
             for (Permission permission : role.getPermissions()) {
                 //2.1.1添加权限
                 simpleAuthorizationInfo.addStringPermission(permission.getPermission());
             }
-        }*/
-        return simpleAuthorizationInfo;
+        }*//*
+        return null;
     }
 
-    @Override
-    /**
+    *//**
      * 认证(登陆时候调用)
-     *@param  [token]
-     *@return org.apache.shiro.authc.AuthenticationInfo
-     */
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String accessToken = (String) token.getPrincipal();
-       /* //1. 根据accessToken，查询用户信息
+     *//*
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        System.err.println("doGetAuthenticationInfo");
+        *//*String accessToken = (String) token.getPrincipal();
+        //1. 根据accessToken，查询用户信息
         SysToken tokenEntity = shiroService.findByToken(accessToken);
         //2. token失效
         if (tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()) {
@@ -56,9 +65,12 @@ public class MyShiroRealm extends AuthorizingRealm {
         //4. 若用户不存在, 则可以抛出 UnknownAccountException 异常
         if (user == null) {
             throw new UnknownAccountException("用户不存在!");
-        }*/
+        }
         //5. 根据用户的情况, 来构建 AuthenticationInfo 对象并返回. 通常使用的实现类为: SimpleAuthenticationInfo
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo("", accessToken, this.getName());
-        return info;
-    }
+        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo("", accessToken, this.getName()*//*);
+
+        return null;
+    }*/
+
+
 }

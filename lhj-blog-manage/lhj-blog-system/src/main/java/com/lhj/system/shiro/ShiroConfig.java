@@ -1,21 +1,19 @@
 package com.lhj.system.shiro;
 
-import com.lhj.system.shiro.MyPassThruAuthenticationFilter;
-import com.lhj.system.shiro.MySessionManager;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Configurable
+@Configuration
 public class ShiroConfig {
 
     /**
@@ -44,8 +42,9 @@ public class ShiroConfig {
          */
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         filterChainDefinitionMap.put("/login", "anon");
+        filterChainDefinitionMap.put("/site/**", "anon");
         filterChainDefinitionMap.put("/**", "authc");
-        shiroFilterFactoryBean.setLoginUrl("/unauth");
+        shiroFilterFactoryBean.setLoginUrl("/unAuth");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
@@ -60,7 +59,7 @@ public class ShiroConfig {
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(this.myShiroRealm());
-        securityManager.setSessionManager(sessionManager());
+        securityManager.setSessionManager(this.sessionManager());
         return securityManager;
     }
 

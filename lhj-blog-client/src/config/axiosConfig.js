@@ -2,8 +2,8 @@
 import axios from 'axios' //引入axios 
 
 
-//const apiURL = 'http://127.0.0.1:9090/river';
-const apiURL = '/api/river';
+const apiURL = 'http://127.0.0.1:9090/river';
+//const apiURL = '/api/river';
 
 // 创建axios实例
 /* const service = axios.create({
