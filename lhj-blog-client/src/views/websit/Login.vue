@@ -4,17 +4,34 @@
 
     <!-- 头部 -->
     <!--或者这种写法也行<AppHeader/> -->
-    <app-header :contentActiveTheme="contentActiveTheme" />
+    <!-- <app-header :contentActiveTheme="contentActiveTheme" /> -->
 
-
-    <div class="">
+    <!-- =============登录=============== -->
+    <div class="lgin-panel plan-centre">
       
+      <Form ref="loginForm" :model="loginForm" :rules="loginFormValidate" :label-width="80">
+          <FormItem label="用户名" prop="userCd">
+              <Input type="text" v-model="loginForm.userCd" placeholder="请输入用户名...">
+                <Icon type="ios-person-outline" slot="prepend"></Icon>
+              </Input>
+          </FormItem>
+          <FormItem label="密码"  prop="password">
+              <Input type="password" v-model="loginForm.password" placeholder="请输入密码...">
+                <Icon type="ios-lock-outline" slot="prepend"></Icon>
+              </Input>
+          </FormItem>
+          <FormItem>
+              <Button type="primary" @click="login('loginForm')">登录</Button>
+              <Button @click="loginReset('loginForm')" style="margin-left: 8px">重置</Button>
+          </FormItem>
+      </Form>
 
     </div>
+    <!-- =============登录=============== -->
 
 
     <!-- 尾部 -->
-    <app-footer :contentActiveTheme="contentActiveTheme" />
+    <!-- <app-footer :contentActiveTheme="contentActiveTheme" /> -->
 
   </div>
 
@@ -31,9 +48,21 @@ export default {
   data () {
           return {
              contentActiveTheme:'theme-0',//主题
-             loginData:{
-               
-             }
+             loginForm:{//登录表单
+                userCd:'',//用户名
+                password:'',//密码
+                captcha:''//验证码
+              },
+              loginFormValidate:{//登录表单验证
+                userCd: [
+                    { required: true,message:'请输入用户名',validator: '', trigger: 'blur' }
+                ],
+                password: [
+                    { required: true,message:'请输入密码',validator: '', trigger: 'blur' }
+                ],
+              },
+              
+             loginData:{} 
           }
         },
   components:{//注册组件
@@ -51,24 +80,33 @@ export default {
   },
   methods:{//el 已被初始化，数据已加载完成，阔以篡改数据，并更新，并且触发，，在这发起后端请求，拿回数据，配合路由钩子做一些事情，ref属性可以访问
     
-    
+    login (refName) {//登录方法
+        this.$refs[refName].validate((valid) => {
+
+            let _this = this;
+
+            if (valid) {
+              this.axios.post('/login', {
+                params: this.loginForm
+              })
+              .then(function (response) {
+                alert(2222);
+                console.log(response);
+              })
+              .catch(function (error) {
+                alert(error);
+                //_this.$Message.error(error);
+              });
+            } 
+        })
+    },
+    loginReset (refName) {//登录表单重置
+        this.$refs[refName].resetFields();
+    }
 
   },
   mounted(){
     
-    this.axios.get('/sysUser/query', {
-      params: {
-        ID: 12345
-      }
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-
   },
   destroyed(){
    

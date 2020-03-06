@@ -12,12 +12,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
-public class MySessionManager extends DefaultWebSessionManager {
+public class CustomSessionManager extends DefaultWebSessionManager {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private static final String AUTHORIZATION = "Authorization";
     private static final String REFERENCED_SESSION_ID_SOURCE = "Stateless request";
 
-    public MySessionManager() {
+    public CustomSessionManager() {
         super();
     }
 

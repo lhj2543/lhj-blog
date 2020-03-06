@@ -11,14 +11,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 //把普通pojo实例化到spring容器中，相当于配置文件中的<bean id="" class=""/>
-@Component
+//@Component
 public class DateSupport {
 	public DateSupport() {}
 
-	public Date dateAddDay(Date date, int day)
-
-			throws RuntimeException
-	{
+	public static Date dateAddDay(Date date, int day)throws RuntimeException{
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		calendar.add(5, day);
@@ -28,9 +25,7 @@ public class DateSupport {
 
 
 
-	public int dateCompareDay(String target, String source)
-			throws RuntimeException
-	{
+	public static int dateCompareDay(String target, String source)throws RuntimeException{
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		ParsePosition spp = new ParsePosition(0);
 		ParsePosition epp = new ParsePosition(0);
@@ -43,9 +38,7 @@ public class DateSupport {
 
 
 
-	public String formatCharacter(Date date, String pattern)
-			throws RuntimeException
-	{
+	public static String formatCharacter(Date date, String pattern)throws RuntimeException{
 		if (null == date) date = new Date();
 		if (null == pattern) pattern = "yyyy-MM-dd";
 		DateFormat format = new SimpleDateFormat(pattern);
@@ -54,11 +47,7 @@ public class DateSupport {
 
 
 
-
-
-	public Date formatDateTime(String date, String pattern)
-			throws RuntimeException
-	{
+	public static Date formatDateTime(String date, String pattern)throws RuntimeException{
 		if (date == null) return null;
 		if (pattern == null) pattern = "yyyy-MM-dd";
 		DateFormat format = new SimpleDateFormat(pattern);
@@ -71,7 +60,7 @@ public class DateSupport {
 
 
 
-	public Date getSystemDate()
+	public static Date getSystemDate()
 	{
 		return new Date();
 	}
@@ -79,8 +68,37 @@ public class DateSupport {
 
 
 
-	public long getSystemDateTime()
+	public static long getSystemDateTime()
 	{
 		return new Date().getTime();
+	}
+
+	/**
+	 * 判断当前时间是否在[startTime, endTime]区间，注意时间格式要一致
+	 * @param nowTime 当前时间
+	 * @param startTime 开始时间
+	 * @param endTime 结束时间
+	 * @return
+	 * @author lhj
+	 */
+	public static boolean isEffectiveDate(Date nowTime, Date startTime, Date endTime) {
+		if (nowTime.getTime() == startTime.getTime() || nowTime.getTime() == endTime.getTime()) {
+			return true;
+		}
+
+		Calendar date = Calendar.getInstance();
+		date.setTime(nowTime);
+
+		Calendar begin = Calendar.getInstance();
+		begin.setTime(startTime);
+
+		Calendar end = Calendar.getInstance();
+		end.setTime(endTime);
+
+		if (date.after(begin) && date.before(end)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

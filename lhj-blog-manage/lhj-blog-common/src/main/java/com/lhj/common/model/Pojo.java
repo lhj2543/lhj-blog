@@ -32,6 +32,8 @@ public class Pojo<T> implements Serializable{
 
 	private boolean success;
 
+	private String responseCode;
+
 	private String message;
 
 	private String history;
@@ -69,9 +71,15 @@ public class Pojo<T> implements Serializable{
 		return this.createdBy;
 	}
 
+    public String getResponseCode() {
+        return responseCode;
+    }
 
+    public void setResponseCode(String responseCode) {
+        this.responseCode = responseCode;
+    }
 
-	public void setCreatedBy(String createdBy)
+    public void setCreatedBy(String createdBy)
 	{
 		this.createdBy = createdBy;
 	}

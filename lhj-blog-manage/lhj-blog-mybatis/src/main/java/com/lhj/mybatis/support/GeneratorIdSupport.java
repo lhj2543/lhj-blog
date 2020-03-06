@@ -19,9 +19,6 @@ public class GeneratorIdSupport
 
   private String increment = "1";
 
-  @Autowired
-  private DateSupport dateSupport;
-
   /*日志*/
   Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -77,7 +74,7 @@ public class GeneratorIdSupport
   
   public String generate() throws Exception{
 
-	  String currentDate = this.dateSupport.formatCharacter(this.dateSupport.getSystemDate(), "yyyy-MM-dd HH:mm:ss");
+	  String currentDate = DateSupport.formatCharacter(DateSupport.getSystemDate(), "yyyy-MM-dd HH:mm:ss");
 
 	  String id = IdUtils.getIdByNanoTime();
 

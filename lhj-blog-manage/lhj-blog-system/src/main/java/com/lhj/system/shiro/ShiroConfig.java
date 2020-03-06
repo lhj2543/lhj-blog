@@ -3,8 +3,11 @@ package com.lhj.system.shiro;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.SessionManager;
+import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.servlet.SimpleCookie;
+import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,7 +30,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, Filter> filtersMap = new HashMap<String, Filter>();
         /*自定义过滤器*/
-        MyPassThruAuthenticationFilter authFilter = new MyPassThruAuthenticationFilter();
+        CustomPassThruAuthenticationFilter authFilter = new CustomPassThruAuthenticationFilter();
         filtersMap.put("authc", authFilter);
         shiroFilterFactoryBean.setFilters(filtersMap);
 
@@ -38,13 +41,20 @@ public class ShiroConfig {
          * authc. 配置拦截的请求
          * 配置shiro默认登录界面地址，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
          * 所有非法请求被重定向到/unauth，该请求返回一个json数据
-         * shiroFilterFactoryBean.setLoginUrl("/unauth");
+         * shiroFilterFactoryBean.setLoginUrl("/unAuth");
          */
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/site/**", "anon");
         filterChainDefinitionMap.put("/**", "authc");
+
+        // 配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了, 位置放在 anon、authc下面
+        filterChainDefinitionMap.put("/logout", "logout");
+
         shiroFilterFactoryBean.setLoginUrl("/unAuth");
+
+        // 未授权界面, 对应LoginController中 unAuthorized 请求
+        shiroFilterFactoryBean.setUnauthorizedUrl("/unAuthorized");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
@@ -70,8 +80,8 @@ public class ShiroConfig {
      * @return MyShiroRealm
      */
     @Bean
-    public MyShiroRealm myShiroRealm() {
-        MyShiroRealm myShiroRealm = new MyShiroRealm();
+    public CustomShiroRealm myShiroRealm() {
+        CustomShiroRealm myShiroRealm = new CustomShiroRealm();
         myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
         return myShiroRealm;
     }
@@ -85,7 +95,7 @@ public class ShiroConfig {
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
         hashedCredentialsMatcher.setHashAlgorithmName("MD5");// 散列算法:这里使用MD5算法;
-        hashedCredentialsMatcher.setHashIterations(1024);// 散列的次数，比如散列两次，相当于 md5(md5(""));
+        hashedCredentialsMatcher.setHashIterations(2);// 散列的次数，比如散列两次，相当于 md5(md5(""));
         hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         return hashedCredentialsMatcher;
     }
@@ -95,8 +105,36 @@ public class ShiroConfig {
      */
     @Bean
     public SessionManager sessionManager() {
-        MySessionManager mySessionManager = new MySessionManager();
+        CustomSessionManager mySessionManager = new CustomSessionManager();
         return mySessionManager;
+    }
+
+    /*
+     * 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证
+     * 配置以下两个bean(DefaultAdvisorAutoProxyCreator(可选)和AuthorizationAttributeSourceAdvisor)即可实现此功能
+     */
+    @Bean
+    public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
+        DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
+        advisorAutoProxyCreator.setProxyTargetClass(true);
+        return advisorAutoProxyCreator;
+    }
+
+    @Bean
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
+        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+        return authorizationAttributeSourceAdvisor;
+    }
+
+    @Bean
+    public SimpleCookie cookie() {
+        // cookie的name,对应的默认是 JSESSIONID
+        SimpleCookie cookie = new SimpleCookie("SHARE_JSESSIONID");
+        cookie.setHttpOnly(true);
+        //  path为 / 用于多个系统共享 JSESSIONID
+        cookie.setPath("/");
+        return cookie;
     }
 
 }
