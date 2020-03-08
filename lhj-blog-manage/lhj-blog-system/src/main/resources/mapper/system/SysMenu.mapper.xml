@@ -14,6 +14,7 @@
 		menu_name  ,
 		display_name  ,
 		url  ,
+		page_path  ,
 		icon  ,
 		category  ,
 		type  ,
@@ -36,6 +37,7 @@
 			menu_name ,
 			display_name ,
 			url ,
+			page_path ,
 			icon ,
 			category ,
 			type ,
@@ -59,6 +61,7 @@
 			#{menuName,jdbcType=VARCHAR} ,
 			#{displayName,jdbcType=VARCHAR} ,
 			#{url,jdbcType=VARCHAR} ,
+			#{pagePath,jdbcType=VARCHAR} ,
 			#{icon,jdbcType=VARCHAR} ,
 			#{category,jdbcType=VARCHAR} ,
 			#{type,jdbcType=VARCHAR} ,
@@ -81,6 +84,7 @@
 			menu_name = #{menuName,jdbcType=VARCHAR} ,
 			display_name = #{displayName,jdbcType=VARCHAR} ,
 			url = #{url,jdbcType=VARCHAR} ,
+			page_path = #{pagePath,jdbcType=VARCHAR} ,
 			icon = #{icon,jdbcType=VARCHAR} ,
 			category = #{category,jdbcType=VARCHAR} ,
 			type = #{type,jdbcType=VARCHAR} ,
@@ -115,6 +119,9 @@
 	 		</if>
 	 		<if test="url != null and url != ''">
 	 			and url = #{url}
+	 		</if>
+	 		<if test="pagePath != null and pagePath != ''">
+	 			and page_path = #{pagePath}
 	 		</if>
 	 		<if test="icon != null and icon != ''">
 	 			and icon = #{icon}
@@ -154,6 +161,7 @@
 			<result property="menuName" column="menu_name"/>
 			<result property="displayName" column="display_name"/>
 			<result property="url" column="url"/>
+			<result property="pagePath" column="page_path"/>
 			<result property="icon" column="icon"/>
 			<result property="category" column="category"/>
 			<result property="type" column="type"/>

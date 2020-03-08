@@ -9,22 +9,7 @@
     <!-- =============登录=============== -->
     <div class="lgin-panel plan-centre">
       
-      <Form ref="loginForm" :model="loginForm" :rules="loginFormValidate" :label-width="80">
-          <FormItem label="用户名" prop="userCd">
-              <Input type="text" v-model="loginForm.userCd" placeholder="请输入用户名...">
-                <Icon type="ios-person-outline" slot="prepend"></Icon>
-              </Input>
-          </FormItem>
-          <FormItem label="密码"  prop="password">
-              <Input type="password" v-model="loginForm.password" placeholder="请输入密码...">
-                <Icon type="ios-lock-outline" slot="prepend"></Icon>
-              </Input>
-          </FormItem>
-          <FormItem>
-              <Button type="primary" @click="login('loginForm')">登录</Button>
-              <Button @click="loginReset('loginForm')" style="margin-left: 8px">重置</Button>
-          </FormItem>
-      </Form>
+      啊手动阀手动阀
 
     </div>
     <!-- =============登录=============== -->

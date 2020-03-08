@@ -15,7 +15,7 @@ import com.uniwcp.pojofactory.jdbc.TableMeta;
 
 public class PojofactoryMain {
 	
-	private static String url="jdbc:mysql://localhost:3306/lhj_blog?useUnicode=true&characterEncoding=UTF-8";
+	private static String url="jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8";
 	private static String username="root";
 	private static String password="123456";
 	private static String outputdir="./target";

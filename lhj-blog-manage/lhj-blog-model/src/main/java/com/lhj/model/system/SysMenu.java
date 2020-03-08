@@ -11,7 +11,7 @@ import com.lhj.common.model.Pages;
  * table nameCn:	 <br/>
  * entity name:		SysMenu <br/>
  * author pojofactory pojo builder
- * created 2020-3-2 21:28:53
+ * created 2020-3-8 21:08:52
  */
 public class SysMenu extends Pages<SysMenu>{
 	
@@ -58,6 +58,12 @@ public class SysMenu extends Pages<SysMenu>{
 	 * len 		512
 	 */
 	private String url;
+	/**
+	 * colNameCn 	页面文件路径
+	 * type 		String
+	 * len 		512
+	 */
+	private String pagePath;
 	/**
 	 * colNameCn 	图标
 	 * type 		String
@@ -145,6 +151,13 @@ public class SysMenu extends Pages<SysMenu>{
 	}
 	public void setUrl(String url){
 		this.url=url;
+	}
+	
+	public String getPagePath(){
+		return pagePath;
+	}
+	public void setPagePath(String pagePath){
+		this.pagePath=pagePath;
 	}
 	
 	public String getIcon(){

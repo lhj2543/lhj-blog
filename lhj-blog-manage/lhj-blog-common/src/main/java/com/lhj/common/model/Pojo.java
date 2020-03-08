@@ -34,7 +34,7 @@ public class Pojo<T> implements Serializable{
 
 	private String responseCode;
 
-	private String message;
+	private String message = "";
 
 	private String history;
 

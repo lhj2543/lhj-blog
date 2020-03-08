@@ -57,6 +57,13 @@ public class SysUserRole extends Pages<SysUserRole>{
 	 * len 		255
 	 */
 	private String notes;
+
+
+	private String roleCode;
+
+	private String roleName;
+
+	private String userName;
 	// fields end
 	
 	
@@ -109,11 +116,31 @@ public class SysUserRole extends Pages<SysUserRole>{
 	public void setNotes(String notes){
 		this.notes=notes;
 	}
-	
-	
-	
-	
-	
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getRoleCode() {
+		return roleCode;
+	}
+
+	public void setRoleCode(String roleCode) {
+		this.roleCode = roleCode;
+	}
+
 	//get,set methods end
 	
 

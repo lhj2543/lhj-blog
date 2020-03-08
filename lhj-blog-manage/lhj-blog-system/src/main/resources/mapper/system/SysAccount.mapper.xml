@@ -133,7 +133,7 @@
 
 	<!-- SYS_ACCOUNT 表关联项目信息表结果集属性声明 -->
 	<resultMap type="SysAccount" id="SysAccountResultMap">
-		<id column="SID" property="sid" />
+			<id column="SID" property="sid" />
 			<result property="userCd" column="user_cd"/>
 			<result property="password" column="password"/>
 			<result property="localeId" column="locale_id"/>
@@ -148,15 +148,30 @@
 			<result property="createdDate" column="created_date"/>
 			<result property="updateBy" column="update_by"/>
 			<result property="updateDate" column="update_date"/>
+
+			<collection property="userRoles" column="user_cd" select="findSysUserRoles" >
+
+			</collection>
 	</resultMap>
 
 	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- 用户角色查询 -->
+	<select id="findSysUserRoles" resultType="SysRole">
+		SELECT
+		r.sid as sid,
+		r.role_code as roleCode,
+		r.role_name as roleName
+		FROM  sys_user_role ur
+		LEFT  JOIN sys_role r ON ur.sid = r.sid and r.status = '1' and ur.status = '1'
+		where ur.user_cd = #{value}
+	</select>
 
 	<!-- SYS_ACCOUNT 信息查询语句 -->
 	<select id="findSysAccount" resultMap="SysAccountResultMap">
 		SELECT 
 			<include refid="columns_SysAccount" />
-		FROM  SYS_ACCOUNT 
+		FROM  SYS_ACCOUNT
 		<where>
 			<include refid="SysAccount_where" />
 		</where>

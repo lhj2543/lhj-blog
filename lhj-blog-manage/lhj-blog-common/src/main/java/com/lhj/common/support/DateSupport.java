@@ -22,9 +22,6 @@ public class DateSupport {
 		return calendar.getTime();
 	}
 
-
-
-
 	public static int dateCompareDay(String target, String source)throws RuntimeException{
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		ParsePosition spp = new ParsePosition(0);
@@ -101,4 +98,24 @@ public class DateSupport {
 			return false;
 		}
 	}
+
+	/*
+	* long时间转换日期字符串
+	* @params time 时间
+	* @formatType 转换的日期类型
+	* */
+	public static  String  timeToDataStr(long time,String formatType){
+
+		String result = "";
+		try{
+			Date date = new Date(time);
+			result = DateSupport.formatCharacter(date, formatType);
+		}catch (Exception e){
+			e.printStackTrace();
+			result = String.valueOf(time);
+		}
+
+		return result;
+	}
+
 }

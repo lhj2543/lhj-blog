@@ -20,7 +20,20 @@
                             <Icon :type="menu.icon" />
                             {{menu.name}}
                         </MenuItem>
+
+                        <!-- 用户信息 -->
+                        <span v-if="sysAccountInfo.token!='' && sysAccountInfo.token!=undefined">
+                            <Icon type="ios-person-outline" />
+                            <span>{{sysAccountInfo.userCd}}</span>
+                            &nbsp; | &nbsp; 
+                            <span class="cursor-pointer logout" @click="logout">注销</span>
+                        </span>
+                        
+                        
                     </Menu>
+                    
+                   
+                    
                 </div>
             </div>
           </Header>
@@ -52,7 +65,9 @@
   export default {
     name: 'Home',
     data () {
+      
       return {
+        sysAccountInfo:this.$common.getAccountInfo(),
         topMenuActiveName:'',
         menuActiveName:'',
         openMenus:[],
@@ -101,6 +116,22 @@
         this.autoSelectMenu();
     },
     methods:{
+        logout(){//用户注销
+            this.$common.logout({_this:this});//公共注销方法
+        },
+        loadMenus(){
+            //加载数据库菜单
+            this.axios.get('/sysUser/queryAccount',{params:{
+
+            }})
+            .then((response)=>{
+                alert(JSON.stringify(response.data));
+            })
+            .catch((err)=>{
+                alert(err);
+            });
+
+        },
         getOpenMenus(){//展开所以菜单节点
             var result=[];
             this.leftMenus.forEach((menu) => {
@@ -208,8 +239,9 @@
         }
     },
     mounted(){
-       
-    },
+       //菜单数据加载
+       this.loadMenus();
+    },  
     watch: {//监听
             '$route' (to, from) {//路径发生变化是监听
                 console.log(to);

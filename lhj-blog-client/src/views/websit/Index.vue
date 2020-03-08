@@ -402,6 +402,7 @@ import '@/assets/css/index.css'//引入首页样式
 import AppHeader from './Header.vue'//引入头部
 import AppFooter from './Footer.vue'//引入头部
 
+var scrollFunc = null;
 
 export default {
   name: 'Index',
@@ -531,7 +532,7 @@ export default {
     scrollListener(){
       //滚轮滚动事件监听
       var this_ = this;
-      var scrollFunc=function(e){
+      scrollFunc=function(e){
 
         e = e || window.event;
         if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件

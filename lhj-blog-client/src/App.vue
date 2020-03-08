@@ -12,6 +12,10 @@
 export default {
   name: 'App',
   components:{//注册组件
+
+  },
+  created() {
+    
   },
   methods:{
     

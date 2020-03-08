@@ -1,15 +1,21 @@
 package com.lhj.system.controller;
 
 import com.lhj.common.support.JsonSupport;
+import com.lhj.model.system.SysAccount;
+import com.lhj.model.system.SysRole;
 import com.lhj.model.system.SysUser;
 import com.lhj.mybatis.service.DataBaseService;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
@@ -27,6 +33,11 @@ public class SysUserController {
 
     //@CrossOrigin /*跨域请求支持*/
     @RequestMapping(value = "/query")
+    //@RequiresRoles({"base","admin"}) //如果subject中有这些角色才可以访问方法。如果没有这个权限则会抛出异常AuthorizationException。
+    //属于T1并且属于T2角色可以访问
+    //@RequiresRoles(value={"T1","T2"})
+    //属于T1或者T2角色可以访问
+    @RequiresRoles(value={"base","admin"},logical = Logical.OR)
     public SysUser query(SysUser param){
 
         logger.info("查询用户列表开始");
@@ -65,5 +76,20 @@ public class SysUserController {
         return  result;
     }
 
+    @RequestMapping(value = "/queryAccount")
+    @RequiresRoles("admin") //如果subject中有这些角色才可以访问方法。如果没有这个权限则会抛出异常AuthorizationException。
+    public SysAccount queryAccount(){
+        SysAccount result = new SysAccount();
+        result.setUserCd("admin");
+        result = dataBaseService.selectOne("findSysAccount",result);
+
+        /*SysRole sr =new SysRole();
+        sr.setRoleName("啊啦啦啦");
+        Set<SysRole> s =new HashSet<SysRole>();
+        s.add(sr);
+        result.setUserRoles(s);*/
+
+        return  result;
+    }
 
 }

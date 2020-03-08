@@ -1,10 +1,11 @@
 package com.lhj.model.system;
 
+import com.lhj.common.model.Pages;
+
 import java.math.BigDecimal;
 import java.util.Date;
-import java.lang.String;
-
-import com.lhj.common.model.Pages;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * table name:		SYS_ACCOUNT <br/>
@@ -13,8 +14,8 @@ import com.lhj.common.model.Pages;
  * author pojofactory pojo builder
  * created 2020-3-2 21:28:53
  */
-public class SysAccount extends Pages<SysAccount>{
-	
+public class SysAccount extends Pages<SysAccount> {
+
 	// fields start
 	/**
 	 * colNameCn 	主键
@@ -82,10 +83,52 @@ public class SysAccount extends Pages<SysAccount>{
 	 * len 		255
 	 */
 	private String notes;
+
+	/*
+	* 非持久化属性
+	* 用户token
+	 */
+	private String token;
+
+	/*
+	*	非持久化属性
+	*	是否强制登录
+	**/
+	private String isForceLogin;
+
+	/*
+	*	非持久化属性
+	*	是否强制登录
+	**/
+	private String userName;
+
+	/**
+	 *  关联账户角色表
+	 */
+	private Set<SysRole> userRoles = new HashSet<SysRole>(0);
+
+	/**
+	 *  关联用户信息
+	 */
+	private SysUser sysUser = new SysUser();
+
+	//验证码
+	private  String captcha;
+
 	// fields end
 	
 	
 	// get,set methods
+
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
 	public String getSid(){
 		return sid;
 	}
@@ -162,12 +205,48 @@ public class SysAccount extends Pages<SysAccount>{
 	public void setNotes(String notes){
 		this.notes=notes;
 	}
-	
-	
-	
-	
-	
-	//get,set methods end
+
+	public String isForceLogin() {
+		return isForceLogin;
+	}
+
+	public void setIsForceLogin(String forceLogin) {
+		isForceLogin = forceLogin;
+	}
+
+	public Set<SysRole> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(Set<SysRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	public SysUser getSysUser() {
+		return sysUser;
+	}
+
+	public void setSysUser(SysUser sysUser) {
+		this.sysUser = sysUser;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getCaptcha() {
+		return captcha;
+	}
+
+	public void setCaptcha(String captcha) {
+		this.captcha = captcha;
+	}
+
+//get,set methods end
 	
 
 }

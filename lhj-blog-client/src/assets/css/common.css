@@ -6,9 +6,7 @@ html{
 }
 body{
     font-size: inherit !important;
-}
-body *{
-    color: #000;
+    color: #000; 
 }
 
 
