@@ -4,7 +4,7 @@
 
     <!-- 头部 -->
     <!--或者这种写法也行<AppHeader/> -->
-    <app-header :contentActiveTheme="contentActiveTheme" />
+    <!-- <app-header :contentActiveTheme="contentActiveTheme" /> -->
 
     <!-- =============登录=============== -->
     <div class="lgin-panel plan-centre">
@@ -31,7 +31,7 @@
 
 
     <!-- 尾部 -->
-    <app-footer :contentActiveTheme="contentActiveTheme" />
+    <!-- <app-footer :contentActiveTheme="contentActiveTheme" /> -->
 
   </div>
 
@@ -93,7 +93,8 @@ export default {
                 if(data.success && data.token){
                   _this.$common.setToken(data)//存储token 及用户信息
                   //登录成功跳转后台管理
-                  _this.$router.push({path:'/'});
+                  //_this.$router.push({path:'/welcome'});
+                  location.href='/welcome';
                 }else{
                   if(data.message == '412'){
 

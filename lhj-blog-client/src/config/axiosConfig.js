@@ -37,7 +37,7 @@ axios.interceptors.request.use(
         if(accountInfo && accountInfo.token){
           config.headers['Authorization'] = accountInfo.token;//向服务器发送请求时需添加Authorization请求头并设置withCredentials为true
         }else if(config.url.slice(0,5) != '/site' && config.url.slice(0,6) != '/login' && config.url.slice(0,6) != '/logut'){//后台管理都拦截
-          location.href='/login';
+          location.href='/river/login';
         }
 
         return config;
@@ -54,7 +54,7 @@ axios.interceptors.response.use(
          console.log(response);
          let data = response.data;
          if(data.responseCode == '401'){//401 未登陆，跳转到登录页面
-            location.href='/login';
+            location.href='/river/login';
          }else if(data.responseCode == '402'){//402 没有权限
             
          }

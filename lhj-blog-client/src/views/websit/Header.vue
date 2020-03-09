@@ -13,8 +13,8 @@
         <Col span="20">
           <div class="mnue-more-r">
             
-            <span class="top-mnues cursor-pointer hove-color" v-for="(row,index) in headerMenus" :key="row.id">
-              <router-link target="_self" :to="{path:row.path}">{{row.displayName}}</router-link>
+            <span class="top-mnues cursor-pointer hove-color" v-for="(row) in headerMenus" :key="row.id">
+              <router-link target="_self" :to="{path:row.url}">{{row.displayName}}</router-link>
             </span>
 
             <span class="top-mnues ">|</span>
@@ -28,7 +28,7 @@
                 <span class="top-mnues cursor-pointer hove-color logout" @click="logout">注销</span>
             </span>
             <span v-else class="top-mnues cursor-pointer hove-color" >
-              <router-link target="_self" :to="{path:'/login'}" >登录</router-link>
+              <router-link target="_self" :to="{path:'/river/login'}" >登录</router-link>
             </span>
 
             <span class="cursor-pointer" @click="moreMnueOpen"><Icon title="菜单" class="mnue-more " type="md-list" color=""  /></span>
@@ -48,13 +48,7 @@ export default {
   data(){
     return {
       sysAccountInfo:this.$common.getAccountInfo(),
-      headerMenus:[
-       /*  {id:'sy_1',name:'首页',url:''},
-        {id:'xmzp_2',name:'项目作品',url:''},
-        {id:'zyjn_3',name:'专业技能',url:''},
-        {id:'sygj_4',name:'实用工具',url:''},
-        {id:'lyyj_5',name:'留言意见',url:''}, */
-      ]
+      headerMenus:this.$common.webSitMenus
     }
   },
   props:{
@@ -64,22 +58,7 @@ export default {
     
   },
   created() {//el 没有初始化，数据已加载完成，阔以篡改数据，并更新，不会触发，，在这结束，还做一些初始化，实现函数自执行，ref属性内容为空数组
-    //菜单生成
-    let webSitRoules =this.$common.webSitRoules;
-    let headerMenus = [];
-    for(let i in webSitRoules){
-      let roule = webSitRoules[i];
-      let mate = roule.mate;
-      if(mate && roule.mate.status != '0'){
-        let menu = {
-          id:mate.sid,
-          displayName:mate.displayName,
-          path:roule.path
-        }
-        headerMenus.push(menu);
-      }
-    }
-    this.headerMenus = headerMenus;
+   
   },
   beforeMount(){//$el已被初始化,，数据已加载完成，阔以篡改数据，并更新，不会触发beforeUpdate，updated，在挂载开始之前被调用，beforeMount之前，会找到对应的template，并编译成render函数
  

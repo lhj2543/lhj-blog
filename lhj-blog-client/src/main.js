@@ -22,8 +22,6 @@ import qs from 'qs' //处理axios post传参后台接收为空
 Vue.prototype.$qs = qs;//Vue全局对象可用  this.$qs.stringify()
 
 
-
-
 Vue.config.productionTip = false
 Vue.use(ViewUI)// 使用ivew
 
@@ -32,5 +30,8 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  created() {
+    
+  },
 })

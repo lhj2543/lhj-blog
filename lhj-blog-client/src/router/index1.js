@@ -20,7 +20,7 @@ let router = new Router({
     {
       path:'/manage',
       name:'manage',
-      redirect:'/welcome',
+      //redirect:'/welcome',
       // 模块使用异步加载
       component:(resolve)=> require(['@/views/manage/Home.vue'], resolve),
       children:[

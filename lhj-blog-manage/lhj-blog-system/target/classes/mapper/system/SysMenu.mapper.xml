@@ -127,7 +127,7 @@
 	 			and icon = #{icon}
 	 		</if>
 	 		<if test="category != null and category != ''">
-	 			and category = #{category}
+	 			and category like  CONCAT('%',#{category},'%')
 	 		</if>
 	 		<if test="type != null and type != ''">
 	 			and type = #{type}

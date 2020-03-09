@@ -72,7 +72,8 @@
         menuActiveName:'',
         openMenus:[],
         leftMenus:[],
-        menus:{
+        menus:this.$common.manageMenus,
+        /* menus:{
             top0:{id:'top0',name:'首页',url:'/welcome',urlName:'welcome',icon:'ios-home-outline',leftMenus:[]},
             top1:{id:'top1',name:'系统管理',url:'/content/systemManage',urlName:'content',icon:'ios-laptop',leftMenus:
                     [
@@ -97,7 +98,7 @@
                 ]
             },
             top3:{id:'top3',name:'spring-boot',url:'/content/spring-boot',urlName:'content',icon:'ios-photos-outline',leftMenus:[]},
-        },
+        }, */
        
       }
       
@@ -106,6 +107,10 @@
     
     },
     created(){
+
+        //加载后台管理路由，及菜单
+        this.loadManageRoules();
+
         //展开所以菜单节点
         //this.openMenus=this.getOpenMenus();
 
@@ -114,24 +119,17 @@
 
         //页面刷新时自动定位到菜单栏
         this.autoSelectMenu();
+        
     },
     methods:{
+        
+        loadManageRoules(){//加载后台管理路由，及菜单
+
+        },
         logout(){//用户注销
             this.$common.logout({_this:this});//公共注销方法
         },
-        loadMenus(){
-            //加载数据库菜单
-            this.axios.get('/sysUser/queryAccount',{params:{
-
-            }})
-            .then((response)=>{
-                alert(JSON.stringify(response.data));
-            })
-            .catch((err)=>{
-                alert(err);
-            });
-
-        },
+        
         getOpenMenus(){//展开所以菜单节点
             var result=[];
             this.leftMenus.forEach((menu) => {
@@ -191,7 +189,7 @@
                 }
             }
             
-            if(flag){//页面没找到跳转到异常页面
+            if(flag && routePath!='/manage'){//页面没找到跳转到异常页面
                 this.$router.push({name:'error'});
             }
 
@@ -239,12 +237,11 @@
         }
     },
     mounted(){
-       //菜单数据加载
-       this.loadMenus();
+       
     },  
     watch: {//监听
             '$route' (to, from) {//路径发生变化是监听
-                console.log(to);
+               //console.log(to);
                this.autoSelectMenu();
             }
         }

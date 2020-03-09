@@ -26,6 +26,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: com.lhj.blog:lhj-blog-core:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="lhj-blog-core" />
     <orderEntry type="module" module-name="lhj-blog-mybatis" />
     <orderEntry type="module" module-name="lhj-blog-common" />
     <orderEntry type="library" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1" level="project" />

@@ -5,7 +5,10 @@
     var commomObj= {
         
         tokenKey:'sysAccountInfo',//localStorage 存储用户信息key
-        webSitRoules:[],
+        webSitRoules:[],//站点路由数据
+        webSitMenus:[],//站点菜单数据
+        manageRoules:[],//后台管理路由数据
+        manageMenus:{},//后台管理菜单数据
         
         logout:(params)=>{//登出
             let _this = params._this;

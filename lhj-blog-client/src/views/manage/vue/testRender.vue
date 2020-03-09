@@ -1,6 +1,8 @@
 <template>
     <div id="testRender">
-      <rederDemo />
+
+        11
+      <!-- <rederDemo /> -->
     </div>
 </template>
 

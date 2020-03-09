@@ -1,4 +1,6 @@
-
+<template>
+    <div>拉开圣诞节flak第三方</div>
+</template>
 
 <script>
 export default {
