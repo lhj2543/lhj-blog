@@ -4,7 +4,7 @@
 
     <!-- 头部 -->
     <!--或者这种写法也行<AppHeader/> -->
-    <!-- <app-header :contentActiveTheme="contentActiveTheme" /> -->
+    <app-header :contentActiveTheme="contentActiveTheme" />
 
     <!-- =============登录=============== -->
     <div class="lgin-panel plan-centre">
@@ -31,7 +31,7 @@
 
 
     <!-- 尾部 -->
-    <!-- <app-footer :contentActiveTheme="contentActiveTheme" /> -->
+    <app-footer :contentActiveTheme="contentActiveTheme" />
 
   </div>
 

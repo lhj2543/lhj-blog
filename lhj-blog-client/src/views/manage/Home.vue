@@ -5,13 +5,13 @@
            <!-- =====================头部开始===================== -->
           <Header class="manage-header">
               <div class="layout-logo theme-1">
-                  <router-link target="_blank" :to="{path:'/'}" >
+                  <a target="_self" href="/" >
                     <!-- <Icon type="logo-windows" color="#fff" /> 后台管理 -->
                     <span class="cursor-pointer" title="liuhaijiang.top">
                         <Icon id="logo" class="logo"  color="" custom="iconfont icon-icon-logo" />
                         <span class="log-name">RIVER</span>
                     </span>
-                  </router-link>
+                  </a>
               </div>
             <div class="layout-nav">
                 <div class="top-menus" :style="{float:'right'}" >

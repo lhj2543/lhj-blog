@@ -163,7 +163,7 @@
 		r.role_code as roleCode,
 		r.role_name as roleName
 		FROM  sys_user_role ur
-		LEFT  JOIN sys_role r ON ur.sid = r.sid and r.status = '1' and ur.status = '1'
+		INNER  JOIN sys_role r ON ur.role_id = r.sid and r.status = '1' and ur.status = '1'
 		where ur.user_cd = #{value}
 	</select>
 

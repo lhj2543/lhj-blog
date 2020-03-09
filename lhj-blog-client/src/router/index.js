@@ -32,13 +32,13 @@ let router = new Router({
       mate:{},
       component:(resolve)=> require(['@/views/errors/404.vue'], resolve),
     },
-    {
+    /* {
       path:'/manage',
       name:'manage',
       //redirect:'welcome',
       // 模块使用异步加载
       component:(resolve)=> require(['@/views/manage/Home.vue'], resolve),
-    },
+    }, */
 
   ]
 });
@@ -97,26 +97,27 @@ router.beforeEach((to, from, next) => {
             manageRoule.children.push(contentRoule);
             manageRoules.push(manageRoule);
           
-            manageRoules.push(
-              {//找不到的路径跳转到异常页面
-                path:'*',
-                mate:{status:'0'},
-                redirect:{name:'404'}
-              }
-            );
+            
              /* ===============路由数据组装=============== */
 
 
             common.manageRoules = manageRoules;
             common.manageMenus = manageMenus;
           
-            router.addRoutes(manageRoules);
-            router.options.isLoadManageRouter=true;
-            next({...to, replace: true});
-
           }else{
               alert(data.message);
           }
+
+          manageRoules.push(
+            {//找不到的路径跳转到异常页面
+              path:'*',
+              mate:{status:'0'},
+              redirect:{name:'404'}
+            }
+          );
+          router.addRoutes(manageRoules);
+          router.options.isLoadManageRouter=true;
+          next({...to, replace: false});
 
       })
       .catch((err)=>{
@@ -142,8 +143,10 @@ router.beforeEach((to, from, next) => {
         let rows = response.data.rows;
         for(let i in rows){
           let row = rows[i];
-          let roule = getRole(row);
-          webSitRoules.push(roule);
+          if(row.pagePath){
+            let roule = getRole(row);
+            webSitRoules.push(roule);
+          }
 
           let menu = {
             id:row.sid,
@@ -165,7 +168,7 @@ router.beforeEach((to, from, next) => {
         router.options.isLoadSiteRouter=true;
         common.webSitRoules=webSitRoules;
         common.webSitMenus=webSitMenus;
-        next({...to, replace: true});
+        next({...to, replace: false});
 
       }else{
         alert(response.data.message);

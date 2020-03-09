@@ -3,6 +3,8 @@ package com.lhj.model.system;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.lang.String;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.lhj.common.model.Pages;
 
@@ -100,6 +102,8 @@ public class SysMenu extends Pages<SysMenu>{
 	 * len 		512
 	 */
 	private String notes;
+
+	private Set<SysRole> userRoles = new HashSet<SysRole>(0);
 	// fields end
 	
 	
@@ -201,11 +205,16 @@ public class SysMenu extends Pages<SysMenu>{
 	public void setNotes(String notes){
 		this.notes=notes;
 	}
-	
-	
-	
-	
-	
+
+	public Set<SysRole> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(Set<SysRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+
 	//get,set methods end
 	
 

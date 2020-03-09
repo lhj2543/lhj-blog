@@ -16,8 +16,9 @@
             .then((response)=>{
                 let data = response.data;
                 if(data.success){
-                    window.localStorage.removeItem('sysAccountInfo');
-                    _this.$router.push({path:'/login'});
+                    _this.$common.cleanToken();
+                    //_this.$router.push({path:'/login'});
+                    location.href='/river/login';
                 }else{
                      _this.$Message.error(data.message);
                 }
@@ -38,6 +39,11 @@
                 result =  sysAccountInfo.token;
             }
             return result;
+        },
+        cleanToken:()=>{//清除token
+            if(window.localStorage){
+               window.localStorage.removeItem(this.a.tokenKey);
+            }
         },
         getAccountInfo:(params)=>{//获取账户信息
             let result = {};

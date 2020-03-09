@@ -13,8 +13,9 @@
         <Col span="20">
           <div class="mnue-more-r">
             
-            <span class="top-mnues cursor-pointer hove-color" v-for="(row) in headerMenus" :key="row.id">
-              <router-link target="_self" :to="{path:row.url}">{{row.displayName}}</router-link>
+            <span class="top-mnues cursor-pointer hove-color" v-for="(row,index) in headerMenus" :key="row.id">
+              <a v-if="index===headerMenus.length-1" :href="row.url">{{row.displayName}}</a>
+              <router-link v-else target="_self" :to="{path:row.url}">{{row.displayName}}</router-link>
             </span>
 
             <span class="top-mnues ">|</span>

@@ -54,9 +54,10 @@ axios.interceptors.response.use(
          console.log(response);
          let data = response.data;
          if(data.responseCode == '401'){//401 未登陆，跳转到登录页面
+            common.cleanToken();
             location.href='/river/login';
          }else if(data.responseCode == '402'){//402 没有权限
-            
+
          }
         return response;
      }, 

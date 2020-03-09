@@ -150,6 +150,9 @@
 	 		<if test="updateDate != null">
 	 			and update_date = #{updateDate}
 	 		</if>
+			<if test="customWhere != null and customWhere != ''">
+				${customWhere}
+			</if>
 	</sql>
 
 	<!-- SYS_MENU 表关联项目信息表结果集属性声明 -->
@@ -186,6 +189,36 @@
 		</where>
 		<!-- 通用查询排序 -->
 		<include refid="com.lhj.system.orderby"/>
+	</select>
+
+	<!-- 根据用户角色查询菜单权限 -->
+	<select id="findSysMenuByUserRole" resultType="SysMenu">
+
+		SELECT
+		*
+		from
+		sys_menu m
+
+		<if test="!isAdministrator">
+			INNER JOIN
+			(
+				SELECT
+				DISTINCT menu_id
+				from sys_role_menu rm
+				where rm.role_id in
+				<foreach collection="userRoles" open="(" separator="," close=")"  item="value">
+					#{value.sid}
+				</foreach>
+				and rm.`status`='1'
+			) t1
+			on m.sid=t1.menu_id
+		</if>
+
+		where 1=1
+		and m.parent_id != '-1' and `status` ='1' and category like 'manage-%'
+
+		ORDER BY m.sort_key
+
 	</select>
 	
 	<!-- SYS_MENU  数量查询SQL -->

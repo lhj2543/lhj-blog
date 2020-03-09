@@ -14,7 +14,10 @@ public class Pojo<T> implements Serializable{
 	private String id;
 	private String sid;
 
-	private String userId;
+	private String userCd;
+	private String userName;
+
+	private boolean isAdministrator;
 
 	private String orderby;
 
@@ -37,6 +40,8 @@ public class Pojo<T> implements Serializable{
 	private String message = "";
 
 	private String history;
+
+	private String customWhere;
 
 	private Set<Object> errors = new HashSet<Object>();
 
@@ -149,14 +154,20 @@ public class Pojo<T> implements Serializable{
 		return serialVersionUID;
 	}
 
-	public String getUserId()
-	{
-		return this.userId;
+	public String getUserCd() {
+		return userCd;
 	}
 
-	public void setUserId(String userId)
-	{
-		this.userId = userId;
+	public void setUserCd(String userCd) {
+		this.userCd = userCd;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getOrderby()
@@ -167,5 +178,21 @@ public class Pojo<T> implements Serializable{
 	public void setOrderby(String orderby)
 	{
 		this.orderby = orderby;
+	}
+
+	public String getCustomWhere() {
+		return customWhere;
+	}
+
+	public void setCustomWhere(String customWhere) {
+		this.customWhere = customWhere;
+	}
+
+	public boolean isAdministrator() {
+		return isAdministrator;
+	}
+
+	public void setAdministrator(boolean administrator) {
+		isAdministrator = administrator;
 	}
 }
