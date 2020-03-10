@@ -107,10 +107,7 @@
     
     },
     created(){
-
-        //加载后台管理路由，及菜单
-        this.loadManageRoules();
-
+       
         //展开所以菜单节点
         //this.openMenus=this.getOpenMenus();
 
@@ -123,9 +120,6 @@
     },
     methods:{
         
-        loadManageRoules(){//加载后台管理路由，及菜单
-
-        },
         logout(){//用户注销
             this.$common.logout({_this:this});//公共注销方法
         },
@@ -188,10 +182,10 @@
                     }
                 }
             }
-            
-            if(flag && routePath!='/manage'){//页面没找到跳转到异常页面
-                this.$router.push({name:'error'});
-            }
+            /* alert(flag);
+            if(flag){//菜单页面没找到跳转到首页
+                this.$router.push({path:'/welcome'});
+            } */
 
         },
         topSelectMenu(name){//顶部菜单选中事件

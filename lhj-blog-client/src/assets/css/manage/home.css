@@ -54,3 +54,19 @@
     border-bottom: 1px solid #373B3A !important;
 }
 /* ==================首页布局========================= */
+
+.content-card .card-body{
+    max-height: 700px;
+    overflow: auto;
+
+}
+.content-card .header{
+    padding:18px;
+    border-bottom:1px solid #dcdee2;
+}
+
+
+.content-page{
+    padding: 20px;
+    text-align: center;
+}

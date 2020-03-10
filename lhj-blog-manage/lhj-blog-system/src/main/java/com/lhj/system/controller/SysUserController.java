@@ -55,6 +55,7 @@ public class SysUserController {
 
         } catch(Exception e) {
             logger.error("查询用户列表异常",e);
+            param.setMessage("查询用户列表异常");
             e.printStackTrace();
         }
         logger.info("查询用户列表结束");
@@ -69,26 +70,11 @@ public class SysUserController {
         try {
             result = dataBaseService.selectList("findSysUser",param);
         } catch(Exception e) {
+            param.setMessage("查询用户列表异常");
             logger.error("查询用户列表异常",e);
             e.printStackTrace();
         }
         logger.info("查询用户列表结束");
-        return  result;
-    }
-
-    @RequestMapping(value = "/queryAccount")
-    @RequiresRoles("admin") //如果subject中有这些角色才可以访问方法。如果没有这个权限则会抛出异常AuthorizationException。
-    public SysAccount queryAccount(){
-        SysAccount result = new SysAccount();
-        result.setUserCd("admin");
-        result = dataBaseService.selectOne("findSysAccount",result);
-
-        /*SysRole sr =new SysRole();
-        sr.setRoleName("啊啦啦啦");
-        Set<SysRole> s =new HashSet<SysRole>();
-        s.add(sr);
-        result.setUserRoles(s);*/
-
         return  result;
     }
 

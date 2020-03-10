@@ -47,6 +47,7 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
   //console.log(to);
   debugger
+  
   let toPath = to.path;
   //判断是否访问后台页面,并且未登录，跳转到登录页面
   if(toPath!='/' && toPath.slice(0,6) !='/river' && common.getToken()==''){
@@ -94,6 +95,7 @@ router.beforeEach((to, from, next) => {
              /* ===============菜单数据组装=============== */
 
             }
+            console.log(contentRoule);
             manageRoule.children.push(contentRoule);
             manageRoules.push(manageRoule);
           
@@ -246,7 +248,7 @@ function getMenu(data,rows,isLeftMenu) {
 
   for(let i in rows){
     let row = rows[i];
-    if(row.parentId == data.sid){
+    if(row.parentId == data.sid && row.type!='2'){//type 类型：0=菜单，1=iframe，2=页面
       if(isLeftMenu){
         menu.leftMenus.push(getMenu(row,rows,false));
       }else{
