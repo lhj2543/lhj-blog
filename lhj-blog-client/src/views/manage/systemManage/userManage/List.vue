@@ -24,23 +24,29 @@ a{border-bottom: }
           <Icon title="刷新"  size="18" @click="loadListData" class="cursor-pointer"  type="md-sync" />
         </span>
       </div>
-      <div class="card-body">
+      <div class="card-body" style="padding:0 25px;">
         
-        <Form ref="searchForm" :model="searchForm" :label-width="180" style="padding:20px 15px 10px 15px;">
+        <Form ref="searchForm" :model="searchForm" :label-width="120" style="padding:25px 0px 10px 0px;">
           <Row>
-            <Col span="8">
-                <FormItem label="用户cd" prop="userCd">
-                  <Input type="text" v-model="searchForm.userCd" placeholder="请输入用户cd...">
-                  </Input>
+            <Col span="6">
+              <FormItem label="用户cd" prop="userCd">
+                <Input type="text" v-model="searchForm.userCd" placeholder="请输入用户cd...">
+                </Input>
               </FormItem>
             </Col>
-            <Col span="8">
+            <Col span="6">
               <FormItem label="用户名称"  prop="userName">
                   <Input type="text"  v-model="searchForm.userName" placeholder="请输入用户名称...">
                   </Input>
               </FormItem>
             </Col>
-            <Col span="8" style="text-align:right">
+            <Col span="6">
+              <FormItem label="手机号码"  prop="phoneNumber">
+                  <Input type="text"  v-model="searchForm.phoneNumber" placeholder="请输入手机号码...">
+                  </Input>
+              </FormItem>
+            </Col>
+            <Col span="6" style="text-align:right">
                     <Button @click="search('searchForm')" type="info" ghost icon="ios-search" >检索</Button>
                     <Button @click="formReset('searchForm')" type="info" ghost icon="ios-refresh" >清空</Button>
                     <Button type="info" ghost icon="ios-add" @click="login('loginForm')">新增</Button>
@@ -74,6 +80,7 @@ a{border-bottom: }
         searchForm:{
           userCd:'',
           userName:'',
+          phoneNumber:'',
           page:1,
           pageSize:10,
         },
