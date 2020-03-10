@@ -42,12 +42,12 @@ a{border-bottom: }
                 </Input>
             </FormItem>
           </Col>
-          <!-- <Col span="8" style="text-align:right">
-                  <Button @click="loginReset('loginForm')" >检索</Button>
+          <Col span="8" style="text-align:right">
+                  <Button @click="search('searchForm')" >检索</Button>
                   <Button type="primary" @click="login('loginForm')">新增</Button>
                   <Button type="primary" @click="login('loginForm')">批量删除</Button>
                   <Button type="primary" @click="login('loginForm')">导出</Button>
-          </Col> -->
+          </Col>
           
         </Row>
       </Form>
@@ -190,13 +190,19 @@ a{border-bottom: }
     beforeMount(){//$el已被初始化,，数据已加载完成，阔以篡改数据，并更新，不会触发beforeUpdate，updated，在挂载开始之前被调用，beforeMount之前，会找到对应的template，并编译成render函数
     },
     methods:{//el 已被初始化，数据已加载完成，阔以篡改数据，并更新，并且触发，，在这发起后端请求，拿回数据，配合路由钩子做一些事情，ref属性可以访问
-      
+      search(params){
+        this.loadListData();
+      },
       loadListData(params){/* 加载列表数据 */
         let _this = this;
         let result = [];
-        alert(this.searchForm.userCd);
-        let searchForm = this.searchForm.userCd;
-        this.axios.get('/sysUser/query',{params:{searchForm}})
+
+        let searchParams = {
+          userCd:this.searchForm.userCd,
+          userName:this.searchForm.userName
+        };
+        
+        this.axios.get('/sysUser/query',{params:searchParams})
         .then((response)=>{
           let row = response.data;
           if(row.success){
