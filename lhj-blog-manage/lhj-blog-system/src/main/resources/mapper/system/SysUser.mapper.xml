@@ -105,7 +105,7 @@
 	 			and locale_id = #{localeId}
 	 		</if>
 	 		<if test="userName != null and userName != ''">
-	 			and user_name = '%'+#{userName}+'%'
+	 			and user_name like CONCAT('%',#{userName},'%')
 	 		</if>
 	 		<if test="userSearchName != null and userSearchName != ''">
 	 			and user_search_name = #{userSearchName}

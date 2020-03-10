@@ -6,6 +6,7 @@ import App from './App'
 // 导入共用组件
 import common from './components/common.vue'
 Vue.prototype.$common = common
+Vue.use(common); 
 
 import router from './router'
 

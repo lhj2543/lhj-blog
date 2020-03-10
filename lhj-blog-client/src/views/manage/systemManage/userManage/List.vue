@@ -16,45 +16,46 @@ a{border-bottom: }
     <div class="content-card">
       <div class="header" >
         <span class="title">
-          <Icon type="ios-film-outline"></Icon>
+          <Icon type="ios-list-box-outline" />
           用户列表
         </span>
         
         <span class="right-tool" style="float:right">
-          <a href="#" slot="extra" >
-              返回
-          </a>
+          <Icon title="刷新"  size="18" @click="loadListData" class="cursor-pointer"  type="md-sync" />
         </span>
       </div>
       <div class="card-body">
         
-      <Form ref="searchForm" :model="searchForm" :label-width="180" style="padding:20px 15px 10px 15px;">
-        <Row>
-          <Col span="8">
-              <FormItem label="用户cd" prop="userCd">
-                <Input type="text" v-model="searchForm.userCd" placeholder="请输入用户cd...">
-                </Input>
-            </FormItem>
-          </Col>
-          <Col span="8">
-             <FormItem label="用户名称"  prop="userName">
-                <Input type="text"  v-model="searchForm.userName" placeholder="请输入用户名称...">
-                </Input>
-            </FormItem>
-          </Col>
-          <Col span="8" style="text-align:right">
-                  <Button @click="search('searchForm')" >检索</Button>
-                  <Button type="primary" @click="login('loginForm')">新增</Button>
-                  <Button type="primary" @click="login('loginForm')">批量删除</Button>
-                  <Button type="primary" @click="login('loginForm')">导出</Button>
-          </Col>
-          
-        </Row>
-      </Form>
+        <Form ref="searchForm" :model="searchForm" :label-width="180" style="padding:20px 15px 10px 15px;">
+          <Row>
+            <Col span="8">
+                <FormItem label="用户cd" prop="userCd">
+                  <Input type="text" v-model="searchForm.userCd" placeholder="请输入用户cd...">
+                  </Input>
+              </FormItem>
+            </Col>
+            <Col span="8">
+              <FormItem label="用户名称"  prop="userName">
+                  <Input type="text"  v-model="searchForm.userName" placeholder="请输入用户名称...">
+                  </Input>
+              </FormItem>
+            </Col>
+            <Col span="8" style="text-align:right">
+                    <Button @click="search('searchForm')" type="info" ghost icon="ios-search" >检索</Button>
+                    <Button @click="formReset('searchForm')" type="info" ghost icon="ios-refresh" >清空</Button>
+                    <Button type="info" ghost icon="ios-add" @click="login('loginForm')">新增</Button>
+                    <Button type="error" ghost icon="ios-trash-outline" @click="login('loginForm')">批量删除</Button>
+            </Col>
+            
+          </Row>
+        </Form>
 
         
-        <Table class="content-table" height="519" border :columns="columns" :data="rows"></Table>
-        <Page class="content-page" :total="100" show-sizer />
+        <Table :loading="loading" class="content-table" height="519" border :columns="columns" :data="row.rows"></Table>
+        <Page class="content-page" :total="row.total" :page-size="searchForm.pageSize" :page-size-opts="pageSizeOpts"
+        @on-change="pageChange" @on-page-size-change="pageSizeChange" 
+        show-total show-sizer show-elevator :transfer="true" /><!-- 分页 -->
+        
       </div>
         
     </div>
@@ -69,10 +70,17 @@ a{border-bottom: }
     name: 'userList',
     data () {
       return {
+        loading:false,
         searchForm:{
           userCd:'',
           userName:'',
-          pageSize:''
+          page:1,
+          pageSize:10,
+        },
+        pageSizeOpts:[5,10, 20, 50, 100],
+        row:{
+          total:0,
+          rows: []
         },
         columns: [
               {
@@ -172,7 +180,8 @@ a{border-bottom: }
             }
               
           ],
-        rows: []
+        
+      
       }
     },
     components:{//注册组件
@@ -190,43 +199,78 @@ a{border-bottom: }
     beforeMount(){//$el已被初始化,，数据已加载完成，阔以篡改数据，并更新，不会触发beforeUpdate，updated，在挂载开始之前被调用，beforeMount之前，会找到对应的template，并编译成render函数
     },
     methods:{//el 已被初始化，数据已加载完成，阔以篡改数据，并更新，并且触发，，在这发起后端请求，拿回数据，配合路由钩子做一些事情，ref属性可以访问
-      search(params){
+      search(params){//检索
+        this.searchForm.page = 1;
         this.loadListData();
+      },
+      formReset (refName) {//表单重置
+        this.$refs[refName].resetFields();
       },
       loadListData(params){/* 加载列表数据 */
         let _this = this;
+
+        _this.loading=true;
+
         let result = [];
 
-        let searchParams = {
-          userCd:this.searchForm.userCd,
-          userName:this.searchForm.userName
-        };
-        
-        this.axios.get('/sysUser/query',{params:searchParams})
+        this.axios.get('/sysUser/query',{params:_this.searchForm})
         .then((response)=>{
           let row = response.data;
           if(row.success){
             let rows = row.rows;
-            _this.rows=rows;
+            _this.row=row;
+            _this.loading=false;
           }else{
-            _this.$Message.error(error);
+            _this.loading=false;
+            _this.$Message.info(row.message);
           }
         })
         .catch((err)=>{
+          _this.loading=false;
           _this.$Message.error(error);
         });
 
         return result;
       },
-
+      pageChange(page){
+        this.searchForm.page = page;
+        this.loadListData();
+      },
+      pageSizeChange(pageSize){
+        this.searchForm.pageSize = pageSize;
+        this.loadListData();
+      },
       show (index) {
-          this.$Modal.info({
+          /* this.$Modal.info({
               title: 'User Info',
-              content: `Name：${this.rows[index].userCd}`
-          })
+              content: `Name：${this.row.rows[index].userCd}`
+          }) */
+          this.$router.push({name:'manage-user-detail'});
       },
       remove (index) {
-          this.rows.splice(index, 1);
+        let _this = this;
+        _this.$Modal.confirm({title: '友情提示',content: '你确定要删除操作？'
+        ,onOk:()=>{
+
+          let sid = this.row.rows[index].sid;
+          this.axios.post('/sysUser/delete',JSON.stringify({sid:sid}))
+          .then((response)=>{
+            let row = response.data;
+            if(row.success){
+              _this.$Message.info(row.message);
+              _this.loadListData(row.message);
+              //this.row.rows.splice(index, 1);
+            }else{
+              _this.$Message.info(row.message);
+            }
+          })
+          .catch((err)=>{
+            _this.$Message.error(error);
+          });
+
+
+        }});
+          
       }
 
     },

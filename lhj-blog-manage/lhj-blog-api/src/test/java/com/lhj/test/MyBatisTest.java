@@ -20,7 +20,7 @@ public class MyBatisTest {
     @Autowired
     JsonSupport jsonSupport;
 
-    @Autowired
+    @Autowired(required = false)
     SysUserMapper sysUserMapper;
 
     @Autowired
@@ -78,7 +78,7 @@ public class MyBatisTest {
     public  void  myBaitsXmlTestInster(){
 
         try{
-            for (int i = 10; i < 20; i++) {
+            for (int i = 20; i < 100; i++) {
                 SysUser sysUser=new SysUser();
                 sysUser.setUserCd("admin_" + (i+1));
 

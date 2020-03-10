@@ -46,7 +46,7 @@ let router = new Router({
 //路由拦截
 router.beforeEach((to, from, next) => {
   //console.log(to);
-  debugger
+  //debugger
   
   let toPath = to.path;
   //判断是否访问后台页面,并且未登录，跳转到登录页面

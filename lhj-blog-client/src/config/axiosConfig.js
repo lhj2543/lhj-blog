@@ -22,15 +22,20 @@ axios.defaults.baseURL = apiURL;  // 默认地址
 axios.defaults.withCredentials = true ;// 允许携带cookie
 
 
-/* axios.defaults.transformRequest = (data)=>{
-
+/* axios.defaults.transformRequest = (data,config)=>{
+  alert(data);
+  console.log(config);
 } */
 
 // 添加请求拦截器
 axios.interceptors.request.use(
     function (config) {
+        //console.log(config);
+        
         // 在发送请求之前做些什么
-        //config.headers['Content-Type'] = 'application/json;charset=UTF-8';
+        if(config.method == 'post'){
+          config.headers['Content-Type'] = 'application/json;charset=UTF-8';
+        }
        
         //获取token 
         let accountInfo = common.getAccountInfo();

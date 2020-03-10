@@ -4,6 +4,12 @@
     
     var commomObj= {
         
+        install(Vue, options) {
+            Vue.prototype.test = (refName) => {
+                
+            }
+        },
+
         tokenKey:'sysAccountInfo',//localStorage 存储用户信息key
         webSitRoules:[],//站点路由数据
         webSitMenus:[],//站点菜单数据
@@ -51,7 +57,7 @@
                 result = JSON.parse(window.localStorage.getItem(this.a.tokenKey));
             }
             return result;
-        }
+        },
 
     }
 

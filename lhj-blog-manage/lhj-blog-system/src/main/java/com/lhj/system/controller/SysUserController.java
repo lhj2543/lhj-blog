@@ -47,6 +47,7 @@ public class SysUserController {
             SysUser sysUser = dataBaseService.selectOne("countSysUser", param);
             param.setTotal(sysUser.getTotal());
 
+            param.setOrderby("update_date desc");
             List<SysUser> users = dataBaseService.selectListByPage("findSysUser", param);
 
             param.setRows(users);
@@ -76,6 +77,48 @@ public class SysUserController {
         }
         logger.info("查询用户列表结束");
         return  result;
+    }
+
+    @RequestMapping(value = "/detail")
+    public SysUser detail(SysUser param){
+
+        logger.info("查询用户详情开始");
+
+        try {
+            param=dataBaseService.selectOne("deleteSysUser", param);
+
+            param.setSuccess(true);
+            param.setMessage("查询用户详情成功");
+
+        } catch(Exception e) {
+            logger.error("查询用户详情异常",e);
+            param.setMessage("查询用户详情异常");
+            e.printStackTrace();
+        }
+
+        logger.info("查询用户详情结束");
+        return  param;
+    }
+
+    @PostMapping(value = "/delete")
+    public SysUser delete(@RequestBody SysUser param){
+
+        logger.info("删除用户开始");
+
+        try {
+            int falg = dataBaseService.delete("deleteSysUser", param);
+
+            param.setSuccess(true);
+            param.setMessage("删除用户成功");
+
+        } catch(Exception e) {
+            logger.error("删除用户异常",e);
+            param.setMessage("删除用户异常");
+            e.printStackTrace();
+        }
+        
+        logger.info("删除用户结束");
+        return  param;
     }
 
 }
