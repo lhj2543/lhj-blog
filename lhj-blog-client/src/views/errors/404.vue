@@ -13,7 +13,11 @@ export default {
     return {
     }
   },
+  created() {
+    
+  },
   mounted () {//钩子
+    this.$Modal.error({title: '404异常',content: "error"});
   },
   methods: {
   },

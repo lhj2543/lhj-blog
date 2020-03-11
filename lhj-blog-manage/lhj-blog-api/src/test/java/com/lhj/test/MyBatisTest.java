@@ -78,7 +78,7 @@ public class MyBatisTest {
     public  void  myBaitsXmlTestInster(){
 
         try{
-            for (int i = 20; i < 100; i++) {
+            for (int i = 1; i < 100; i++) {
                 SysUser sysUser=new SysUser();
                 sysUser.setUserCd("admin_" + (i+1));
 

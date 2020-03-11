@@ -1,27 +1,16 @@
 
-<style scoped>
-a{border-bottom: }
-</style>
-
 <template>
   <div class="content-panel" >
-    <!-- <router-link target="" :to="{name:'manage-user-modify'}" >
-      修改
-    </router-link>
 
-    <router-link target="" :to="{name:'manage-user-detail'}" >
-      详情
-    </router-link> -->
-
-    <div class="content-card">
+    <div class="content-card" v-if="showPage=='list'">
       <div class="header" >
         <span class="title">
-          <Icon type="ios-list-box-outline" />
+          <Icon :type="$common.icon.list" />
           用户列表
         </span>
         
         <span class="right-tool" style="float:right">
-          <Icon title="刷新"  size="18" @click="loadListData" class="cursor-pointer"  type="md-sync" />
+          <Icon title="刷新"  size="18" @click="loadListData" class="cursor-pointer"  :type="$common.icon.refresh" />
         </span>
       </div>
       <div class="card-body" style="padding:0 25px;">
@@ -47,10 +36,10 @@ a{border-bottom: }
               </FormItem>
             </Col>
             <Col span="6" style="text-align:right">
-                    <Button @click="search('searchForm')" type="info" ghost icon="ios-search" >检索</Button>
-                    <Button @click="formReset('searchForm')" type="info" ghost icon="ios-refresh" >清空</Button>
-                    <Button type="info" ghost icon="ios-add" @click="login('loginForm')">新增</Button>
-                    <Button type="error" ghost icon="ios-trash-outline" @click="login('loginForm')">批量删除</Button>
+                    <Button @click="search('searchForm')" type="info" ghost :icon="$common.icon.search" >检索</Button>
+                    <Button @click="formReset('searchForm')" type="info" ghost :icon="$common.icon.clean" >清空</Button>
+                    <Button type="info" ghost :icon="$common.icon.add" @click="toAdd">新增</Button>
+                    <Button type="error" ghost :icon="$common.icon.delete" @click="deletes('loginForm')">批量删除</Button>
             </Col>
             
           </Row>
@@ -58,35 +47,42 @@ a{border-bottom: }
 
         
         <Table :loading="loading" class="content-table" height="519" border :columns="columns" :data="row.rows"></Table>
-        <Page class="content-page" :total="row.total" :page-size="searchForm.pageSize" :page-size-opts="pageSizeOpts"
+        <Page class="content-page" :total="row.total" :current="row.page" :page-size="row.pageSize" :page-size-opts="pageSizeOpts"
         @on-change="pageChange" @on-page-size-change="pageSizeChange" 
         show-total show-sizer show-elevator :transfer="true" /><!-- 分页 -->
         
       </div>
         
     </div>
+
+    <modify v-if="showPage == 'modify'" v-bind:thisRow="thisRow" v-on:chindrenChangeData="chindrenChangeData"   />
+
+    <Detail v-if="showPage == 'detail'" v-bind:thisRow="thisRow" v-on:chindrenChangeData="chindrenChangeData" />
     
   </div>
 
 </template>
 
 <script>
+
+  import modify from './Modify.vue'
+  import Detail from './Detail.vue'
   
   export default {
     name: 'userList',
     data () {
       return {
-        loading:false,
-        searchForm:{
-          userCd:'',
-          userName:'',
-          phoneNumber:'',
+        showPage:'list',//显示页面，默认显示列表
+        loading:false,//列表laoding 标识
+        searchForm:this.getSearchForm(),//检索表单
+        pageSizeOpts:[5,10, 20, 50, 100],//列表每页显示多少条数据下拉框
+        thisRow:{//修改，详情等当前选择的数据，传入子页面
+          sid:''
+        },
+        row:{//列表数据
+          total:0,
           page:1,
           pageSize:10,
-        },
-        pageSizeOpts:[5,10, 20, 50, 100],
-        row:{
-          total:0,
           rows: []
         },
         columns: [
@@ -153,21 +149,22 @@ a{border-bottom: }
                             },
                             on: {
                                 click: () => {
-                                    this.show(params.index)
+                                    this.toDetail(params.index)
                                 }
                             }
                         }, '详情'),
                         h('Button', {
                             props: {
                                 type: 'primary',
-                                size: 'small'
+                                size: 'small',
+                                //icon: this.$common.icon.delete
                             },
                             style: {
                                 marginRight: '5px'
                             },
                             on: {
                                 click: () => {
-                                    this.show(params.index)
+                                    this.toModify(params.index)
                                 }
                             }
                         }, '修改'),
@@ -178,7 +175,7 @@ a{border-bottom: }
                             },
                             on: {
                                 click: () => {
-                                    this.remove(params.index)
+                                    this.deletes(params.index)
                                 }
                             }
                         }, '删除')
@@ -192,13 +189,16 @@ a{border-bottom: }
       }
     },
     components:{//注册组件
-      
+      modify,Detail
     },
     beforeCreate(){//拿不到任何信息，无法篡改数据，一般做loding，这个时候的vue实例还什么都没有，但是$route对象是存在的，可以根据路由信息进行重定向之类的操作
       
     },
     created() {//el 没有初始化，数据已加载完成，阔以篡改数据，并更新，不会触发，，在这结束，还做一些初始化，实现函数自执行，ref属性内容为空数组
       
+      /* let params = this.$route.query;//获取上个页面传递参数
+      alert(JSON.stringify(params)); */
+
       //加载列表数据
       this.loadListData();
 
@@ -206,12 +206,25 @@ a{border-bottom: }
     beforeMount(){//$el已被初始化,，数据已加载完成，阔以篡改数据，并更新，不会触发beforeUpdate，updated，在挂载开始之前被调用，beforeMount之前，会找到对应的template，并编译成render函数
     },
     methods:{//el 已被初始化，数据已加载完成，阔以篡改数据，并更新，并且触发，，在这发起后端请求，拿回数据，配合路由钩子做一些事情，ref属性可以访问
+      chindrenChangeData(params){/* 子类修改父级数据调用方法 */
+        this.showPage=params.showPage;
+      },
+      getSearchForm(){//检索表单
+        let result ={
+          userCd:'',
+          userName:'',
+          phoneNumber:'',
+        }
+        return result;
+      },
       search(params){//检索
-        this.searchForm.page = 1;
+        this.row.page = 1;
         this.loadListData();
       },
       formReset (refName) {//表单重置
-        this.$refs[refName].resetFields();
+        
+        //this.$refs[refName].resetFields();
+        this.searchForm = this.getSearchForm();
       },
       loadListData(params){/* 加载列表数据 */
         let _this = this;
@@ -219,42 +232,48 @@ a{border-bottom: }
         _this.loading=true;
 
         let result = [];
-
-        this.axios.get('/sysUser/query',{params:_this.searchForm})
+        let searchForm=_this.searchForm;
+        searchForm.page=_this.row.page;
+        searchForm.pageSize=_this.row.pageSize;
+        this.axios.get('/sysUser/query',{params:searchForm})
         .then((response)=>{
+          _this.loading=false;
           let row = response.data;
           if(row.success){
             let rows = row.rows;
             _this.row=row;
-            _this.loading=false;
           }else{
-            _this.loading=false;
             _this.$Message.info(row.message);
           }
         })
-        .catch((err)=>{
+        .catch((error)=>{
           _this.loading=false;
-          _this.$Message.error(error);
+          _this.$Modal.error({title: '异常',content: error});
         });
 
         return result;
       },
       pageChange(page){
-        this.searchForm.page = page;
+        this.row.page = page;
         this.loadListData();
       },
       pageSizeChange(pageSize){
-        this.searchForm.pageSize = pageSize;
+        this.row.pageSize = pageSize;
         this.loadListData();
       },
-      show (index) {
-          /* this.$Modal.info({
-              title: 'User Info',
-              content: `Name：${this.row.rows[index].userCd}`
-          }) */
-          this.$router.push({name:'manage-user-detail'});
+      toAdd () {
+          this.showPage='modify';
+          this.thisRow={sid:''}
       },
-      remove (index) {
+      toModify (index) {
+          this.showPage='modify';
+          this.thisRow=this.row.rows[index];
+      },
+      toDetail (index) {
+          this.showPage='detail';
+          this.thisRow=this.row.rows[index];
+      },
+      deletes (index) {
         let _this = this;
         _this.$Modal.confirm({title: '友情提示',content: '你确定要删除操作？'
         ,onOk:()=>{
@@ -265,14 +284,14 @@ a{border-bottom: }
             let row = response.data;
             if(row.success){
               _this.$Message.info(row.message);
-              _this.loadListData(row.message);
+              _this.loadListData();
               //this.row.rows.splice(index, 1);
             }else{
               _this.$Message.info(row.message);
             }
           })
-          .catch((err)=>{
-            _this.$Message.error(error);
+          .catch((error)=>{
+            _this.$Modal.error({title: '异常',content: error});
           });
 
 
@@ -282,7 +301,7 @@ a{border-bottom: }
 
     },
     mounted(){
-
+      
     },
     destroyed(){
     

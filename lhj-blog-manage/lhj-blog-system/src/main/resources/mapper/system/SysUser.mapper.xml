@@ -99,7 +99,7 @@
 	 			and sid = #{sid}
 	 		</if>
 	 		<if test="userCd != null and userCd != ''">
-	 			and user_cd = #{userCd}
+	 			and user_cd like concat('%',#{userCd},'%')
 	 		</if>
 	 		<if test="localeId != null and localeId != ''">
 	 			and locale_id = #{localeId}
@@ -120,7 +120,7 @@
 	 			and address = #{address}
 	 		</if>
 	 		<if test="phoneNumber != null and phoneNumber != ''">
-	 			and phone_number = #{phoneNumber}
+	 			and phone_number like concat('%',#{phoneNumber},'%')
 	 		</if>
 	 		<if test="email != null and email != ''">
 	 			and email = #{email}

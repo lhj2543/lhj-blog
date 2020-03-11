@@ -70,3 +70,8 @@
     padding: 20px;
     text-align: center;
 }
+
+/* laod 效果 */
+.spin-icon-load{
+    animation: ani-demo-spin 1s linear infinite;
+}

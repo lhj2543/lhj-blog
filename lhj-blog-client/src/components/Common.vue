@@ -1,15 +1,34 @@
-
+<template>
+</template>
 
 <script type="text/javascript">
     
     var commomObj= {
+        
         
         install(Vue, options) {
             Vue.prototype.test = (refName) => {
                 
             }
         },
-
+        icon:{//全局图标定义
+            logo:'iconfont icon-icon-logo',//logo
+            add:'ios-add',//新增
+            modify:'ios-create-outline',//修改
+            detail:'ios-browsers',//详情
+            delete:'ios-trash-outline',//删除
+            remover:'',//移除
+            search:'ios-search',//搜索
+            list:'ios-list-box-outline',//列表
+            refresh:'md-sync',//刷新
+            back:'ios-undo-outline',//返回
+            save:'ios-albums-outline',//保存
+            cancel:'ios-undo-outline',//取消
+            clean:'ios-refresh',//清除 重置
+            close:'',//关闭
+            full:'',//全屏
+            
+        },
         tokenKey:'sysAccountInfo',//localStorage 存储用户信息key
         webSitRoules:[],//站点路由数据
         webSitMenus:[],//站点菜单数据
