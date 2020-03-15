@@ -64,10 +64,10 @@ router.beforeEach((to, from, next) => {
           let manageRoules = [];//后台管理路由数据
           let manageMenus = {};//后台管理菜单数据
           
-
+          let rows = [];
           let data = response.data;
           if(data.success){
-            let rows = data.rows;
+            rows = data.rows;
             /* ===============路由数据组装=============== */
             let manageRoule = getRole(data);
             let contentRoule = {
@@ -119,7 +119,11 @@ router.beforeEach((to, from, next) => {
           );
           router.addRoutes(manageRoules);
           router.options.isLoadManageRouter=true;
-          next({...to, replace: false});
+          if(rows.length<=0){
+            next("/manage");
+          }else{
+            next({...to, replace: false});
+          }
 
       })
       .catch((err)=>{

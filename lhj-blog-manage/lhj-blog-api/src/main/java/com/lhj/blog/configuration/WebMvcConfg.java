@@ -43,8 +43,10 @@ public class WebMvcConfg extends WebMvcConfigurerAdapter implements WebMvcRegist
 
     /**
      * 处理mybites 懒加载返回json 异常
+     * 方法2：//在所有相关的类前加上@JsonIgnoreProperties, 作用是json序列化时忽略bean中的一些属性序列化和反序列化时抛出的异常. 解决 mybatis 关联查询json 异常
+     @JsonIgnoreProperties(value = {"handler"})
      * */
-    @Override
+    /*@Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -58,7 +60,7 @@ public class WebMvcConfg extends WebMvcConfigurerAdapter implements WebMvcRegist
         MappingJackson2HttpMessageConverter jackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
         jackson2HttpMessageConverter.setObjectMapper(objectMapper);
         converters.add(jackson2HttpMessageConverter);
-    }
+    }*/
 
     /*
     继承父类 RequestMapping 路径

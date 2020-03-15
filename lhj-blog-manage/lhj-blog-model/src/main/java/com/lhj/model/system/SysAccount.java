@@ -1,6 +1,8 @@
 package com.lhj.model.system;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lhj.common.model.Pages;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -58,18 +60,24 @@ public class SysAccount extends Pages<SysAccount> {
 	 * type 		Date
 	 * len 		19
 	 */
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date startDate;
 	/**
 	 * colNameCn 	有效结束时间
 	 * type 		Date
 	 * len 		19
 	 */
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date endDate;
 	/**
 	 * colNameCn 	锁住时间
 	 * type 		Date
 	 * len 		19
 	 */
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date lockDate;
 	/**
 	 * colNameCn 	登录失败次数
@@ -102,18 +110,12 @@ public class SysAccount extends Pages<SysAccount> {
 	**/
 	private String userName;
 
-	/**
-	 *  关联账户角色表
-	 */
-	private Set<SysRole> userRoles = new HashSet<SysRole>(0);
-
-	/**
-	 *  关联用户信息
-	 */
-	private SysUser sysUser = new SysUser();
 
 	//验证码
 	private  String captcha;
+
+	//旧密码
+	private String oldPassword;
 
 	// fields end
 	
@@ -214,22 +216,6 @@ public class SysAccount extends Pages<SysAccount> {
 		isForceLogin = forceLogin;
 	}
 
-	public Set<SysRole> getUserRoles() {
-		return userRoles;
-	}
-
-	public void setUserRoles(Set<SysRole> userRoles) {
-		this.userRoles = userRoles;
-	}
-
-	public SysUser getSysUser() {
-		return sysUser;
-	}
-
-	public void setSysUser(SysUser sysUser) {
-		this.sysUser = sysUser;
-	}
-
 	public String getUserName() {
 		return userName;
 	}
@@ -246,7 +232,15 @@ public class SysAccount extends Pages<SysAccount> {
 		this.captcha = captcha;
 	}
 
-//get,set methods end
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
+
+	//get,set methods end
 	
 
 }

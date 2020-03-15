@@ -149,23 +149,11 @@
 			<result property="updateBy" column="update_by"/>
 			<result property="updateDate" column="update_date"/>
 
-			<collection property="userRoles" column="user_cd" select="findSysUserRoles" >
-
-			</collection>
 	</resultMap>
 
 	<!-- ============================DML语句配置=========================================== -->
 
-	<!-- 用户角色查询 -->
-	<select id="findSysUserRoles" resultType="SysRole">
-		SELECT
-		r.sid as sid,
-		r.role_code as roleCode,
-		r.role_name as roleName
-		FROM  sys_user_role ur
-		INNER  JOIN sys_role r ON ur.role_id = r.sid and r.status = '1' and ur.status = '1'
-		where ur.user_cd = #{value}
-	</select>
+
 
 	<!-- SYS_ACCOUNT 信息查询语句 -->
 	<select id="findSysAccount" resultMap="SysAccountResultMap">
@@ -200,9 +188,19 @@
 		SET    <include refid="SysAccount_update" />
 		WHERE  SID=#{sid}
 	</update>
-	
+	<!-- 修改SYS_ACCOUNT 信息 -->
+	<update id="updateSysAccountByUserCd" parameterType="SysAccount">
+		UPDATE SYS_ACCOUNT
+		SET    <include refid="SysAccount_update" />
+		WHERE  user_cd=#{userCd}
+	</update>
+
 	<!-- 删除SYS_ACCOUNT 信息 -->
 	<update id="deleteSysAccount" parameterType="SysAccount">
 		DELETE FROM SYS_ACCOUNT WHERE  SID=#{sid}
+	</update>
+	<!-- 删除SYS_ACCOUNT 信息 -->
+	<update id="deleteSysAccountByUserCd" parameterType="SysAccount">
+		DELETE FROM SYS_ACCOUNT WHERE  user_cd=#{userCd}
 	</update>
 </mapper>

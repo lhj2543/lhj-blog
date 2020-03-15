@@ -14,13 +14,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /*
     自定义拦截器
+    author:liuhaijiang
  */
 
 public class CustomPassThruAuthenticationFilter extends PassThruAuthenticationFilter {
 
     private Logger log = LoggerFactory.getLogger(this.getClass());
 
-    //获取请求方法，若为OPTIONS请求直接返回True放行
+    /*获取请求方法，若为OPTIONS请求直接返回True放行
+    * 前后端分离时，前端首先会发起一个OPTIONS 请求，验证是否可跨域请求
+     */
+
     @Override
     public boolean onPreHandle(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
 

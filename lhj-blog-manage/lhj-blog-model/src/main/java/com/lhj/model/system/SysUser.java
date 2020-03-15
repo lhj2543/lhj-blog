@@ -1,10 +1,12 @@
 package com.lhj.model.system;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.util.*;
 import java.lang.String;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lhj.common.model.Pages;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * table name:		SYS_USER <br/>
@@ -94,6 +96,63 @@ public class SysUser extends Pages<SysUser>{
 	 * len 		512
 	 */
 	private String notes;
+
+	/*密码*/
+	private String password;
+	/**
+	 * colNameCn 	许可证
+	 */
+	private String licence;
+	/**
+	 * colNameCn 	账户类型:（01=普通用户，02=管理员）
+	 */
+	private String type;
+	/**
+	 * colNameCn 	有效开始时间
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date startDate;
+	/**
+	 * colNameCn 	有效结束时间
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date endDate;
+	/**
+	 * colNameCn 	锁住时间
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date lockDate;
+	/**
+	 * colNameCn 	登录失败次数
+	 */
+	private BigDecimal loginFailureCount;
+
+	/*
+	* 非持久化属性
+	* 用户token
+	 */
+	private String token;
+
+	/*
+	*	非持久化属性
+	*	是否强制登录
+	**/
+	private String isForceLogin;
+
+	//账户
+	private SysAccount sysAccount = new SysAccount();
+
+	/**
+	 *  关联账户角色表
+	 */
+	private Set<SysUserRole> userRoles = new HashSet<SysUserRole>(0);
+
+	//角色状态
+	private String roleStatus;
+
 	// fields end
 	
 	
@@ -188,11 +247,102 @@ public class SysUser extends Pages<SysUser>{
 	public void setNotes(String notes){
 		this.notes=notes;
 	}
-	
-	
-	
-	
-	
+
+	public SysAccount getSysAccount() {
+		return sysAccount;
+	}
+
+	public void setSysAccount(SysAccount sysAccount) {
+		this.sysAccount = sysAccount;
+	}
+
+	public Set<SysUserRole> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(Set<SysUserRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getLicence() {
+		return licence;
+	}
+
+	public void setLicence(String licence) {
+		this.licence = licence;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public Date getLockDate() {
+		return lockDate;
+	}
+
+	public void setLockDate(Date lockDate) {
+		this.lockDate = lockDate;
+	}
+
+	public BigDecimal getLoginFailureCount() {
+		return loginFailureCount;
+	}
+
+	public void setLoginFailureCount(BigDecimal loginFailureCount) {
+		this.loginFailureCount = loginFailureCount;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public String getIsForceLogin() {
+		return isForceLogin;
+	}
+
+	public void setIsForceLogin(String isForceLogin) {
+		this.isForceLogin = isForceLogin;
+	}
+
+	public String getRoleStatus() {
+		return roleStatus;
+	}
+
+	public void setRoleStatus(String roleStatus) {
+		this.roleStatus = roleStatus;
+	}
 	//get,set methods end
 	
 

@@ -3,6 +3,7 @@ package com.lhj.system.controller;
 import com.lhj.common.exception.BusinessServiceException;
 import com.lhj.common.model.Pojo;
 import com.lhj.model.system.SysAccount;
+import com.lhj.model.system.SysUser;
 import com.lhj.mybatis.service.DataBaseService;
 import com.lhj.system.shiro.CustomUsernamePasswordToken;
 import com.lhj.system.support.SessionSupport;
@@ -24,6 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+* shiro controller
+* author:liuhaijiang
+*/
 @RestController
 public class ShiroController {
 
@@ -59,10 +64,10 @@ public class ShiroController {
     //@RequestMapping(value="/login",method = RequestMethod.POST)
     @PostMapping("/login")
     //@JsonIgnoreProperties(value = {"handler"}) //mybitis 关联查询懒加载 返回jison 异常 。作用是json序列化时忽略bean中的一些属性序列化和反序列化时抛出的异常.
-    public SysAccount login(@RequestBody  SysAccount param){
+    public SysUser login(@RequestBody  SysAccount param){
 
         logger.info("开始登陆，用户名="+param.getUserCd());
-        SysAccount result = new SysAccount();
+        SysUser result = new SysUser();
         try {
             String userCd = param.getUserCd();
             String password = param.getPassword();
@@ -86,7 +91,7 @@ public class ShiroController {
             subject.login(token);
 
             // 构建缓存用户信息返回给前端
-            result = (SysAccount) subject.getPrincipals().getPrimaryPrincipal();
+            result = (SysUser) subject.getPrincipals().getPrimaryPrincipal();
 
             //缓存
             //cacheUser = CacheUser.builder().token(subject.getSession().getId().toString()).build();

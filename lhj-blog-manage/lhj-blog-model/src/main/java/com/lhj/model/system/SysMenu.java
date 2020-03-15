@@ -1,10 +1,8 @@
 package com.lhj.model.system;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.util.*;
 import java.lang.String;
-import java.util.HashSet;
-import java.util.Set;
 
 import com.lhj.common.model.Pages;
 
@@ -103,7 +101,12 @@ public class SysMenu extends Pages<SysMenu>{
 	 */
 	private String notes;
 
-	private Set<SysRole> userRoles = new HashSet<SysRole>(0);
+	private Set<SysUserRole> userRoles = new HashSet<SysUserRole>(0);
+
+	private List<SysMenu> children = new LinkedList<SysMenu>();
+
+	//是否展开
+	private boolean expand;
 	// fields end
 	
 	
@@ -206,14 +209,29 @@ public class SysMenu extends Pages<SysMenu>{
 		this.notes=notes;
 	}
 
-	public Set<SysRole> getUserRoles() {
+	public Set<SysUserRole> getUserRoles() {
 		return userRoles;
 	}
 
-	public void setUserRoles(Set<SysRole> userRoles) {
+	public void setUserRoles(Set<SysUserRole> userRoles) {
 		this.userRoles = userRoles;
 	}
 
+	public List<SysMenu> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<SysMenu> children) {
+		this.children = children;
+	}
+
+	public boolean isExpand() {
+		return expand;
+	}
+
+	public void setExpand(boolean expand) {
+		this.expand = expand;
+	}
 
 	//get,set methods end
 	

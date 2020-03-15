@@ -223,8 +223,10 @@
                 }
 
                 this.$nextTick(() => {//手动更新菜单选择，展开
-                    this.$refs.ref_coontent.$refs.side_menu.updateOpened();
-                    this.$refs.ref_coontent.$refs.side_menu.updateActiveName();
+                    if(this.$refs.ref_coontent.$refs.side_menu){
+                        this.$refs.ref_coontent.$refs.side_menu.updateOpened();
+                        this.$refs.ref_coontent.$refs.side_menu.updateActiveName();
+                    }
                 })
             }
         }

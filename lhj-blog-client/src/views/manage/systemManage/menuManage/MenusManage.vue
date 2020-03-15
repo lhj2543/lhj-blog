@@ -15,8 +15,8 @@
 
                     <Row>
                         <Col span="12">
-                             <FormItem label="菜单名称" prop="name">
-                                <Input v-model="menuForm.name" placeholder="请输入菜单名称..."></Input>
+                             <FormItem label="菜单名称" prop="displayName">
+                                <Input v-model="menuForm.displayName" placeholder="请输入菜单名称..."></Input>
                             </FormItem>
                         </Col>
                         <Col span="12">
@@ -25,16 +25,28 @@
                             </FormItem>
                         </Col>
                     </Row>
-
                     <Row>
                         <Col span="12">
-                             <FormItem label="URL名称" prop="urlName">
-                                <Input v-model="menuForm.urlName" placeholder="请输入URL名称..."></Input>
+                             <FormItem label="页面路径" prop="pagePath">
+                                <Input v-model="menuForm.pagePath" placeholder="请输入页面路径..."></Input>
                             </FormItem>
                         </Col>
                         <Col span="12">
-                             <FormItem label="是否有效" prop="isActive">
-                                <Select v-model="menuForm.isActive" placeholder="请选中是否有效...">
+                            <FormItem label="分类" prop="category">
+                                <Input v-model="menuForm.category" placeholder="请输入分类..."></Input>
+                            </FormItem>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col span="12">
+                             <FormItem label="URL名称" prop="menuName">
+                                <Input v-model="menuForm.menuName" placeholder="请输入URL名称..."></Input>
+                            </FormItem>
+                        </Col>
+                        <Col span="12">
+                             <FormItem label="是否有效" prop="status">
+                                <Select v-model="menuForm.status" placeholder="请选中是否有效...">
                                     <Option value="1">是</Option>
                                     <Option value="0">否</Option>
                                 </Select>
@@ -49,14 +61,14 @@
                             </FormItem>
                         </Col>
                         <Col span="12">
-                            <FormItem label="排序" prop="order">
-                                <Input v-model="menuForm.order" placeholder="请输入序号..."></Input>
+                            <FormItem label="排序" prop="sortKey">
+                                <Input v-model="menuForm.sortKey" placeholder="请输入排序号..."></Input>
                             </FormItem>
                         </Col>
                     </Row>
                     
-                    <FormItem label="菜单描述" prop="desc">
-                        <Input v-model="menuForm.desc"   type="textarea"  :autosize="{minRows: 2,maxRows: 10}" placeholder="请输入菜单描述..."></Input>
+                    <FormItem label="菜单描述" prop="notes">
+                        <Input v-model="menuForm.notes"   type="textarea"  :autosize="{minRows: 2,maxRows: 10}" placeholder="请输入菜单描述..."></Input>
                     </FormItem>
 
                     <FormItem :style="{padding:'20px 0','text-align':'center'}">
@@ -72,16 +84,19 @@
 </template>
 
 <script>
-var menuObj= {
-                id:'',
+
+    let menuObj= {
+                sid:'',
                 parentId:'',
-                name: '',
+                displayName: '',
                 url: '',
-                urlName: '',
-                isActive: '',
+                pagePath:'',
+                menuName: '',
+                status: '',
                 icon: '',
-                order: '',
-                desc: ''
+                sortKey: '',
+                notes: '',
+                category:'',
             };
 
 
@@ -90,17 +105,18 @@ export default {
     data(){
         return{
             split1:0.2,
-            menus: [
+            menus:[],
+            /* menus: [
                     {
-                    id:'1',
+                    sid:'1',
                     parentId:'-1',
-                    name: '后台管理',
+                    displayName: '后台管理',
                     url:'',
-                    urlName:'',
-                    isActive:'1',
+                    menuName:'',
+                    status:'1',
                     icon:'',
-                    order:'0',
-                    desc:'',
+                    sortKey:'0',
+                    notes:'',
                     expand: true,
                     children: [
                         {
@@ -108,11 +124,11 @@ export default {
                             parentId:'1',
                             name: '首页',
                             url:'/welcom',
-                            urlName:'welcom',
-                            isActive:'1',
+                            menuName:'welcom',
+                            status:'1',
                             icon:'ios-home-outline',
-                            order:'1',
-                            desc:'测试',
+                            sortKey:'1',
+                            notes:'测试',
                             expand: true,
                             children:[]
                         },
@@ -121,11 +137,11 @@ export default {
                             parentId:'1',
                             name: '系统管理',
                             url:'',
-                            urlName:'',
-                            isActive:'',
+                            menuName:'',
+                            status:'',
                             icon:'',
-                            order:'',
-                            desc:'',
+                            sortKey:'',
+                            notes:'',
                             expand: true,
                             children: [
                                 {
@@ -133,11 +149,11 @@ export default {
                                     parentId:'1-2',
                                     name: '菜单管理',
                                     url:'',
-                                    urlName:'',
-                                    isActive:'',
+                                    menuName:'',
+                                    status:'',
                                     icon:'',
-                                    order:'',
-                                    desc:'',
+                                    sortKey:'',
+                                    notes:'',
                                     expand: true,
                                     children:[
                                         {
@@ -145,11 +161,11 @@ export default {
                                             parentId:'1-2-1',
                                             name: '菜单管理',
                                             url:'',
-                                            urlName:'',
-                                            isActive:'',
+                                            menuName:'',
+                                            status:'',
                                             icon:'',
-                                            order:'',
-                                            desc:'',
+                                            sortKey:'',
+                                            notes:'',
                                             expand: true,
                                             children:[]
                                         },
@@ -158,11 +174,11 @@ export default {
                                             parentId:'1-2-1',
                                             name: '菜单授权',
                                             url:'',
-                                            urlName:'',
-                                            isActive:'',
+                                            menuName:'',
+                                            status:'',
                                             icon:'',
-                                            order:'',
-                                            desc:'',
+                                            sortKey:'',
+                                            notes:'',
                                             expand: true,
                                             children:[]
                                         }
@@ -173,11 +189,11 @@ export default {
                                     parentId:'1-2',
                                     name: '用户管理',
                                     url:'',
-                                    urlName:'',
-                                    isActive:'',
+                                    menuName:'',
+                                    status:'',
                                     icon:'',
-                                    order:'',
-                                    desc:'',
+                                    sortKey:'',
+                                    notes:'',
                                     expand: true,
                                     children:[]
                                 }
@@ -185,7 +201,7 @@ export default {
                         }
                     ]
                 }
-            ],
+            ], */
             buttonProps: {
                 type: 'text',
                 /* size: 'small', */
@@ -193,20 +209,20 @@ export default {
             menuForm:Object.assign({},menuObj,{}),
             isDisabled:false,//表单按钮是否不可点击
             ruleValidate: {
-                name: [
+                displayName: [
                     { required: true, message: '菜单名称必填!', trigger: 'blur' }
                 ],
                 url: [
                     /* { required: true, message: '菜单URL必填!', trigger: 'blur' }, */
                 ],
-                urlName: [
+                menuName: [
                    /*  { required: true, message: 'Please select the city', trigger: 'change' } */
                 ],
-                isActive: [
+                status: [
                     /* { required: true, message: '请选中是否有效！', trigger: 'change' } */
                 ],
                 
-                desc: [
+                notes: [
                     /* { required: true, message: 'Please enter a personal introduction', trigger: 'blur' }, */
                     { type: 'string', max: 200, message: '最大不能超过200个字！', trigger: 'blur' }
                 ]
@@ -214,7 +230,28 @@ export default {
 
         }
     },
+    created() {
+        this.loadMenus();//加载后台菜单
+    },
     methods: {
+        loadMenus(){//加载后台菜单
+            let _this = this;
+            this.axios.get('/sysMenu/query',{params:{expand:true}})
+            .then((response)=>{
+                _this.loading=false;
+                let row = response.data;
+                if(row.success){
+                    this.menus = row.rows;
+                }else{
+                    _this.$Message.info(row.message);
+                }
+            })
+            .catch((error)=>{
+                _this.loading=false;
+                _this.$Modal.error({title: '异常',content: error});
+            });
+
+        },
         renderContent (h, { root, node, data }) {//自定义树样式
             /* console.log(root);
             console.log(node);
@@ -259,7 +296,7 @@ export default {
                                 marginRight: '8px'
                             }
                         }),
-                        h('span', data.name)
+                        h('span', data.displayName)
                     ]),
                     h('span', {
                         style: {
@@ -302,9 +339,10 @@ export default {
 
             const children = data.children || [];
             var newMenu=Object.assign({},menuObj,{
-                name:'新建菜单',
-                parentId:data.id,
-                isActive:'1',
+                sid:'',
+                displayName:'新建菜单',
+                parentId:data.sid,
+                status:'1',
                 selected:true,
                 expand:true
             });
@@ -314,21 +352,47 @@ export default {
             this.$set(data, 'children', children);
         },
         remove (root, node, data) {//移除菜单
-
-            this.$Modal.confirm({
-                title: '您确定要删除菜单？',
-                content: '<p>删除该菜单同时会删除该菜单下所有子菜单！</p>',
-                onOk: () => {
-                    const parentKey = root.find(el => el === node).parent;
-                    const parent = root.find(el => el.nodeKey === parentKey).node;
-                    const index = parent.children.indexOf(data);
-                    parent.children.splice(index, 1);
-                },
-                onCancel: () => {
-                    this.$Message.info('取消删除菜单');
-                }
-            });
+            /* console.log(root);
+            console.log(node);
+            console.log(data); */
             
+            let sid = data.sid;
+            let _this = this;
+            //alert(sid);
+
+            const parentKey = root.find(el => el === node).parent;
+            const parent = root.find(el => el.nodeKey === parentKey).node;
+            const index = parent.children.indexOf(data);
+
+            if(sid){
+
+                this.$Modal.confirm({
+                    title: '您确定要删除菜单？',
+                    content: '<p>删除该菜单同时会删除该菜单下所有子菜单！</p>',
+                    onOk: () => {
+                        
+                        //后台删除数据
+                        this.axios.post('/sysMenu/deletes',JSON.stringify(data))
+                        .then((response)=>{
+                            let row = response.data;
+                            _this.$Message.info(row.message);
+                            if(row.success){
+                                    parent.children.splice(index, 1);
+                            }
+                        })
+                        .catch((error)=>{
+                            _this.$Modal.error({title: '异常',content: error});
+                        });
+                    },
+                    onCancel: () => {
+                        this.$Message.info('取消删除菜单');
+                    }
+                });
+
+            }else{
+                parent.children.splice(index, 1);
+            }
+
         },
         menuOnSelectChange(selectNodes,node){//菜单选中事件
             console.log("============菜单选中=========");
@@ -340,12 +404,28 @@ export default {
             
         },
         handleSubmit (name) {//表单提交
+            let _this = this;
             this.$refs[name].validate((valid) => {
+
                 if (valid) {
-                    this.$Message.success('保存成功!');
-                } else {
-                    this.$Message.error('保存失败!');
+                    
+                    _this.loading=true;
+                    _this.axios.post('/sysMenu/save',JSON.stringify(_this.menuForm))
+                    .then((response)=>{
+                        let row = response.data;
+                        _this.loading=false;
+                        _this.$Message.info(row.message);
+                        if(row.success){
+                            _this.menuForm.sid = row.sid;
+                        }
+                    })
+                    .catch((error)=>{
+                        _this.loading=false;
+                        _this.$Modal.error({title: '异常',content: error});
+                    });
+                    
                 }
+
             })
         },
         handleReset (name) {//表单重置
@@ -361,7 +441,6 @@ export default {
 <style scoped>
     #menusManage{
         height: 100%;
-        /* border: 1px solid #dcdee2; */
     }
 
     .menus-split-pane{

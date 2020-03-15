@@ -1,10 +1,7 @@
 package com.lhj.blog.controller.manage;
 
 import com.lhj.common.support.JsonSupport;
-import com.lhj.model.system.SysAccount;
-import com.lhj.model.system.SysApp;
-import com.lhj.model.system.SysMenu;
-import com.lhj.model.system.SysRole;
+import com.lhj.model.system.*;
 import com.lhj.mybatis.service.DataBaseService;
 import com.lhj.system.support.SessionSupport;
 import org.slf4j.Logger;
@@ -52,14 +49,18 @@ public class HomeController {
             if(sysMenu != null){
                 result = sysMenu;
 
-                SysAccount sysAccount = sessionSupport.getSysAccount();
-                Set<SysRole> userRoles = sysAccount.getUserRoles();
+                SysUser sysUser = sessionSupport.getSysUser();
+                Set<SysUserRole> userRoles = sysUser.getUserRoles();
 
                 if(userRoles.size()<=0){//角色未空时，给基本角色
                     SysRole role = new SysRole();
                     role.setRoleCode("base");
                     role = dataBaseService.selectOne("findSysRole", role);
-                    userRoles.add(role);
+                    SysUserRole ur = new SysUserRole();
+                    ur.setRoleCode(role.getRoleCode());
+                    ur.setRoleId(role.getSid());
+                    ur.setRoleName(role.getRoleName());
+                    userRoles.add(ur);
                 }
 
                 param.setUserRoles(userRoles);

@@ -4,6 +4,8 @@ import com.lhj.common.exception.BusinessServiceException;
 import com.lhj.common.support.DateSupport;
 import com.lhj.model.system.SysAccount;
 import com.lhj.model.system.SysRole;
+import com.lhj.model.system.SysUser;
+import com.lhj.model.system.SysUserRole;
 import com.lhj.mybatis.service.DataBaseService;
 import com.lhj.system.support.Md5Supper;
 import org.apache.commons.lang3.StringUtils;
@@ -29,6 +31,10 @@ import org.springframework.stereotype.Component;
 import javax.validation.Valid;
 import java.util.*;
 
+/*
+* shiro 登录授权，权限验证
+* author:liuhaijiang
+* */
 @Component
 public class CustomShiroRealm extends AuthorizingRealm {
 
@@ -71,12 +77,12 @@ public class CustomShiroRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         //如果身份认证的时候没有传入User对象，这里只能取到userName
         //也就是SimpleAuthenticationInfo构造的时候第一个参数传递需要User对象
-        SysAccount account = (SysAccount) principalCollection.getPrimaryPrincipal();
+        SysUser user = (SysUser) principalCollection.getPrimaryPrincipal();
 
         // 查询用户角色，一个用户可能有多个角色
-        Set<SysRole> userRoles = account.getUserRoles();
+        Set<SysUserRole> userRoles = user.getUserRoles();
 
-        for (SysRole role : userRoles) {
+        for (SysUserRole role : userRoles) {
             authorizationInfo.addRole(role.getRoleCode());
             // 根据角色查询权限
             /*List<Permission> permissions = iPermissionService.getRolePermissions(role.getRoleId());
@@ -115,25 +121,29 @@ public class CustomShiroRealm extends AuthorizingRealm {
         }
 
 
-        SysAccount account = new SysAccount();
-        account.setUserCd(userCd);
-        account.setLicence("1");
+        SysUser user = new SysUser();
+        user.setUserCd(userCd);
+        user.setRoleStatus("1");
 
         //1. 根据accessToken，查询用户信息
-        account = dataBaseService.selectOne("findSysAccount",account);
+        user = dataBaseService.selectOne("findSysUser_login",user);
 
 
-        if (Objects.isNull(account)) {
+        if (Objects.isNull(user)) {
             //throw new BusinessServiceException("该账户不存在或账户已禁用！");
-            throw new UnknownAccountException("账户密码错误！");
+            throw new UnknownAccountException("账户或密码错误！");
         }else{
-            Date startDate = account.getStartDate();
-            Date endDate = account.getEndDate();
-            if(!(startDate !=null && endDate!=null && DateSupport.isEffectiveDate(new Date(),startDate,endDate))){
-                throw new AuthenticationException("账户已过期！");
+            if(!StringUtils.equals(user.getLicence(),"1")){
+                throw new AuthenticationException("账户已无效，请联系管理员！");
             }
 
-            if(!StringUtils.equals(account.getPassword(),md5Pwd)){
+            Date startDate = user.getStartDate();
+            Date endDate = user.getEndDate();
+            if(startDate !=null && endDate!=null &&  !(DateSupport.isEffectiveDate(new Date(),startDate,endDate))){
+                throw new AuthenticationException("账户已过期，请联系管理员！");
+            }
+
+            if(!StringUtils.equals(user.getPassword(),md5Pwd)){
                 throw new AuthenticationException("账户或密码错误！");
             }
 
@@ -147,7 +157,7 @@ public class CustomShiroRealm extends AuthorizingRealm {
                 //获得session中已经登录用户的名字
                 SimplePrincipalCollection principle=(SimplePrincipalCollection)session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY);
                 if(principle!=null){
-                    SysAccount u = (SysAccount)principle.getPrimaryPrincipal();
+                    SysUser u = (SysUser)principle.getPrimaryPrincipal();
                     if(StringUtils.equals(u.getUserCd(),userCd)){
                         logger.debug("帐号:"+userCd+"，已经在其他设备上登录");
                         if(isForceLogin){
@@ -165,7 +175,7 @@ public class CustomShiroRealm extends AuthorizingRealm {
 
 
         //5. 根据用户的情况, 来构建 AuthenticationInfo 对象并返使用的实现类为: SimpleAuthenticationInfo
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(account, account.getPassword(),ByteSource.Util.bytes(userCd), this.getName());
+        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, user.getPassword(),ByteSource.Util.bytes(userCd), this.getName());
 
 
         logger.info("shiro doGetAuthenticationInfo 身份验证结束--------------->");

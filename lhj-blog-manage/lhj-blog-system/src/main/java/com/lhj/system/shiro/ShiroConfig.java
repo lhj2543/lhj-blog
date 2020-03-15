@@ -20,6 +20,10 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/*
+*SpringBoot shrio 配置
+* author:liuhaijiang
+*/
 @Configuration
 public class ShiroConfig {
 

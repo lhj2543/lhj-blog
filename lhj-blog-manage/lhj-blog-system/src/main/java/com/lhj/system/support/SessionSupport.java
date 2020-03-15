@@ -1,6 +1,7 @@
 package com.lhj.system.support;
 
 import com.lhj.model.system.SysAccount;
+import com.lhj.model.system.SysUser;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
@@ -19,8 +20,9 @@ import java.util.Collection;
 import java.util.Enumeration;
 import java.util.List;
 
-/**
- * Session 支撑类
+/*
+* shiro session 支撑类
+* author:liuhaijiang
 */
 @Component
 public class SessionSupport {
@@ -31,11 +33,11 @@ public class SessionSupport {
     /**
      * 获得当前用户
      */
-    public SysAccount getSysAccount(){
-        SysAccount result = new SysAccount();
+    public SysUser getSysUser(){
+        SysUser result = new SysUser();
     	try {
             Subject subject = SecurityUtils.getSubject();
-            result = (SysAccount)subject.getPrincipal();
+            result = (SysUser)subject.getPrincipal();
 		} catch (Exception e) {
     	    e.printStackTrace();
         }
@@ -48,33 +50,32 @@ public class SessionSupport {
     public String getUserCd(){
         String result = "";
         try {
-            result = this.getSysAccount().getUserCd();
+            result = this.getSysUser().getUserCd();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return result;
     }
 
-   /* *//**
+    /**
      * 获得当前用户姓名
-     *//*
-    public SysAccount getUserName(){
-        SysAccount result = new SysAccount();
+     */
+    public String getUserName(){
+        String result = "";
         try {
-            Subject subject = SecurityUtils.getSubject();
-            result = (SysAccount)subject.getPrincipal();
+            result = this.getSysUser().getUserName();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return result;
-    }*/
+    }
 
     /**
      * 判断当前在线用户是否为系统超级管理员（内置管理员）
      * @return
      */
     public boolean isAdministrator(){
-        if("administrator".equals(this.getSysAccount().getUserCd())){
+        if("administrator".equals(this.getSysUser().getUserCd())){
             return true;
         }
         return false;
@@ -83,9 +84,9 @@ public class SessionSupport {
     /**
      * 获得当前所有在线用户
      */
-    public List<SysAccount> getActiveSysAccounts(){
+    public List<SysUser> getActiveSysAccounts(){
 
-        List<SysAccount> result = new ArrayList<SysAccount>();
+        List<SysUser> result = new ArrayList<SysUser>();
         try {
             //apache shiro获取所有在线用户
             Collection<Session> sessions = sessionDAO.getActiveSessions();
@@ -93,7 +94,7 @@ public class SessionSupport {
                 //获得session中已经登录用户的名字
                 SimplePrincipalCollection principle = (SimplePrincipalCollection) session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY);
                 if (principle != null) {
-                    SysAccount account = (SysAccount) principle.getPrimaryPrincipal();
+                    SysUser account = (SysUser) principle.getPrimaryPrincipal();
                     result.add(account);
                 }
             }

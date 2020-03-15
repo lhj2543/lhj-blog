@@ -12,6 +12,7 @@ import java.util.Set;
 
 /*
 shiro 全局异常铺货
+author:liuhaijiang
  */
 @RestControllerAdvice
 public class GlobalDefaultExceptionHandler {

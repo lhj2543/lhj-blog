@@ -7,7 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
-
+shiro 自定义UserNamePasswordToken 登录可传其他参数
+author:liuhaijiang
 * */
 public class CustomUsernamePasswordToken extends UsernamePasswordToken{
 

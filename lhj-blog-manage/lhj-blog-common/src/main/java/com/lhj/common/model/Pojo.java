@@ -1,6 +1,7 @@
 package com.lhj.common.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -8,6 +9,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+//在所有相关的类前加上@JsonIgnoreProperties, 作用是json序列化时忽略bean中的一些属性序列化和反序列化时抛出的异常. 解决 mybatis 关联查询json 异常
+@JsonIgnoreProperties(value = {"handler"})
 public class Pojo<T> implements Serializable{
 
 	private static final long serialVersionUID = -4658799939880991528L;

@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost-mysql
+Source Server         : lhj_blog
 Source Server Version : 50528
 Source Host           : localhost:3306
 Source Database       : lhj_blog
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50528
 File Encoding         : 65001
 
-Date: 2020-03-10 18:54:46
+Date: 2020-03-16 00:08:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,8 +42,12 @@ CREATE TABLE `sys_account` (
 -- Records of sys_account
 -- ----------------------------
 INSERT INTO `sys_account` VALUES ('1001', 'administrator', '20ac2904c1d2d6bba133ab8f3d4fdcfc', 'zh_CN', '1', '1', '1990-03-05 20:34:12', '3000-05-01 20:34:34', null, null, '超级管理员', 'lhj', '2020-03-05 20:35:47', 'lhj', '2020-03-05 20:35:53');
-INSERT INTO `sys_account` VALUES ('1002', 'admin', '928bfd2577490322a6e19b793691467e', 'zh_CN', '1', '1', '1990-03-05 20:34:12', '3000-05-01 20:34:34', null, null, '超级管理员', 'lhj', '2020-03-05 20:35:47', 'lhj', '2020-03-05 20:35:53');
+INSERT INTO `sys_account` VALUES ('1002', 'admin', '928bfd2577490322a6e19b793691467e', 'zh_CN', '1', '1', '1990-03-04 00:00:00', '3000-04-30 00:00:00', null, null, '超级管理员', 'lhj', '2020-03-05 20:35:47', 'admin', '2020-03-15 20:40:04');
 INSERT INTO `sys_account` VALUES ('1003', 'lhj', 'aa79ab0a38d0b940b203a4ccc470257c', 'zh_CN', '1', '1', '1990-03-05 20:34:12', '3000-05-01 20:34:34', null, null, '超级管理员', 'lhj', '2020-03-05 20:35:47', 'lhj', '2020-03-05 20:35:53');
+INSERT INTO `sys_account` VALUES ('2225411835612006982332019', 'a', 'c0d8209da5b684c66e135a15460c2a05', null, '1', '1', '2020-03-14 00:00:00', '2999-12-30 00:00:00', null, null, null, 'administrator', '2020-03-15 11:33:50', 'administrator', '2020-03-15 11:33:50');
+INSERT INTO `sys_account` VALUES ('2268647121683001497627145', '1', '3a3c6ca24f6e565c26100b01b5c3fc91', null, '1', '1', '2020-03-14 00:00:00', '2999-12-30 00:00:00', null, null, null, 'administrator', '2020-03-15 12:45:53', 'administrator', '2020-03-15 12:45:53');
+INSERT INTO `sys_account` VALUES ('2268789406807001595427921', '2', '56c9af8201fdca98f558baaf4cd5658a', null, '1', '1', '2020-03-14 00:00:00', '2999-12-30 00:00:00', null, null, null, 'administrator', '2020-03-15 12:46:07', 'administrator', '2020-03-15 12:46:07');
+INSERT INTO `sys_account` VALUES ('2268876146456007246770922', '3', 'cf6b4266f3af6939e410baea17bc9353', null, '1', '1', '2020-02-27 00:00:00', '2999-12-14 00:00:00', null, null, null, 'administrator', '2020-03-15 12:46:16', 'admin', '2020-03-15 20:39:25');
 
 -- ----------------------------
 -- Table structure for sys_account_attr
@@ -212,7 +216,7 @@ CREATE TABLE `sys_menu` (
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('001', '', '-1', 'zh_CN', 'webSite', '个人主页', '', '', '', 'site', '', '0', null, '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
+INSERT INTO `sys_menu` VALUES ('001', '', '-1', 'zh_CN', 'webSite', '个人主页', '', '', '', 'site', '', '1', '0', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
 INSERT INTO `sys_menu` VALUES ('002', '', '001', 'zh_CN', 'index', '首页', '/', 'websit/Index.vue', '', 'site-top', '', '1', '1', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
 INSERT INTO `sys_menu` VALUES ('003', '', '001', 'zh_CN', 'project', '项目作品', '/river/project', 'websit/Project.vue', '', 'site-top', '', '1', '2', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
 INSERT INTO `sys_menu` VALUES ('004', '', '001', 'zh_CN', 'skills', '专业技能', '/river/skill', 'websit/Skill.vue', '', 'site-top', '', '1', '3', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
@@ -222,17 +226,13 @@ INSERT INTO `sys_menu` VALUES ('007', '', '001', 'zh_CN', 'manage', '后台管�
 INSERT INTO `sys_menu` VALUES ('101', null, '-1', 'zh_CN', 'manage', '后台管理', '/manage', 'manage/Home.vue', null, 'manage', '', '1', '1', null, 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
 INSERT INTO `sys_menu` VALUES ('102', '', '101', 'zh_CN', 'manage-index', '首页', '/welcome', 'manage/Welcome.vue', 'ios-home-outline', 'manage-top', '', '1', '1', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
 INSERT INTO `sys_menu` VALUES ('103', '', '101', 'zh_CN', 'manage-syatem', '系统管理', '/content/systemManage', '', 'ios-home-outline', 'manage-top', '', '1', '2', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
-INSERT INTO `sys_menu` VALUES ('104', '', '103', 'zh_CN', 'manage-menu', '菜单管理', '/content/systemManage/menusManage', 'manage/systemManage/MenusManage.vue', 'ios-photos-outline', 'manage-left', '', '1', '1', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
-INSERT INTO `sys_menu` VALUES ('106', '', '103', 'zh_CN', 'manage-user-list', '用户管理', '/content/systemManage/userManage/list', 'manage/systemManage/userManage/List.vue', 'ios-photos-outline', 'manage-left', '', '1', '1', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
+INSERT INTO `sys_menu` VALUES ('104', '', '103', 'zh_CN', 'manage-menu', '菜单管理', '/content/systemManage/menusManage', 'manage/systemManage/menuManage/MenusManage.vue', 'ios-photos-outline', 'manage-left', '', '1', '3', '', 'lhj', '2020-03-08 20:50:50', 'administrator', '2020-03-16 00:05:28');
+INSERT INTO `sys_menu` VALUES ('106', '', '103', 'zh_CN', 'manage-user-list', '用户管理', '/content/systemManage/userManage', 'manage/systemManage/userManage/List.vue', 'ios-photos-outline', 'manage-left', '', '1', '1', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
 INSERT INTO `sys_menu` VALUES ('108', '', '101', 'zh_CN', 'manage-vue', 'vue', '/content/vue', '', 'ios-photos-outline', 'manage-top', '', '1', '3', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
-INSERT INTO `sys_menu` VALUES ('109', '', '108', 'zh_CN', 'manage-1', 'test1', '/content/vue/myRouter', 'manage/vue/testRender.vue', 'ios-photos-outline', 'manage-left', '', '1', '3', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
+INSERT INTO `sys_menu` VALUES ('109', '', '108', 'zh_CN', 'manage-1', 'test1', '/content/vue/myRouter', 'manage/vue/testRender.vue', 'ios-photos-outline', 'manage-left', '', '1', '2', '', 'lhj', '2020-03-08 20:50:50', 'administrator', '2020-03-15 23:29:51');
 INSERT INTO `sys_menu` VALUES ('110', '', '108', 'zh_CN', 'manage-2', 'test2', '/content/vue/other', 'manage/vue/rederDemo.vue', 'ios-photos-outline', 'manage-left', '', '1', '3', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
-INSERT INTO `sys_menu` VALUES ('111', '', '103', 'zh_CN', 'manage-userRoel', '角色管理', '/content/systemManage/userRoles', 'manage/systemManage/UserRoles.vue', 'ios-photos-outline', 'manage-left', '', '1', '2', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
-INSERT INTO `sys_menu` VALUES ('112', '', '103', 'zh_CN', 'manage-userRoel', '授权管理', '', '', 'ios-photos-outline', 'manage-left', '', '1', '2', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
-INSERT INTO `sys_menu` VALUES ('113', '', '112', 'zh_CN', 'manage-userRoel', '用户授权', '/content/systemManage/userRoles', 'manage/systemManage/UserRoles.vue', 'ios-photos-outline', 'manage-left', '', '1', '2', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
-INSERT INTO `sys_menu` VALUES ('114', '', '112', 'zh_CN', 'manage-userRoel', '角色授权', '/content/systemManage/userRoles', 'manage/systemManage/UserRoles.vue', 'ios-photos-outline', 'manage-left', '', '1', '2', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
-INSERT INTO `sys_menu` VALUES ('115', '', '106', 'zh_CN', 'manage-user-modify', '修改页面', '/content/systemManage/userManage/modify', 'manage/systemManage/userManage/Modify.vue', 'ios-photos-outline', 'manage-left', '2', '1', '1', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
-INSERT INTO `sys_menu` VALUES ('116', '', '106', 'zh_CN', 'manage-user-detail', '详情页面', '/content/systemManage/userManage/detail', 'manage/systemManage/userManage/Detail.vue', 'ios-photos-outline', 'manage-left', '2', '1', '1', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
+INSERT INTO `sys_menu` VALUES ('111', '', '103', 'zh_CN', 'manage-userRoel', '角色管理', '/content/systemManage/roleManage', 'manage/systemManage/roleManage/List.vue', 'ios-photos-outline', 'manage-left', '', '1', '2', '', 'lhj', '2020-03-08 20:50:50', 'lhj', '2020-03-08 20:50:55');
+INSERT INTO `sys_menu` VALUES ('112', '', '103', 'zh_CN', 'manage-userRoel', '字典管理', '/content/systemManage/itemManage', 'manage/systemManage/roleManage/List.vue', 'ios-photos-outline', 'manage-left', '', '1', '4', '', 'lhj', '2020-03-08 20:50:50', 'administrator', '2020-03-16 00:06:58');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -257,8 +257,13 @@ CREATE TABLE `sys_role` (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES ('001', 'zh_CN', 'base', '基本角色', null, '1', '1', null, null, null, null, null);
+INSERT INTO `sys_role` VALUES ('001', 'zh_CN', 'base', '基本角色', null, '1', '1', '测试', 'lhj', '2020-03-15 11:38:02', 'administrator', '2020-03-15 14:19:31');
 INSERT INTO `sys_role` VALUES ('002', 'zh_CN', 'admin', '管理员', '', '1', '1', '', 'lhj', '2020-03-08 12:32:03', 'lhj', '2020-03-08 12:32:09');
+INSERT INTO `sys_role` VALUES ('003', 'zh_CN', 'admin3', '管理员3', '', '0', '1', '', 'lhj', '2020-03-08 12:32:03', 'lhj', '2020-03-08 12:32:09');
+INSERT INTO `sys_role` VALUES ('2444309734150001078761859', null, 'a', 'a', '1', '1', null, 'a', 'administrator', '2020-03-15 17:38:36', 'administrator', '2020-03-15 17:38:36');
+INSERT INTO `sys_role` VALUES ('2444387444130001473907860', null, 'b', 'b', 'b', '1', null, null, 'administrator', '2020-03-15 17:38:44', 'administrator', '2020-03-15 17:38:44');
+INSERT INTO `sys_role` VALUES ('2444469401587002911178649', null, 'c', 'c', 'c', '1', null, null, 'administrator', '2020-03-15 17:38:52', 'administrator', '2020-03-15 17:38:52');
+INSERT INTO `sys_role` VALUES ('2444560805874002131978785', null, 'd', 'd', 'd', '1', null, null, 'administrator', '2020-03-15 17:39:02', 'administrator', '2020-03-15 17:39:02');
 
 -- ----------------------------
 -- Table structure for sys_role_menu
@@ -318,9 +323,13 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1001', 'administrator', 'zh_CN', '超级管理员', '超级管理员', '1', '中国', '上海', '17665057480', '1782221277@qq.com', '', '0', null, 'lhj', '2020-03-05 20:43:40', 'lhj', '2020-03-05 20:43:38');
-INSERT INTO `sys_user` VALUES ('1002', 'admin', 'zh_CN', '管理员', '管理员', '1', '中国', '上海', '17665057480', '1782221277@qq.com', '', '0', '', 'lhj', '2020-03-05 20:43:40', 'lhj', '2020-03-05 20:43:38');
-INSERT INTO `sys_user` VALUES ('1003', 'lhj', 'zh_CN', '刘海江', '刘海江', '1', '中国', '上海', '17665057480', '1782221277@qq.com', '', '0', '', 'lhj', '2020-03-05 20:43:40', 'lhj', '2020-03-05 20:43:38');
+INSERT INTO `sys_user` VALUES ('1001', 'administrator', 'zh_CN', '超级管理员', '超级管理员', '1', '中国', '上海', '17665057480', '1782221277@qq.com', '', '0', '', 'lhj', '2020-03-05 20:43:40', 'lhj', '2020-03-05 20:43:38');
+INSERT INTO `sys_user` VALUES ('1002', 'admin', 'zh_CN', '管理员', '管理员', '1', '中国', '上海', '17665057480', '1782221277@qq.com', '', '0', '', 'lhj', '2020-03-05 20:43:40', 'admin', '2020-03-15 20:40:04');
+INSERT INTO `sys_user` VALUES ('1003', 'lhj', 'zh_CN', '刘海江', '刘海江', '1', '中国', '上海', '17665057480', '1782221277@qq.com', '1', '0', '', 'lhj', '2020-03-05 20:43:40', 'administrator', '2020-03-13 00:46:14');
+INSERT INTO `sys_user` VALUES ('2225411591447006986452080', 'a', null, 'a', null, null, null, null, null, null, null, null, null, 'administrator', '2020-03-15 11:33:50', 'administrator', '2020-03-15 11:33:50');
+INSERT INTO `sys_user` VALUES ('2268646906373001495448429', '1', null, '1', null, null, null, null, null, null, null, null, null, 'administrator', '2020-03-15 12:45:53', 'administrator', '2020-03-15 12:45:53');
+INSERT INTO `sys_user` VALUES ('2268789339794001595730803', '2', null, '2', null, null, null, null, null, null, null, null, null, 'administrator', '2020-03-15 12:46:07', 'administrator', '2020-03-15 12:46:07');
+INSERT INTO `sys_user` VALUES ('2268876095093007246319007', '3', null, '3', null, null, null, null, null, null, null, null, null, 'administrator', '2020-03-15 12:46:16', 'admin', '2020-03-15 20:39:25');
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -344,5 +353,8 @@ CREATE TABLE `sys_user_role` (
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
-INSERT INTO `sys_user_role` VALUES ('001', 'admin', '001', '1', '2020-01-29 12:29:58', '2020-06-25 12:30:12', null, 'lhj', '2020-03-09 11:22:29', 'lhj', '2020-03-09 11:22:29');
+INSERT INTO `sys_user_role` VALUES ('001', 'admin', '001', '1', null, null, null, null, null, 'admin', '2020-03-15 20:40:04');
 INSERT INTO `sys_user_role` VALUES ('002', 'lhj', '001', '1', '2020-01-29 12:29:58', '2020-06-25 12:30:12', '', 'lhj', '2020-03-09 11:22:29', 'lhj', '2020-03-09 11:22:29');
+INSERT INTO `sys_user_role` VALUES ('2511367327496006403325173', '3', '001', '1', null, null, null, null, null, 'admin', '2020-03-15 20:39:25');
+INSERT INTO `sys_user_role` VALUES ('2530678075898006406971889', '3', '003', '0', null, null, null, null, null, 'admin', '2020-03-15 20:39:25');
+INSERT INTO `sys_user_role` VALUES ('2553188372202001739127346', 'admin', '002', '1', null, null, null, 'admin', '2020-03-15 20:40:04', 'admin', '2020-03-15 20:40:04');

@@ -3,10 +3,10 @@
   <div class="content-panel" >
 
     <div class="content-card" v-if="showPage=='list'">
-      <div class="header" >
+      <div class="header" v-if="!isModalOpen" >
         <span class="title">
           <Icon :type="$common.icon.list" />
-          用户列表
+          角色列表
         </span>
         
         <span class="right-tool" style="float:right">
@@ -18,28 +18,27 @@
         <Form ref="searchForm" :model="searchForm" :label-width="120" style="padding:25px 0px 10px 0px;">
           <Row>
             <Col span="6">
-              <FormItem label="用户cd" prop="userCd">
-                <Input type="text" v-model="searchForm.userCd" placeholder="请输入用户cd...">
+              <FormItem label="角色cd" prop="roleCode">
+                <Input type="text" v-model="searchForm.roleCode" placeholder="请输入角色cd...">
                 </Input>
               </FormItem>
             </Col>
             <Col span="6">
-              <FormItem label="用户名称"  prop="userName">
-                  <Input type="text"  v-model="searchForm.userName" placeholder="请输入用户名称...">
+              <FormItem label="角色名称"  prop="roleName">
+                  <Input type="text"  v-model="searchForm.roleName" placeholder="请输入角色名称...">
                   </Input>
               </FormItem>
             </Col>
-            <Col span="6">
-              <FormItem label="手机号码"  prop="phoneNumber">
-                  <Input type="text"  v-model="searchForm.phoneNumber" placeholder="请输入手机号码...">
-                  </Input>
-              </FormItem>
-            </Col>
-            <Col span="6" style="text-align:right">
+            <!-- <Col span="6">
+              &nbsp;
+            </Col> -->
+            <Col span="12" style="text-align:right">
                     <Button @click="search('searchForm')" type="info" ghost :icon="$common.icon.search" >检索</Button>
                     <Button @click="formReset('searchForm')" type="info" ghost :icon="$common.icon.clean" >清空</Button>
-                    <Button type="info" ghost :icon="$common.icon.add" @click="toAdd">新增</Button>
-                    <Button type="error" ghost :icon="$common.icon.delete" @click="deletes(checkedRows)">批量删除</Button>
+                    <span v-if="!isModalOpen">
+                      <Button type="info" ghost :icon="$common.icon.add" @click="toAdd">新增</Button>
+                      <Button type="error" ghost :icon="$common.icon.delete" @click="deletes(checkedRows)">批量删除</Button>
+                    </span>
             </Col>
             
           </Row>
@@ -71,82 +70,32 @@
 
   import table from '@/components/Table.js'
   
-  let methods = Object.assign({},table.methods,{
+  let methods_ = {
     getSearchForm(){//检索表单
         let result ={
-          userCd:'',
-          userName:'',
-          phoneNumber:'',
+          roleCode:'',
+          roleName:'',
         }
         return result;
       },
-  });
+  };
+  let methods = Object.assign({},table.methods,methods_);
 
   //let tableHandle = Object.assign({},table.handle,{});
 
   export default {
     name: 'userList',
     data () {
+      
+      //列表按钮
+      let listButton = {title: '',width:'1'};
 
-      let data_ = {
-        queryUrl:'/sysUser/query',//列表后台url
-        delUrl:'/sysUser/deletes',//删除后台url
-        searchForm:this.getSearchForm(),//检索表单
-        columns: [
-              {
-                  type: 'selection',/* 复选框 */
-                  width: 60,
-                  align: 'center'
-              },
-              {
-                  title: '用户Cd', 
-                  key: 'userCd', 
-                  dbKey:'user_cd',
-                  sortable: true, /* 是否排序 */
-                  resizable: true,/* 是否可拖拽宽度 */
-              },
-              {
-                  title: '用户名称',
-                  key: 'userName', 
-                  dbKey:'user_name',
-                  sortable: true, /* 是否排序 */
-                  resizable: true,/* 是否可拖拽宽度 */
-              },
-              {
-                  title: '手机号码',
-                  key: 'phoneNumber',
-                  dbKey:'phone_number',
-                  sortable: true, /* 是否排序 */
-                  resizable: true,/* 是否可拖拽宽度 */
-              },
-              {
-                  title: '邮箱',
-                  key: 'email',
-                  dbKey:'email',
-                  sortable: true, /* 是否排序 */
-                  resizable: true,/* 是否可拖拽宽度 */
-              },
-              {
-                  title: '账户状态',
-                  key: 'accountStatus',
-                  dbKey:'account_status',
-                  resizable: true,/* 是否可拖拽宽度 */
-              },
-              {
-                  title: '更新者',
-                  key: 'updateBy',
-                  dbKey:'update_by',
-                  sortable: true, /* 是否排序 */
-                  resizable: true,/* 是否可拖拽宽度 */
-              },
-              {
-                  title: '更新时间',
-                  key: 'updateDate',
-                  dbKey:'update_date',
-                  sortable: true, /* 是否排序 */
-                  resizable: true,/* 是否可拖拽宽度 */
-              },
-              {//列表按钮
+      //是否modal窗口 模式开的
+      let isModalOpen = false;
+      if( this.modalParams ){
+        isModalOpen = true ;
+      }else{
+        listButton={
                 title: '操作',
                 key: 'action',
                 width: 250,
@@ -195,18 +144,107 @@
                         }, '删除')
                     ]);
                 }
-            },
+            };
+      }
+      
+      let data_ = {
+        isModalOpen:isModalOpen,//是否窗口modal 模式打开
+        queryUrl:'/sysRole/query',//列表后台url
+        delUrl:'/sysRole/deletes',//删除后台url
+        searchForm:this.getSearchForm(),//检索表单
+        columns: [
+              {
+                  type: 'selection',/* 复选框 */
+                  width: 60,
+                  align: 'center'
+              },
+              {
+                  title: '角色code', 
+                  key: 'roleCode', 
+                  dbKey:'role_code',
+                  sortable: true, /* 是否排序 */
+                  resizable: true,/* 是否可拖拽宽度 */
+              },
+              {
+                  title: '角色名称',
+                  key: 'roleName', 
+                  dbKey:'role_name',
+                  sortable: true, /* 是否排序 */
+                  resizable: true,// 是否可拖拽宽度 
+              },
+              {
+                  title: '状态',
+                  key: 'status',
+                  resizable: true,// 是否可拖拽宽度 
+                  filters: [// 过滤器 
+                            
+                            {
+                                label: '有效',
+                                value: '1'
+                            },
+                            {
+                                label: '无效',
+                                value: '0'
+                            },
+                        ],
+                  filterMultiple: false,//过滤器是否可多选
+                  /* filterMethod (value, row) {//过滤器触发函数
+                      console.log(row);
+                      console.log(value);
+                      return true;
+                  }, */
+                  filteredValue:[],//在初始化时使用过滤，数组，值为需要过滤的 value 集合
+                  filterRemote (value, row,c) {//后台过滤
+                      /* console.log(row);
+                      console.log(value); */
+                      if(value.length>0){
+                        this.searchForm.status = value[0];
+                      }else{
+                        this.searchForm.status = '';
+                      }
+                      //this.statusFilteredValue=value;
+                      this.loadListData();
+                  }
+              },
+              {
+                  title: '更新者',
+                  key: 'updateBy',
+                  dbKey:'update_by',
+                  sortable: true, /* 是否排序 */
+                  resizable: true,/* 是否可拖拽宽度 */
+              },
+              {
+                  title: '更新时间',
+                  key: 'updateDate',
+                  dbKey:'update_date',
+                  sortable: true, /* 是否排序 */
+                  resizable: true,/* 是否可拖拽宽度 */
+              },
+              listButton,//列表按钮
           ],
         
       
       }
       
       let data = Object.assign({},table.data,data_);//继承 自定义table组件属性 
-
       return data;
     },
     components:{//注册组件
       modify
+    },
+    props:{
+      modalParams:Object,//父页面传过来的参数 窗口引用该页面
+    },
+    watch:{
+      modalParams:{  //监听父页面传过来的参数
+          handler:function(val,oldval){ 
+              if(val && val.modalIsOkClose){//窗口点击确定时，传数据到父页面
+                this.$emit('modalCheckData',this.checkedRows);
+              }
+          },  
+          immediate:true,//关键
+          deep:true
+      }
     },
     beforeCreate(){//拿不到任何信息，无法篡改数据，一般做loding，这个时候的vue实例还什么都没有，但是$route对象是存在的，可以根据路由信息进行重定向之类的操作
       

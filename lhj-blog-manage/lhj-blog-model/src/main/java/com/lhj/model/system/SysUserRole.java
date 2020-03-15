@@ -63,6 +63,8 @@ public class SysUserRole extends Pages<SysUserRole>{
 
 	private String roleName;
 
+	private String roleStatus;
+
 	private String userName;
 	// fields end
 	
@@ -141,7 +143,14 @@ public class SysUserRole extends Pages<SysUserRole>{
 		this.roleCode = roleCode;
 	}
 
-	//get,set methods end
-	
 
+	public String getRoleStatus() {
+		return roleStatus;
+	}
+
+	public void setRoleStatus(String roleStatus) {
+		this.roleStatus = roleStatus;
+	}
+
+	//get,set methods end
 }
