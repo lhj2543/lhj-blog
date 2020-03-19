@@ -72,12 +72,13 @@
   
   let methods_ = {
     getSearchForm(){//检索表单
-        let result ={
-          roleCode:'',
-          roleName:'',
-        }
-        return result;
-      },
+      let result ={
+        roleCode:'',
+        roleName:'',
+      }
+      return result;
+    },
+    
   };
   let methods = Object.assign({},table.methods,methods_);
 
@@ -98,7 +99,7 @@
         listButton={
                 title: '操作',
                 key: 'action',
-                width: 250,
+                width: 280,
                 align: 'center',
                 render: (h, params) => {
                     return h('div', [
@@ -169,6 +170,13 @@
                   title: '角色名称',
                   key: 'roleName', 
                   dbKey:'role_name',
+                  sortable: true, /* 是否排序 */
+                  resizable: true,// 是否可拖拽宽度 
+              },
+              {
+                  title: '角色分类',
+                  key: 'category', 
+                  dbKey:'category',
                   sortable: true, /* 是否排序 */
                   resizable: true,// 是否可拖拽宽度 
               },

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 /*
@@ -167,13 +168,16 @@ public class SysMenuController {
         SysMenu result = param;
         try {
 
-            param.setUpdateBy(sessionSupport.getUserCd());
-            param.setUpdateDate(DateSupport.getSystemDate());
+            String userCd = sessionSupport.getUserCd();
+            Date systemDate = DateSupport.getSystemDate();
+
+            param.setUpdateBy(userCd);
+            param.setUpdateDate(systemDate);
 
             if(StringUtils.isBlank(param.getSid())){
 
-                param.setCreatedBy(sessionSupport.getUserCd());
-                param.setCreatedDate(DateSupport.getSystemDate());
+                param.setCreatedBy(userCd);
+                param.setCreatedDate(systemDate);
                 dataBaseService.insert("addSysMenu",param);
 
             }else{

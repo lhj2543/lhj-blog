@@ -139,9 +139,11 @@ public class SysRoleController {
         logger.info("新增/修改角色开始 roleCode="+roleCode);
         SysRole result = param;
         try {
+            String userCd = sessionSupport.getUserCd();
+            Date systemDate = DateSupport.getSystemDate();
 
-            param.setUpdateBy(sessionSupport.getUserCd());
-            param.setUpdateDate(DateSupport.getSystemDate());
+            param.setUpdateBy(userCd);
+            param.setUpdateDate(systemDate);
 
             if(StringUtils.isBlank(param.getSid())){
 
@@ -152,8 +154,8 @@ public class SysRoleController {
                     return  result;
                 }
 
-                param.setCreatedBy(sessionSupport.getUserCd());
-                param.setCreatedDate(DateSupport.getSystemDate());
+                param.setCreatedBy(userCd);
+                param.setCreatedDate(systemDate);
                 dataBaseService.insert("addSysRole",param);
 
             }else{

@@ -9,9 +9,13 @@
 	<sql id="columns_SysItemCategory">
 		sid  ,
 		parent_id  ,
-		category_cd  ,
+		locale_id  ,
+		category_name  ,
+		display_name  ,
+		icon  ,
 		status  ,
 		sort_key  ,
+		notes  ,
 		created_by  ,
 		created_date  ,
 		update_by  ,
@@ -23,9 +27,13 @@
 	    (
 			sid ,
 			parent_id ,
-			category_cd ,
+			locale_id ,
+			category_name ,
+			display_name ,
+			icon ,
 			status ,
 			sort_key ,
+			notes ,
 			created_by ,
 			created_date ,
 			update_by ,
@@ -38,9 +46,13 @@
 	     (
 			#{sid,jdbcType=VARCHAR} ,
 			#{parentId,jdbcType=VARCHAR} ,
-			#{categoryCd,jdbcType=VARCHAR} ,
+			#{localeId,jdbcType=VARCHAR} ,
+			#{categoryName,jdbcType=VARCHAR} ,
+			#{displayName,jdbcType=VARCHAR} ,
+			#{icon,jdbcType=VARCHAR} ,
 			#{status,jdbcType=VARCHAR} ,
 			#{sortKey,jdbcType=DECIMAL} ,
+			#{notes,jdbcType=VARCHAR} ,
 			#{createdBy,jdbcType=VARCHAR} ,
 			#{createdDate,jdbcType=TIMESTAMP} ,
 			#{updateBy,jdbcType=VARCHAR} ,
@@ -52,9 +64,13 @@
 	<sql id="SysItemCategory_update">
 			sid = #{sid,jdbcType=VARCHAR} ,
 			parent_id = #{parentId,jdbcType=VARCHAR} ,
-			category_cd = #{categoryCd,jdbcType=VARCHAR} ,
+			locale_id = #{localeId,jdbcType=VARCHAR} ,
+			category_name = #{categoryName,jdbcType=VARCHAR} ,
+			display_name = #{displayName,jdbcType=VARCHAR} ,
+			icon = #{icon,jdbcType=VARCHAR} ,
 			status = #{status,jdbcType=VARCHAR} ,
 			sort_key = #{sortKey,jdbcType=DECIMAL} ,
+			notes = #{notes,jdbcType=VARCHAR} ,
 			created_by = #{createdBy,jdbcType=VARCHAR} ,
 			created_date = #{createdDate,jdbcType=TIMESTAMP} ,
 			update_by = #{updateBy,jdbcType=VARCHAR} ,
@@ -69,14 +85,26 @@
 	 		<if test="parentId != null and parentId != ''">
 	 			and parent_id = #{parentId}
 	 		</if>
-	 		<if test="categoryCd != null and categoryCd != ''">
-	 			and category_cd = #{categoryCd}
+	 		<if test="localeId != null and localeId != ''">
+	 			and locale_id = #{localeId}
+	 		</if>
+	 		<if test="categoryName != null and categoryName != ''">
+	 			and category_name = #{categoryName}
+	 		</if>
+	 		<if test="displayName != null and displayName != ''">
+	 			and display_name = #{displayName}
+	 		</if>
+	 		<if test="icon != null and icon != ''">
+	 			and icon = #{icon}
 	 		</if>
 	 		<if test="status != null and status != ''">
 	 			and status = #{status}
 	 		</if>
 	 		<if test="sortKey != null">
 	 			and sort_key = #{sortKey}
+	 		</if>
+	 		<if test="notes != null and notes != ''">
+	 			and notes = #{notes}
 	 		</if>
 	 		<if test="createdDate != null">
 	 			and created_date = #{createdDate}
@@ -93,9 +121,13 @@
 	<resultMap type="SysItemCategory" id="SysItemCategoryResultMap">
 		<id column="SID" property="sid" />
 			<result property="parentId" column="parent_id"/>
-			<result property="categoryCd" column="category_cd"/>
+			<result property="localeId" column="locale_id"/>
+			<result property="categoryName" column="category_name"/>
+			<result property="displayName" column="display_name"/>
+			<result property="icon" column="icon"/>
 			<result property="status" column="status"/>
 			<result property="sortKey" column="sort_key"/>
+			<result property="notes" column="notes"/>
 			<result property="createdBy" column="created_by"/>
 			<result property="createdDate" column="created_date"/>
 			<result property="updateBy" column="update_by"/>

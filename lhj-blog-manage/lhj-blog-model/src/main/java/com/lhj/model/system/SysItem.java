@@ -11,7 +11,7 @@ import com.lhj.common.model.Pages;
  * table nameCn:	 <br/>
  * entity name:		SysItem <br/>
  * author pojofactory pojo builder
- * created 2020-3-2 21:28:53
+ * created 2020-3-17 22:50:05
  */
 public class SysItem extends Pages<SysItem>{
 	
@@ -23,17 +23,29 @@ public class SysItem extends Pages<SysItem>{
 	 */
 	private String sid;
 	/**
-	 * colNameCn 	类别CD
+	 * colNameCn 	类别id
 	 * type 		String
 	 * len 		100
 	 */
-	private String categoryCd;
+	private String categoryId;
 	/**
-	 * colNameCn 	字典CD
+	 * colNameCn 	区域
 	 * type 		String
-	 * len 		100
+	 * len 		20
 	 */
-	private String itemCd;
+	private String localeId;
+	/**
+	 * colNameCn 	字典key
+	 * type 		String
+	 * len 		255
+	 */
+	private String itemKey;
+	/**
+	 * colNameCn 	字典值
+	 * type 		String
+	 * len 		512
+	 */
+	private String itemValue;
 	/**
 	 * colNameCn 	状态：0=不显示，1=显示
 	 * type 		String
@@ -46,6 +58,12 @@ public class SysItem extends Pages<SysItem>{
 	 * len 		10
 	 */
 	private BigDecimal sortKey;
+	/**
+	 * colNameCn 	备注
+	 * type 		String
+	 * len 		512
+	 */
+	private String notes;
 	// fields end
 	
 	
@@ -57,18 +75,32 @@ public class SysItem extends Pages<SysItem>{
 		this.sid=sid;
 	}
 	
-	public String getCategoryCd(){
-		return categoryCd;
+	public String getCategoryId(){
+		return categoryId;
 	}
-	public void setCategoryCd(String categoryCd){
-		this.categoryCd=categoryCd;
+	public void setCategoryId(String categoryId){
+		this.categoryId=categoryId;
 	}
 	
-	public String getItemCd(){
-		return itemCd;
+	public String getLocaleId(){
+		return localeId;
 	}
-	public void setItemCd(String itemCd){
-		this.itemCd=itemCd;
+	public void setLocaleId(String localeId){
+		this.localeId=localeId;
+	}
+	
+	public String getItemKey(){
+		return itemKey;
+	}
+	public void setItemKey(String itemKey){
+		this.itemKey=itemKey;
+	}
+	
+	public String getItemValue(){
+		return itemValue;
+	}
+	public void setItemValue(String itemValue){
+		this.itemValue=itemValue;
 	}
 	
 	public String getStatus(){
@@ -83,6 +115,13 @@ public class SysItem extends Pages<SysItem>{
 	}
 	public void setSortKey(BigDecimal sortKey){
 		this.sortKey=sortKey;
+	}
+	
+	public String getNotes(){
+		return notes;
+	}
+	public void setNotes(String notes){
+		this.notes=notes;
 	}
 	
 	

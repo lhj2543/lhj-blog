@@ -1,8 +1,11 @@
 package com.lhj.model.system;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.lang.String;
+import java.util.LinkedList;
+import java.util.List;
 
 import com.lhj.common.model.Pages;
 
@@ -11,7 +14,7 @@ import com.lhj.common.model.Pages;
  * table nameCn:	 <br/>
  * entity name:		SysItemCategory <br/>
  * author pojofactory pojo builder
- * created 2020-3-2 21:28:53
+ * created 2020-3-17 22:50:05
  */
 public class SysItemCategory extends Pages<SysItemCategory>{
 	
@@ -29,11 +32,29 @@ public class SysItemCategory extends Pages<SysItemCategory>{
 	 */
 	private String parentId;
 	/**
-	 * colNameCn 	类别cd
+	 * colNameCn 	区域
 	 * type 		String
-	 * len 		100
+	 * len 		20
 	 */
-	private String categoryCd;
+	private String localeId;
+	/**
+	 * colNameCn 	类别名称
+	 * type 		String
+	 * len 		255
+	 */
+	private String categoryName;
+	/**
+	 * colNameCn 	类别显示名
+	 * type 		String
+	 * len 		255
+	 */
+	private String displayName;
+	/**
+	 * colNameCn 	图标
+	 * type 		String
+	 * len 		255
+	 */
+	private String icon;
 	/**
 	 * colNameCn 	状态：0=不显示，1=显示
 	 * type 		String
@@ -46,10 +67,41 @@ public class SysItemCategory extends Pages<SysItemCategory>{
 	 * len 		10
 	 */
 	private BigDecimal sortKey;
+	/**
+	 * colNameCn 	备注
+	 * type 		String
+	 * len 		512
+	 */
+	private String notes;
+
+	private List<SysItemCategory> children = new LinkedList<SysItemCategory>();
+
+	private List<SysItem> sysItems = new ArrayList<SysItem>();
+
+	//是否展开
+	private boolean expand;
+
 	// fields end
 	
 	
 	// get,set methods
+
+	public List<SysItemCategory> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<SysItemCategory> children) {
+		this.children = children;
+	}
+
+	public boolean isExpand() {
+		return expand;
+	}
+
+	public void setExpand(boolean expand) {
+		this.expand = expand;
+	}
+
 	public String getSid(){
 		return sid;
 	}
@@ -64,11 +116,32 @@ public class SysItemCategory extends Pages<SysItemCategory>{
 		this.parentId=parentId;
 	}
 	
-	public String getCategoryCd(){
-		return categoryCd;
+	public String getLocaleId(){
+		return localeId;
 	}
-	public void setCategoryCd(String categoryCd){
-		this.categoryCd=categoryCd;
+	public void setLocaleId(String localeId){
+		this.localeId=localeId;
+	}
+	
+	public String getCategoryName(){
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName){
+		this.categoryName=categoryName;
+	}
+	
+	public String getDisplayName(){
+		return displayName;
+	}
+	public void setDisplayName(String displayName){
+		this.displayName=displayName;
+	}
+	
+	public String getIcon(){
+		return icon;
+	}
+	public void setIcon(String icon){
+		this.icon=icon;
 	}
 	
 	public String getStatus(){
@@ -85,10 +158,22 @@ public class SysItemCategory extends Pages<SysItemCategory>{
 		this.sortKey=sortKey;
 	}
 	
-	
-	
-	
-	
+	public String getNotes(){
+		return notes;
+	}
+	public void setNotes(String notes){
+		this.notes=notes;
+	}
+
+	public List<SysItem> getSysItems() {
+		return sysItems;
+	}
+
+	public void setSysItems(List<SysItem> sysItems) {
+		this.sysItems = sysItems;
+	}
+
+
 	//get,set methods end
 	
 

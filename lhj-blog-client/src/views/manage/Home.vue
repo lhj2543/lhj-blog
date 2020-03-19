@@ -73,33 +73,6 @@
         openMenus:[],
         leftMenus:[],
         menus:this.$common.manageMenus,
-        /* menus:{
-            top0:{id:'top0',name:'首页',url:'/welcome',urlName:'welcome',icon:'ios-home-outline',leftMenus:[]},
-            top1:{id:'top1',name:'系统管理',url:'/content/systemManage',urlName:'content',icon:'ios-laptop',leftMenus:
-                    [
-                    {id:'top1-20',name:'菜单管理',url:'',urlName:'',icon:'ios-home-outline',nextMenus:[
-                        {id:'top1-20-0',name:'菜单管理',url:'/content/systemManage/menusManage',urlName:'menusManage',icon:'ios-home-outline',nextMenus:[]},
-                        {id:'top1-20-1',name:'菜单授权',url:'/content/systemManage/userRoles',urlName:'userRoles',icon:'ios-home-outline',nextMenus:[]}
-                    ]},
-                    {id:'top1-0',name:'菜单管理',url:'/content/systemManage/menusManage2',urlName:'welcome',icon:'ios-home-outline',nextMenus:[]},
-                    {id:'top1-1',name:'用户管理',url:'',urlName:'',icon:'ios-home-outline',nextMenus:[
-                        {id:'top1-1-0',name:'用户授权',url:'/content/systemManage/userRoles1',urlName:'userROles1',icon:'ios-home-outline',nextMenus:[]}
-                    ]},
-                    {id:'top1-2',name:'授权管理',url:'',urlName:'',icon:'ios-home-outline',nextMenus:[
-                        {id:'top1-2-0',name:'用户授权',url:'/content/systemManage/userRoles',urlName:'userROles',icon:'ios-home-outline',nextMenus:[]},
-                        {id:'top1-2-1',name:'菜单授权',url:'/content/systemManage/userRoles2',urlName:'userROles2',icon:'ios-home-outline',nextMenus:[]}
-                    ]},
-                    ]
-            },
-            top2:{id:'top2',name:'vue',url:'/content/vue',urlName:'content',icon:'ios-mail-outline',leftMenus:
-                [
-                   {id:'top1-0',name:'render测试',url:'/content/vue/myRouter',urlName:'myRouter',icon:'ios-home-outline',nextMenus:[]}, 
-                   {id:'top1-0',name:'render demo',url:'/content/vue/other',urlName:'other',icon:'ios-home-outline',nextMenus:[]}, 
-                ]
-            },
-            top3:{id:'top3',name:'spring-boot',url:'/content/spring-boot',urlName:'content',icon:'ios-photos-outline',leftMenus:[]},
-        }, */
-       
       }
       
     },

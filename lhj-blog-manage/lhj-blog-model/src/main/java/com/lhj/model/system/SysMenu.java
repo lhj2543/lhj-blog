@@ -107,6 +107,12 @@ public class SysMenu extends Pages<SysMenu>{
 
 	//是否展开
 	private boolean expand;
+
+	//是否选择
+	private boolean checked;
+
+	//角色ID
+	private  String roleId;
 	// fields end
 	
 	
@@ -231,6 +237,22 @@ public class SysMenu extends Pages<SysMenu>{
 
 	public void setExpand(boolean expand) {
 		this.expand = expand;
+	}
+
+	public boolean isChecked() {
+		return checked;
+	}
+
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
+
+	public String getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
 	}
 
 	//get,set methods end

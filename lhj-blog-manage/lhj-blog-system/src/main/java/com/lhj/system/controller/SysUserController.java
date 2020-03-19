@@ -170,12 +170,15 @@ public class SysUserController {
         SysUser result = param;
         try {
 
-            param.setUpdateBy(sessionSupport.getUserCd());
-            param.setUpdateDate(DateSupport.getSystemDate());
+            String ssuserCd = sessionSupport.getUserCd();
+            Date systemDate = DateSupport.getSystemDate();
+
+            param.setUpdateBy(ssuserCd);
+            param.setUpdateDate(systemDate);
 
             SysAccount sysAccount = param.getSysAccount();
-            sysAccount.setUpdateBy(sessionSupport.getUserCd());
-            sysAccount.setUpdateDate(DateSupport.getSystemDate());
+            sysAccount.setUpdateBy(ssuserCd);
+            sysAccount.setUpdateDate(systemDate);
             sysAccount.setUserCd(userCd);
 
             if(!StringUtils.equals(sysAccount.getPassword(),sysAccount.getOldPassword())){
@@ -192,12 +195,12 @@ public class SysUserController {
                     return  result;
                 }
 
-                param.setCreatedBy(sessionSupport.getUserCd());
-                param.setCreatedDate(DateSupport.getSystemDate());
+                param.setCreatedBy(ssuserCd);
+                param.setCreatedDate(systemDate);
                 dataBaseService.insert("addSysUser",param);
 
-                sysAccount.setCreatedBy(sessionSupport.getUserCd());
-                sysAccount.setCreatedDate(DateSupport.getSystemDate());
+                sysAccount.setCreatedBy(ssuserCd);
+                sysAccount.setCreatedDate(systemDate);
                 dataBaseService.insert("addSysAccount",sysAccount);
 
             }else{
@@ -210,14 +213,14 @@ public class SysUserController {
             //用户角色
             Set<SysUserRole> userRoles = param.getUserRoles();
             for(SysUserRole ur: userRoles){
-                ur.setUpdateBy(sessionSupport.getUserCd());
-                ur.setUpdateDate(DateSupport.getSystemDate());
+                ur.setUpdateBy(ssuserCd);
+                ur.setUpdateDate(systemDate);
                 ur.setUserCd(userCd);
                 if(StringUtils.isNotBlank(ur.getSid())){
                     dataBaseService.update("updateSysUserRole",ur);
                 }else {
-                    ur.setCreatedBy(sessionSupport.getUserCd());
-                    ur.setCreatedDate(DateSupport.getSystemDate());
+                    ur.setCreatedBy(ssuserCd);
+                    ur.setCreatedDate(systemDate);
                     dataBaseService.insert("addSysUserRole",ur);
                 }
             }

@@ -142,4 +142,8 @@
 	<update id="deleteSysRoleMenu" parameterType="SysRoleMenu">
 		DELETE FROM SYS_ROLE_MENU WHERE  SID=#{sid}
 	</update>
+	<!-- 删除SYS_ROLE_MENU 信息 -->
+	<update id="deleteSysRoleMenuByRoleId" parameterType="SysRoleMenu">
+		DELETE FROM SYS_ROLE_MENU WHERE  role_id=#{roleId}
+	</update>
 </mapper>
