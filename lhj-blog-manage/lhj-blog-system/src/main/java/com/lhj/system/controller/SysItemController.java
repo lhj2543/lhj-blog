@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /*
 * 字典管理 controller
@@ -49,6 +51,12 @@ public class SysItemController {
         SysItem result = param;
         try {
 
+            if(StringUtils.isBlank(param.getCategoryId())){
+                result.setSuccess(true);
+                //result.setMessage("字典分类ID不能为空！");
+                return result;
+            }
+
             if(StringUtils.isBlank(param.getOrderby())){
                 param.setOrderby("sort_key asc");
             }
@@ -69,20 +77,47 @@ public class SysItemController {
         return  result;
     }
 
-    @RequestMapping(value = "/detail")
-    public SysItem detail(SysItem param){
+    /*
+    * 加载字典列表
+    * */
+    @RequestMapping(value = "/getSysItemByCategoryName")
+    public SysItem getSysItemByCategoryName(@RequestBody SysItem param){
 
-        logger.info("查询字典详情开始");
-        SysItem result = new SysItem();
+        logger.info("查询字典开始");
+        SysItem result = param;
         try {
 
-            if(StringUtils.isNotBlank(param.getSid())){
-                SysItem SysItem = dataBaseService.selectOne("findSysItem", param);
-                result = SysItem==null?result:SysItem;
-            }else{
-                //新增时初始化数据
-                result.setStatus("1");
+            if(StringUtils.isNotBlank(param.getCategoryName())){
+                List<SysItem> rows = dataBaseService.selectList("findSysItemByCategoryName", param);
+
+                if(rows!=null && rows.size()>0){
+                    Map<String,Object> itemMap = new HashMap<String,Object>();
+                    for (SysItem i:rows){
+                        itemMap.put(i.getItemKey(),i.getItemValue());
+                    }
+                    result.setItemMap(itemMap);
+                }
+            }else  if(param.getCategoryNames()!=null && param.getCategoryNames().size()>0){
+                List<SysItem> rows = dataBaseService.selectList("findSysItemByCategoryNames", param);
+
+                if(rows!=null && rows.size()>0){
+                    Map<String,Object> itemMap = new HashMap<String,Object>();
+                    for (SysItem i:rows){
+                        String categoryName = i.getCategoryName();
+                        Map<String, String> item = (Map<String, String>) itemMap.get(categoryName);
+                        if(item!=null){
+                            item.put(i.getItemKey(),i.getItemValue());
+
+                        }else {
+                            Map<String,String> im = new HashMap<String, String>();
+                            im.put(i.getItemKey(),i.getItemValue());
+                            itemMap.put(categoryName,im);
+                        }
+                    }
+                    result.setItemMap(itemMap);
+                }
             }
+
             result.setSuccess(true);
             result.setMessage("查询字典详情成功");
 

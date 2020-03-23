@@ -231,6 +231,7 @@
         loading:false,//laoding 标识
         queryUrl:'/sysRole/query',//列表后台url
         searchForm:this.getSearchForm(),//检索表单
+        items:{},//字典数据
         columns: [
               {
                   title: '角色code', 
@@ -257,6 +258,11 @@
                   title: '状态',
                   key: 'status',
                   resizable: true,// 是否可拖拽宽度 
+                  render:(h,params)=>{
+                    return h('span',{
+
+                    },this.items?this.items[params.row.status] || params.row.status:params.row.status);
+                  },
                   filters: [// 过滤器 
                             
                             {
@@ -265,7 +271,7 @@
                             },
                             {
                                 label: '无效',
-                                value: '0'
+                                value: '2'
                             },
                         ],
                   filterMultiple: false,//过滤器是否可多选
@@ -306,6 +312,13 @@
       
     },
     created() {//el 没有初始化，数据已加载完成，阔以篡改数据，并更新，不会触发，，在这结束，还做一些初始化，实现函数自执行，ref属性内容为空数组
+      
+      /* 加载页面上所有用到的字典 */
+      let params = {categoryName:'isActive'};
+      this.getSysItems(params,(data)=>{
+        this.items = data.itemMap?data.itemMap:{};
+      });
+      
       //加载列表数据
       this.loadListData();
     },

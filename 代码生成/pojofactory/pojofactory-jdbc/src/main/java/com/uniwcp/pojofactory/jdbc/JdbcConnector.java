@@ -134,7 +134,13 @@ public class JdbcConnector {
 					dbtype="VARCHAR";
 				}else if("DATETIME".equals(type)){
 					dbtype="TIMESTAMP";
+				}else if("BOLB".equals(type)){
+					dbtype="BOLB";
+				}else if("MEDIUMBLOB".equals(type)){
+					dbtype="MEDIUMBLOB";
 				}
+
+
 				field.setDbType(dbtype);
 				table.getDependens().add(javatype);
 				

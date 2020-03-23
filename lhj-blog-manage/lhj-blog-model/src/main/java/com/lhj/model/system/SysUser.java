@@ -153,6 +153,8 @@ public class SysUser extends Pages<SysUser>{
 	//角色状态
 	private String roleStatus;
 
+	//账户状态
+	private String accountStatus;
 	// fields end
 	
 	
@@ -343,6 +345,15 @@ public class SysUser extends Pages<SysUser>{
 	public void setRoleStatus(String roleStatus) {
 		this.roleStatus = roleStatus;
 	}
+
+	public String getAccountStatus() {
+		return accountStatus;
+	}
+
+	public void setAccountStatus(String accountStatus) {
+		this.accountStatus = accountStatus;
+	}
+
 	//get,set methods end
 	
 

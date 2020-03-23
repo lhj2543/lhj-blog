@@ -147,7 +147,7 @@
 		<!-- 通用查询排序 -->
 		<include refid="com.lhj.system.orderby"/>
 	</select>
-	
+
 	<!-- SYS_ITEM_CATEGORY  数量查询SQL -->
 	<select id="countSysItemCategory" resultType="SysItemCategory">
 		SELECT count(*) total FROM  SYS_ITEM_CATEGORY

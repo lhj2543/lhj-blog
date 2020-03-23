@@ -14,6 +14,7 @@ public class MysqlTypeMaps implements TypeMap{
 		map.put("LONGTEXT", "java.lang.String");
 		map.put("LONGBLOB", "java.lang.String");
 		map.put("BLOB", "java.lang.byte[]");
+		map.put("MEDIUMBLOB", "java.lang.byte[]");
 		map.put("TEXT", "java.lang.String");
 		map.put("INTEGER", "java.lang.Long");
 		map.put("INT", "java.lang.Integer");

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhj.model.blog.NotebookCategory">
+
+	<!-- ==================================字段属性配置========================================= -->
+
+	<!-- NOTEBOOK_CATEGORY     as ""字段 -->
+	<sql id="columns_NotebookCategory">
+		sid  ,
+		parent_id  ,
+		locale_id  ,
+		category_name  ,
+		display_name  ,
+		icon  ,
+		status  ,
+		sort_key  ,
+		notes  ,
+		created_by  ,
+		created_date  ,
+		update_by  ,
+		update_date  
+	</sql>
+	
+	<!-- 新增NOTEBOOK_CATEGORY 信息字段 -->
+  	<sql id="columns_insertNotebookCategory">
+	    (
+			sid ,
+			parent_id ,
+			locale_id ,
+			category_name ,
+			display_name ,
+			icon ,
+			status ,
+			sort_key ,
+			notes ,
+			created_by ,
+			created_date ,
+			update_by ,
+			update_date 
+	    )
+  	</sql>
+  
+    <!-- 新增NOTEBOOK_CATEGORY 传入参数值 -->
+    <sql id="columns_NotebookCategoryParams">
+	     (
+			#{sid,jdbcType=VARCHAR} ,
+			#{parentId,jdbcType=VARCHAR} ,
+			#{localeId,jdbcType=VARCHAR} ,
+			#{categoryName,jdbcType=VARCHAR} ,
+			#{displayName,jdbcType=VARCHAR} ,
+			#{icon,jdbcType=VARCHAR} ,
+			#{status,jdbcType=VARCHAR} ,
+			#{sortKey,jdbcType=DECIMAL} ,
+			#{notes,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=VARCHAR} ,
+			#{createdDate,jdbcType=TIMESTAMP} ,
+			#{updateBy,jdbcType=VARCHAR} ,
+			#{updateDate,jdbcType=TIMESTAMP} 
+	     )
+    </sql>
+  
+	<!-- 修改NOTEBOOK_CATEGORY属性字段 -->
+	<sql id="NotebookCategory_update">
+			sid = #{sid,jdbcType=VARCHAR} ,
+			parent_id = #{parentId,jdbcType=VARCHAR} ,
+			locale_id = #{localeId,jdbcType=VARCHAR} ,
+			category_name = #{categoryName,jdbcType=VARCHAR} ,
+			display_name = #{displayName,jdbcType=VARCHAR} ,
+			icon = #{icon,jdbcType=VARCHAR} ,
+			status = #{status,jdbcType=VARCHAR} ,
+			sort_key = #{sortKey,jdbcType=DECIMAL} ,
+			notes = #{notes,jdbcType=VARCHAR} ,
+			created_by = #{createdBy,jdbcType=VARCHAR} ,
+			created_date = #{createdDate,jdbcType=TIMESTAMP} ,
+			update_by = #{updateBy,jdbcType=VARCHAR} ,
+			update_date = #{updateDate,jdbcType=TIMESTAMP} 
+	</sql>
+	
+	<!-- NOTEBOOK_CATEGORY 查询(包括条件按查询) -->
+	<sql id="NotebookCategory_where">
+	 		<if test="sid != null and sid != ''">
+	 			and sid = #{sid}
+	 		</if>
+	 		<if test="parentId != null and parentId != ''">
+	 			and parent_id = #{parentId}
+	 		</if>
+	 		<if test="localeId != null and localeId != ''">
+	 			and locale_id = #{localeId}
+	 		</if>
+	 		<if test="categoryName != null and categoryName != ''">
+	 			and category_name = #{categoryName}
+	 		</if>
+	 		<if test="displayName != null and displayName != ''">
+	 			and display_name = #{displayName}
+	 		</if>
+	 		<if test="icon != null and icon != ''">
+	 			and icon = #{icon}
+	 		</if>
+	 		<if test="status != null and status != ''">
+	 			and status = #{status}
+	 		</if>
+	 		<if test="sortKey != null">
+	 			and sort_key = #{sortKey}
+	 		</if>
+	 		<if test="notes != null and notes != ''">
+	 			and notes = #{notes}
+	 		</if>
+	 		<if test="createdDate != null">
+	 			and created_date = #{createdDate}
+	 		</if>
+	 		<if test="updateBy != null and updateBy != ''">
+	 			and update_by = #{updateBy}
+	 		</if>
+	 		<if test="updateDate != null">
+	 			and update_date = #{updateDate}
+	 		</if>
+	</sql>
+
+	<!-- NOTEBOOK_CATEGORY 表关联项目信息表结果集属性声明 -->
+	<resultMap type="NotebookCategory" id="NotebookCategoryResultMap">
+		<id column="SID" property="sid" />
+			<result property="parentId" column="parent_id"/>
+			<result property="localeId" column="locale_id"/>
+			<result property="categoryName" column="category_name"/>
+			<result property="displayName" column="display_name"/>
+			<result property="icon" column="icon"/>
+			<result property="status" column="status"/>
+			<result property="sortKey" column="sort_key"/>
+			<result property="notes" column="notes"/>
+			<result property="createdBy" column="created_by"/>
+			<result property="createdDate" column="created_date"/>
+			<result property="updateBy" column="update_by"/>
+			<result property="updateDate" column="update_date"/>
+	</resultMap>
+
+	<!-- ============================DML语句配置=========================================== -->
+
+	<!-- NOTEBOOK_CATEGORY 信息查询语句 -->
+	<select id="findNotebookCategory" resultMap="NotebookCategoryResultMap">
+		SELECT 
+			<include refid="columns_NotebookCategory" />
+		FROM  NOTEBOOK_CATEGORY 
+		<where>
+			<include refid="NotebookCategory_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.lhj.system.orderby"/>
+	</select>
+	
+	<!-- NOTEBOOK_CATEGORY  数量查询SQL -->
+	<select id="countNotebookCategory" resultType="NotebookCategory">
+		SELECT count(*) total FROM  NOTEBOOK_CATEGORY
+		<where>
+			<include refid="NotebookCategory_where" />
+		</where>
+	</select>
+
+  
+  	<!-- 新增NOTEBOOK_CATEGORY 信息 -->
+	<insert id="addNotebookCategory" parameterType="NotebookCategory">
+		INSERT INTO NOTEBOOK_CATEGORY <include refid="columns_insertNotebookCategory"/>
+		VALUES <include refid="columns_NotebookCategoryParams"/>
+	</insert>
+	
+	<!-- 修改NOTEBOOK_CATEGORY 信息 -->
+	<update id="updateNotebookCategory" parameterType="NotebookCategory">
+		UPDATE NOTEBOOK_CATEGORY
+		SET    <include refid="NotebookCategory_update" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除NOTEBOOK_CATEGORY 信息 -->
+	<update id="deleteNotebookCategory" parameterType="NotebookCategory">
+		DELETE FROM NOTEBOOK_CATEGORY WHERE  SID=#{sid}
+	</update>
+</mapper>

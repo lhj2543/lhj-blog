@@ -70,3 +70,96 @@ body{
     -webkit-transform: translate(0%,-50%);
     -ms-transform: translate(0%,-50%);
 }
+
+
+/* ====================列表样式================ */
+.custom-list{
+    width:100%;
+    height: 200px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #dcdee2;
+    -moz-box-shadow: 8px 8px 8px #CBCBCB;
+    -ms-box-shadow: 8px 8px 8px #CBCBCB;
+    -o-box-shadow: 8px 8px 8px#CBCBCB;
+    box-shadow: 8px 8px 8px #CBCBCB;
+}
+/* .custom-list:hover{
+    background:#F5F7F9;
+} */
+
+.custom-list .title{
+    font-size: 19px;
+}
+/* .custom-list .title:hover{
+    color: #D5AE82;
+} */
+.custom-list .right-tool{
+    float: right;
+}
+.custom-list .content{
+    padding: 10px 0;
+    margin-bottom: 15px;
+    text-indent: 25px;
+    color: #7F8A99;
+    height: 100px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.custom-list .buttom{
+    color: #7F8A99;
+}
+
+.notebook-detail{
+    border-top: 1px solid #dcdee2;
+    /* height: calc(100vh - 230px); */
+    padding: 30px;
+}
+/* ====================列表样式================ */
+
+/* =====================重写iview 表单================= */
+
+.notebook-form .ivu-input{
+    border: 1px solid #fff;
+    border-radius: 0;
+    height: 49px !important;
+    font-size: 18px;
+    text-indent: 5px;
+}
+
+/* =====================重写iview 表单================= */
+
+/* 百度编辑器 */
+pre,.pre {
+    margin: .5em 0;
+    padding: 20px;
+    border-radius: 5px;
+    background: #f8f8f8;
+}
+
+/*============== 滚动条美化 只有谷歌有效果 =============*/
+	
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/ 
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px
+}
+/*定义滚动条轨道*/ 
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    -webkit-border-radius: 0em;
+    -moz-border-radius: 0em;
+    border-radius: 0em;
+}
+/*定义滑块 内阴影+圆角*/ 
+::-webkit-scrollbar-thumb {
+    background-color: #0093ff;
+    /* background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent); */
+    -webkit-border-radius: 0em;
+    -moz-border-radius: 0em;
+    border-radius: 0em
+}
+
+
+
+/*============== 滚动条美化 =============*/

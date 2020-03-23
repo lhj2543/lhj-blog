@@ -1,6 +1,6 @@
 import axios from 'axios' //引入axios 
 
-import common from '@/components/common.vue' // 导入共用组件
+import common from '@/components/common.js' // 导入共用组件
 
 const apiURL = 'http://127.0.0.1:9090/river';
 //const apiURL = '/api/river';

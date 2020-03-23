@@ -208,6 +208,8 @@ public class SysUserController {
                 dataBaseService.update("updateSysUser",param);
 
                 dataBaseService.update("updateSysAccountByUserCd",sysAccount);
+
+                result.setAccountStatus(sysAccount.getLicence());
             }
 
             //用户角色

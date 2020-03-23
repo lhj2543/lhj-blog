@@ -56,6 +56,9 @@ public class SysItemCategoryController {
             List<SysItemCategory> rootMenus = dataBaseService.selectList("findSysItemCategory", SysItemCategory);
 
             param.setCustomWhere(" and parent_id <> '-1' ");
+            if(StringUtils.isBlank(param.getOrderby())){
+                param.setOrderby("sort_key asc");
+            }
             List<SysItemCategory> rows = dataBaseService.selectList("findSysItemCategory", param);
 
             for (SysItemCategory m:rootMenus){
@@ -93,7 +96,6 @@ public class SysItemCategoryController {
 
     }
 
-
     @PostMapping(value = "/deletes")
     public SysItemCategory delete(@RequestBody SysItemCategory param){
 
@@ -105,6 +107,10 @@ public class SysItemCategoryController {
             if(param.getChildren().size()>0){
                 this.delChildrenMenu(param.getChildren());
             }
+
+            SysItem sysItem = new SysItem();
+            sysItem.setCategoryId(param.getSid());
+            dataBaseService.delete("deleteSysItemByCategory",sysItem);
 
             dataBaseService.delete("deleteSysItemCategory", param);
 
@@ -123,9 +129,13 @@ public class SysItemCategoryController {
     }
 
     /*递归删除字典分类*/
-    public void delChildrenMenu(List<SysItemCategory> menus){
+    public void delChildrenMenu(List<SysItemCategory> rows){
 
-        for(SysItemCategory m:menus){
+        for(SysItemCategory m:rows){
+            SysItem sysItem = new SysItem();
+            sysItem.setCategoryId(m.getSid());
+            dataBaseService.delete("deleteSysItemByCategory",sysItem);
+
             dataBaseService.delete("deleteSysItemCategory", m);
             this.delChildrenMenu(m.getChildren());
         }
@@ -153,10 +163,10 @@ public class SysItemCategoryController {
 
                 List<SysItem> sysItems = param.getSysItems();
                 for (SysItem row:sysItems){
-                    param.setCreatedBy(userCd);
-                    param.setCreatedDate(systemDate);
-                    param.setUpdateBy(userCd);
-                    param.setUpdateDate(systemDate);
+                    row.setCreatedBy(userCd);
+                    row.setCreatedDate(systemDate);
+                    row.setUpdateBy(userCd);
+                    row.setUpdateDate(systemDate);
                     row.setCategoryId(param.getSid());
                     dataBaseService.insert("addSysItem",row);
                 }
@@ -167,13 +177,13 @@ public class SysItemCategoryController {
                 List<SysItem> sysItems = param.getSysItems();
                 for (SysItem row:sysItems){
 
-                    param.setUpdateBy(userCd);
-                    param.setUpdateDate(systemDate);
+                    row.setUpdateBy(userCd);
+                    row.setUpdateDate(systemDate);
                     row.setCategoryId(param.getSid());
 
                     if(StringUtils.isBlank(row.getSid())){
-                        param.setCreatedBy(userCd);
-                        param.setCreatedDate(systemDate);
+                        row.setCreatedBy(userCd);
+                        row.setCreatedDate(systemDate);
                         dataBaseService.insert("addSysItem",row);
                     }else {
                         dataBaseService.update("updateSysItem",row);

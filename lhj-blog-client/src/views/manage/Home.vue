@@ -208,10 +208,14 @@
        
     },  
     watch: {//监听
-            '$route' (to, from) {//路径发生变化是监听
-               //console.log(to);
-               this.autoSelectMenu();
-            }
+        '$route' (to, from) {//路径发生变化是监听
+            //console.log(to);
+            this.autoSelectMenu();
         }
+    },
+    components:{//注册组件
+        
+    }
+    
   }
 </script>

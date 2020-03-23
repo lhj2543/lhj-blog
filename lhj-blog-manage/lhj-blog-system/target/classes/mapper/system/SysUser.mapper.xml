@@ -305,6 +305,7 @@
 	<select id="findSysUser" resultMap="SysUserResultMap">
 		SELECT
 			<include refid="columns_SysUser" />
+			,(select licence from sys_account a where a.user_cd=SYS_USER.user_cd) as accountStatus
 		FROM  SYS_USER
 		<where>
 			<include refid="SysUser_where" />

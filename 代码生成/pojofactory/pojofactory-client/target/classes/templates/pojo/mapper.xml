@@ -48,6 +48,9 @@
 	 		</if>
 	 	</#if>
 		</#list>
+
+
+
 	</sql>
 
 	<!-- ${table.name} ${table.nameCn}表关联项目信息表结果集属性声明 -->

@@ -59,10 +59,9 @@
                                 </FormItem>
                             </Col>
                             <Col span="12">
-                                <FormItem label="是否有效" prop="status">
-                                    <Select v-model="menuForm.status" placeholder="请选中是否有效...">
-                                        <Option value="1">是</Option>
-                                        <Option value="0">否</Option>
+                                <FormItem label="状态" prop="status">
+                                    <Select  v-model="menuForm.status" placeholder="请选择菜单状态..." >
+                                        <Option  v-for="(value,key,index) in items['isActive']" :key="key+'-'+value" :value="key" >{{value}}</Option>
                                     </Select>
                                 </FormItem>
                             </Col>
@@ -83,7 +82,9 @@
                         <Row>
                             <Col span="12">
                                 <FormItem label="菜单类型" prop="type">
-                                    <Input v-model="menuForm.type" placeholder="请输入菜单类型..."></Input>
+                                    <Select  v-model="menuForm.type" placeholder="请选择菜单类型..." >
+                                        <Option  v-for="(value,key,index) in items['menuType']" :key="key+'-'+value" :value="key" >{{value}}</Option>
+                                    </Select>
                                 </FormItem>
                             </Col>
                         </Row>
@@ -92,7 +93,7 @@
                             <Input v-model="menuForm.notes"   type="textarea"  :autosize="{minRows: 2,maxRows: 10}" placeholder="请输入菜单描述..."></Input>
                         </FormItem>
 
-                        <FormItem :style="{padding:'20px 0','text-align':'center'}">
+                        <FormItem v-if="isAdd" :style="{padding:'20px 0','text-align':'center'}">
                             <Button type="primary" @click="handleSubmit('menuForm')"  >保存</Button>
                             <Button @click="handleReset('menuForm')" style="margin-left: 8px"  >重置</Button>
                         </FormItem>
@@ -140,6 +141,8 @@ export default {
         return{
             split1:0.2,
             loading:false,
+            isAdd:false,
+            items:{},//字典数据
             menus:[],
             buttonProps: {
                 type: 'text',
@@ -159,6 +162,13 @@ export default {
         }
     },
     created() {
+
+        /* 加载页面上所有用到的字典 */
+      let params = {categoryNames:['menuType','isActive']};
+      this.getSysItems(params,(data)=>{
+        this.items = data.itemMap?data.itemMap:{};
+      });
+
         this.loadMenus();//加载后台菜单
     },
     methods: {
@@ -267,6 +277,11 @@ export default {
             );
         },
         append (root, node, data) {//添加菜单
+            //判断父节点是否为空
+            if(!data.sid || data.sid==''){
+                this.$Message.info('请先保存该节点数据！');
+                return;
+            }
             /* console.log("============添加菜单=========");
             console.log(data);
             console.log(node); */
@@ -288,6 +303,7 @@ export default {
             //this.menuForm=Object.assign({},newMenu,{});
             this.menuForm=newMenu;
             children.push(newMenu);
+            this.isAdd=true;
             this.$set(data, 'children', children);
         },
         remove (root, node, data) {//移除菜单
@@ -316,7 +332,7 @@ export default {
                             let row = response.data;
                             _this.$Message.info(row.message);
                             if(row.success){
-                                    parent.children.splice(index, 1);
+                                refreshFormData(index);
                             }
                         })
                         .catch((error)=>{
@@ -324,12 +340,18 @@ export default {
                         });
                     },
                     onCancel: () => {
-                        this.$Message.info('取消删除菜单');
+                        //this.$Message.info('取消删除菜单');
                     }
                 });
 
             }else{
+                refreshFormData(index);
+            }
+
+            function refreshFormData(index){
                 parent.children.splice(index, 1);
+                _this.isAdd=false;
+                _this.menuForm = menuObj;
             }
 
         },
@@ -339,6 +361,7 @@ export default {
             //表单赋值
             //var k=Object.assign({},node,{});
             this.menuForm=node;
+            this.isAdd=true;
             this.isDisabled=this.menuForm.parentId=='-1'?true:false;//根节点不能修改
             
         },
@@ -383,7 +406,7 @@ export default {
     }
 
     .menus-split-pane{
-        height: 100%;
+        height:calc(100vh - 180px);
         padding: 10px;
         overflow: auto;
     }

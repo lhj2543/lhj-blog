@@ -40,7 +40,7 @@
         <Tabs style="border:1px solid #dcdee2;margin-top:25px;" v-model:value="tabsCheckValue" >
             <TabPane label="基本信息" name="userInfo"  icon="logo-windows">
               
-              <Form ref="dataForm1" :model="row" :rules="form1Validate" :label-width="120" style="padding:20px;">
+              <Form ref="dataForm1" :model="row" :rules="form1Validate" :disabled="isDisabled" :label-width="120" style="padding:20px;">
                 <Row>
                   <Col span="6">
                     <FormItem label="用户cd" prop="userCd">
@@ -71,14 +71,16 @@
                 <Row>
                   <Col span="6" >
                     <FormItem label="性别"  prop="sex">
-                      <Input type="text" :disabled="isDisabled" v-model="row.sex" placeholder="请输入性别...">
-                      </Input>
+                      <RadioGroup v-model="row.sex" >
+                        <Radio v-for="(value,key,index) in items['sex']" :key="key+'-'+value" :label="key">{{value}}</Radio>
+                      </RadioGroup>
                     </FormItem>
                   </Col>
                   <Col span="6">
                     <FormItem label="状态"  prop="status">
-                        <Input type="text" :disabled="isDisabled" v-model="row.status" placeholder="请输入状态...">
-                        </Input>
+                      <Select :disabled="isDisabled"  v-model="row.status" placeholder="请选择用户状态..." >
+                        <Option  v-for="(value,key,index) in items['userType']" :key="key+'-'+value" :value="key" >{{value}}</Option>
+                      </Select>
                     </FormItem>
                   </Col>
                   <Col span="6">
@@ -137,7 +139,7 @@
             </TabPane>
             <TabPane label="账户信息" name="accountInfo"  icon="logo-apple" >
 
-              <Form ref="dataForm2" :model="row.sysAccount"  :rules="form2Validate" :label-width="220" style="padding:20px;">
+              <Form ref="dataForm2" :model="row.sysAccount"  :rules="form2Validate" :disabled="isDisabled"  :label-width="220" style="padding:20px;">
                 <Row>
                   <Col span="10">
                     <FormItem label="用户cd" prop="userCd">
@@ -157,20 +159,16 @@
                 <Row>
                   <Col span="10">
                     <FormItem label="账户状态"  prop="licence">
-                        <RadioGroup  v-model="row.sysAccount.licence" >
-                          <Radio :disabled="isDisabled" label="1" >有效</Radio>
-                          <Radio :disabled="isDisabled" label="0" >无效</Radio>
+                      <RadioGroup v-model="row.sysAccount.licence" >
+                        <Radio v-for="(value,key,index) in items['isActive']" :key="key+'-'+value" :label="key">{{value}}</Radio>
                       </RadioGroup>
                     </FormItem>
                   </Col>
                   <Col span="10" >
                     <FormItem label="账户类型"  prop="type">
-                      
                       <Select :disabled="isDisabled"  v-model="row.sysAccount.type" placeholder="请选择账户类型..." >
-                          <Option  value="1" :key="1" >普通用户</Option>
-                          <Option  value="2" :key="2" >管理员</Option>
+                          <Option  v-for="(value,key,index) in items['accountType']" :key="key+'-'+value" :value="key" >{{value}}</Option>
                       </Select>
-
                     </FormItem>
                   </Col>
                   <Col span="4"></Col>
@@ -229,7 +227,6 @@
 
 </template>
 
-</template>
 
 <script>
 
@@ -294,18 +291,7 @@
         modalParams:{//用户角色窗口参数传递
           modalIsOkClose:false,//窗口是否关闭
         },
-        item:{
-          option:[
-            {
-              value: '1',
-              label: '有效'
-            },
-            {
-              value: '0',
-              label: '无效'
-            }
-          ]
-        },
+        items:{},//字典数据
         tabsCheckValue:'',//当前tab 选中的name
         isShowUserRoleModel:false,//是否显示添加用户角色窗口
         isDisabled:this.thisRow.pageType=='detail'?true:false,
@@ -356,30 +342,30 @@
                               //this.$set(currentRow, params.column.key, value)
                             }
                           }
-                        }, this.item.option.map(function(item) {
-                          
+                        }, !this.items || !this.items['isActive']?params.row.status:Object.keys(this.items['isActive']).map(function(key) {
+                          let label = _this.items['isActive'][key];
+                         
                           return h('Option', {
                             props: {
-                              value: item.value || item,
-                              label: item.label || item
+                              value: key,
+                              label: label || key
                             }
-                          }, item.label || item);
+                          },  label || key);
                         }));
 
                       } else  {
-                        return h('div', params.row.status);
+                        return h('div', !this.items || !this.items['isActive']?params.row.status:this.items['isActive'][params.row.status] || params.row.status);
                       }
                   },
 
                   filters: [// 过滤器 
-                            
                             {
                                 label: '有效',
                                 value: '1'
                             },
                             {
                                 label: '无效',
-                                value: '0'
+                                value: '2'
                             },
                         ],
                   filterMultiple: false,//过滤器是否可多选
@@ -424,6 +410,12 @@
       
     },
     created() {//el 没有初始化，数据已加载完成，阔以篡改数据，并更新，不会触发，，在这结束，还做一些初始化，实现函数自执行，ref属性内容为空数组
+      
+      /* 加载页面上所有用到的字典 */
+      let params = {categoryNames:['sex','isActive','accountType','userType']};
+      this.getSysItems(params,(data)=>{
+        this.items = data.itemMap?data.itemMap:{};
+      });
       
     },
     beforeMount(){//$el已被初始化,，数据已加载完成，阔以篡改数据，并更新，不会触发beforeUpdate，updated，在挂载开始之前被调用，beforeMount之前，会找到对应的template，并编译成render函数

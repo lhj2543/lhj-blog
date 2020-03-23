@@ -2,6 +2,11 @@
   "hints": [],
   "groups": [
     {
+      "sourceType": "com.baidu.ueditor.upload.StorageManager",
+      "name": "nginx",
+      "type": "com.baidu.ueditor.upload.StorageManager"
+    },
+    {
       "sourceType": "com.lhj.blog.configuration.OtherConfig",
       "name": "otherConfig",
       "type": "com.lhj.blog.configuration.OtherConfig"
@@ -14,6 +19,11 @@
     }
   ],
   "properties": [
+    {
+      "sourceType": "com.baidu.ueditor.upload.StorageManager",
+      "name": "nginx.fileurl",
+      "type": "java.lang.String"
+    },
     {
       "sourceType": "com.lhj.blog.configuration.OtherConfig",
       "name": "otherConfig.map",

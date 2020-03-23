@@ -10,7 +10,7 @@
             </span>
             
             <span class="right-tool" style="float:right">
-                <Button  type="info" ghost @click="save('formRef')" v-if="checkSid!=''"  :icon="$common.icon.save" size="small" >保存</Button>
+                <Button  type="info" ghost @click="save('formRef')" v-if="checkSid!='' || isAdd"  :icon="$common.icon.save" size="small" >保存</Button>
                 <!-- <Icon title="刷新"  size="18" @click="refresh" class="cursor-pointer"  :type="$common.icon.refresh" /> -->
             </span>
         </div>
@@ -28,20 +28,22 @@
 
                         <Row>
                             <Col span="12">
-                                <FormItem label="分类Code" prop="categoryName">
-                                    <Input v-model="row.categoryName" placeholder="请输入分类Code..."></Input>
+                                <FormItem label="分类名称" prop="displayName">
+                                    <Input v-model="row.displayName" placeholder="请输入分类名称..."></Input>
                                 </FormItem>
                             </Col>
                             <Col span="12">
-                                <FormItem label="分类名称" prop="displayName">
-                                    <Input v-model="row.displayName" placeholder="请输入分类名称..."></Input>
+                                <FormItem label="分类Code" prop="categoryName">
+                                    <Input v-model="row.categoryName" placeholder="请输入分类Code..."></Input>
                                 </FormItem>
                             </Col>
                         </Row>
                         <Row>
                             <Col span="12">
                                 <FormItem label="状态" prop="status">
-                                    <Input v-model="row.status" placeholder="请输入页面路径..."></Input>
+                                    <RadioGroup v-model="row.status" >
+                                        <Radio v-for="(value,key,index) in items['isActive']" :key="key+'-'+value" :label="key">{{value}}</Radio>
+                                    </RadioGroup>
                                 </FormItem>
                             </Col>
                             <Col span="12">
@@ -116,7 +118,7 @@ export default {
                     width: 250,
                     align: 'center',
                     renderHeader:(h, params) => {//标题自定义
-                        if(this.checkSid){
+                        if(this.checkSid ||  this.isAdd){
                             
                             return h('div', [
                                 h('Button', {
@@ -165,6 +167,8 @@ export default {
             split1:0.2,
             loading:false,
             checkSid:'',//选择的分类
+            isAdd:false,
+            items:{},//字典数据
             menus:[],//分类数据
             row:{//字典数据
                 sysItems:[]
@@ -196,14 +200,13 @@ export default {
                     resizable: true,/* 是否可拖拽宽度 */
                     render:(h,params)=>{
                         let _this =  this;
-                        debugger
                         return h('Input',{
                             props:{
-                                value:_this.row.sysItems[params.index].itemKey
+                                value:params.row.itemKey
                             },
                             on:{
-                                'on-change':function(value,b,c){
-                                    _this.row.sysItems[params.index].itemKey = value.data;
+                                'on-change':function(enevt){
+                                    _this.row.sysItems[params.index].itemKey = enevt.target.value;
                                 }
                             }
                         });
@@ -219,10 +222,12 @@ export default {
                         let _this = this;
                         return h('Input',{
                             props:{
-                                value:_this.row.sysItems[params.index].itemValue
+                                value:params.row.itemValue
                             },
                             on:{
-                                
+                                'on-change':function(enevt){
+                                    _this.row.sysItems[params.index].itemValue=enevt.target.value;
+                                }
                             }
                         });
                         
@@ -240,7 +245,7 @@ export default {
                             return h('Select', {
                                 props: {
                                     // ***重点***:  这里要写currentRow[params.column.key],绑定的是cloneDataList里的数据
-                                    value: _this.row.sysItems[params.index].status
+                                    value: params.row.status
                                 },
                                 on: {
                                     'on-change': function(value) {
@@ -249,13 +254,15 @@ export default {
                                     }
                                 }
                             }, 
-                            this.item.option.map(function(item) {
+                            !this.items || !this.items['isActive']?params.row.status:Object.keys(this.items['isActive']).map(function(key) {
+                                let label = _this.items['isActive'][key];
+                                
                                 return h('Option', {
                                     props: {
-                                    value: item.value || item,
-                                    label: item.label || item
+                                        value: key,
+                                        label: label || key
                                     }
-                                }, item.label || item);
+                                },  label || key);
                             }));
 
                         } else  {
@@ -274,10 +281,12 @@ export default {
                         let _this =  this;
                         return h('Input',{
                             props:{
-                                value:_this.row.sysItems[params.index].sortKey
+                                value:params.row.sortKey
                             },
                             on:{
-                                
+                                'on-change':function(enevt){
+                                    _this.row.sysItems[params.index].sortKey=enevt.target.value;
+                                }
                             }
                         });
                     }
@@ -306,6 +315,13 @@ export default {
         }
     },
     created() {
+
+        /* 加载页面上所有用到的字典 */
+        let params = {categoryNames:['isActive']};
+        this.getSysItems(params,(data)=>{
+            this.items = data.itemMap?data.itemMap:{};
+        });
+
         this.loadMenus();//加载后台分类
     },
     methods: {
@@ -414,6 +430,13 @@ export default {
             );
         },
         append (root, node, data) {//添加分类
+
+            //判断父节点是否为空
+            if(!data.sid || data.sid==''){
+                this.$Message.info('请先保存数据！');
+                return;
+            }
+
             /* console.log("============添加分类=========");
             console.log(data);
             console.log(node); */
@@ -431,9 +454,12 @@ export default {
                 status:'1',
                 selected:true,
                 expand:true,
+                sysItems:[],
             });
             //this.row=Object.assign({},newMenu,{});
             this.row=newMenu;
+            this.isAdd = true;
+            this.checkSid='';
             children.push(newMenu);
             this.$set(data, 'children', children);
         },
@@ -463,7 +489,7 @@ export default {
                             let row = response.data;
                             _this.$Message.info(row.message);
                             if(row.success){
-                                    parent.children.splice(index, 1);
+                               refreshFormData(index);
                             }
                         })
                         .catch((error)=>{
@@ -471,12 +497,19 @@ export default {
                         });
                     },
                     onCancel: () => {
-                        this.$Message.info('取消删除分类');
+                        //this.$Message.info('取消删除分类');
                     }
                 });
 
             }else{
+                refreshFormData(index);
+            }
+
+            function refreshFormData(index){
                 parent.children.splice(index, 1);
+                _this.row = formObj;
+                _this.isAdd = false;
+                _this.checkSid='';
             }
 
         },
@@ -486,6 +519,7 @@ export default {
             //表单赋值
             //var k=Object.assign({},node,{});
             this.checkSid = node.sid;
+            this.isAdd = true;
             this.row=node;
             this.isDisabled=this.row.parentId=='-1'?true:false;//根节点不能修改
 
@@ -494,7 +528,9 @@ export default {
         },
         loadItems(params){
             let _this = this;
-            
+            if(!params.sid || params.sid==''){
+                return; 
+            }
             this.axios.get('/sysItem/query',{params:{categoryId:params.sid}})
             .then((response)=>{
                 let row = response.data;
@@ -510,6 +546,13 @@ export default {
         },
         save (name) {//表单提交
             let _this = this;
+
+            //判断父节点是否为空
+            if(!this.row.parentId || this.row.parentId==''){
+                _this.$Message.info('请先保存父节点数据！');
+                return;
+            }
+
             this.$refs[name].validate((valid) => {
 
                 if (valid) {
@@ -582,7 +625,7 @@ export default {
     }
 
     .menus-split-pane{
-        height: 100%;
+        height:calc(100vh - 180px);
         padding: 10px;
         overflow: auto;
     }

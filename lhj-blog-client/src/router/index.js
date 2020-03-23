@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import common from '@/components/common.vue' // 导入共用组件
+import common from '@/components/common.js' // 导入共用组件
 import axios from '../config/axiosConfig';
 
 

@@ -3,6 +3,8 @@ package com.lhj.model.system;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.lang.String;
+import java.util.List;
+import java.util.Map;
 
 import com.lhj.common.model.Pages;
 
@@ -64,6 +66,15 @@ public class SysItem extends Pages<SysItem>{
 	 * len 		512
 	 */
 	private String notes;
+
+	private String categoryName;
+
+	private List<String> categoryNames;
+
+	//字典集合
+	private Map<String,Object> itemMap;
+
+
 	// fields end
 	
 	
@@ -123,11 +134,31 @@ public class SysItem extends Pages<SysItem>{
 	public void setNotes(String notes){
 		this.notes=notes;
 	}
-	
-	
-	
-	
-	
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public List<String> getCategoryNames() {
+		return categoryNames;
+	}
+
+	public void setCategoryNames(List<String> categoryNames) {
+		this.categoryNames = categoryNames;
+	}
+
+	public Map<String, Object> getItemMap() {
+		return itemMap;
+	}
+
+	public void setItemMap(Map<String, Object> itemMap) {
+		this.itemMap = itemMap;
+	}
+
 	//get,set methods end
 	
 
