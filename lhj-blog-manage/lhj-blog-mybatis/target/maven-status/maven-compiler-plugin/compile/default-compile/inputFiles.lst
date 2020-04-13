@@ -1,0 +1,13 @@
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\DefaultDialectManager.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\service\DataBaseService.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\IDialect.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\IDialectManager.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\limit\OffsetLimitInterceptor.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\MySQLDialect.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\SQLServerDialect.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\support\IdUtils.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\support\GeneratorIdSupport.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\SQLServer2005Dialect.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\DefaultDialect.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\DB2Dialect.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-mybatis\src\main\java\com\lhj\mybatis\dialect\OracleDialect.java

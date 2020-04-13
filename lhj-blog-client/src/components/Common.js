@@ -21,13 +21,13 @@ var commomObj= {
                 if(row.success){
                     callback(row);
                 }else{
-                    alert(row.message);
-                    //Vue.$Message.info(row.message);
+                    //alert(row.message);
+                    Vue.prototype.$Message.info(row.message);
                 }
             })
             .catch((error)=>{
-                alert(error);
-                //Vue.$Modal.error({title: '异常',content: error});
+                //alert(error);
+                Vue.prototype.$Modal.error({title: '异常',content: error});
             });
 
         }
@@ -78,26 +78,26 @@ var commomObj= {
     },
     setToken:(value)=>{//设置token
         if(window.localStorage){
-            window.localStorage.setItem(this.a.tokenKey,JSON.stringify(value));
+            window.localStorage.setItem(commomObj.tokenKey,JSON.stringify(value));
         }
     },
     getToken:(params)=>{//获取token
         let result = '';
-        if(window.localStorage && window.localStorage.getItem(this.a.tokenKey)!=undefined){
-            let sysAccountInfo = JSON.parse(window.localStorage.getItem(this.a.tokenKey));
+        if(window.localStorage && window.localStorage.getItem(commomObj.tokenKey)!=undefined){
+            let sysAccountInfo = JSON.parse(window.localStorage.getItem(commomObj.tokenKey));
             result =  sysAccountInfo.token;
         }
         return result;
     },
     cleanToken:()=>{//清除token
         if(window.localStorage){
-            window.localStorage.removeItem(this.a.tokenKey);
+            window.localStorage.removeItem(commomObj.tokenKey);
         }
     },
     getAccountInfo:(params)=>{//获取账户信息
         let result = {};
-        if(window.localStorage && window.localStorage.getItem(this.a.tokenKey)!=undefined){
-            result = JSON.parse(window.localStorage.getItem(this.a.tokenKey));
+        if(window.localStorage && window.localStorage.getItem(commomObj.tokenKey)!=undefined){
+            result = JSON.parse(window.localStorage.getItem(commomObj.tokenKey));
         }
         return result;
     },

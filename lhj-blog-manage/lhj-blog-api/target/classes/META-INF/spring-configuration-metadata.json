@@ -1,33 +1,28 @@
 {
-  "hints": [],
   "groups": [
     {
-      "sourceType": "com.baidu.ueditor.upload.StorageManager",
       "name": "nginx",
-      "type": "com.baidu.ueditor.upload.StorageManager"
+      "type": "com.baidu.ueditor.upload.StorageManager",
+      "sourceType": "com.baidu.ueditor.upload.StorageManager"
     },
     {
-      "sourceType": "com.lhj.blog.configuration.OtherConfig",
-      "name": "otherConfig",
-      "type": "com.lhj.blog.configuration.OtherConfig"
+      "name": "otherconfig",
+      "type": "com.lhj.blog.configuration.OtherConfig",
+      "sourceType": "com.lhj.blog.configuration.OtherConfig"
     },
     {
-      "sourceType": "com.lhj.blog.configuration.DruidConfig",
       "name": "spring.datasource",
-      "sourceMethod": "druid()",
-      "type": "javax.sql.DataSource"
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.lhj.blog.configuration.DruidConfig",
+      "sourceMethod": "druid()"
     }
   ],
   "properties": [
     {
-      "sourceType": "com.baidu.ueditor.upload.StorageManager",
-      "name": "nginx.fileurl",
-      "type": "java.lang.String"
-    },
-    {
-      "sourceType": "com.lhj.blog.configuration.OtherConfig",
-      "name": "otherConfig.map",
-      "type": "java.util.Map<java.lang.String,java.lang.Object>"
+      "name": "otherconfig.map",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "com.lhj.blog.configuration.OtherConfig"
     }
-  ]
+  ],
+  "hints": []
 }

@@ -18,7 +18,7 @@ import java.util.Map;
  * 只有这个组件是容器中的组件，才能容器提供的@ConfigurationProperties功能；
  *
  */
-@ConfigurationProperties(prefix = "otherConfig") /*默认从全局配置文件中获取值*/
+@ConfigurationProperties(prefix = "otherconfig") /*默认从全局配置文件中获取值*/
 @PropertySource(value = {"classpath:otherConfig.properties"}) //指定配置文件取值 yml文件好像不支持
 @Component  /*（把普通pojo实例化到spring容器中，相当于配置文件中的 <bean id="" class=""/>）*/
 public class OtherConfig {

@@ -67,7 +67,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        removeAttributeQuotes: true
+        removeAttributeQuotes: true,
+        favicon: './favicon.ico'//添加图标
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },

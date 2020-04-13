@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/lhj-blog-api/lhj-blog-api.iml" filepath="$PROJECT_DIR$/lhj-blog-api/lhj-blog-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhj-blog-common/lhj-blog-common.iml" filepath="$PROJECT_DIR$/lhj-blog-common/lhj-blog-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhj-blog-core/lhj-blog-core.iml" filepath="$PROJECT_DIR$/lhj-blog-core/lhj-blog-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/lhj-blog-manage.iml" filepath="$PROJECT_DIR$/lhj-blog-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhj-blog-model/lhj-blog-model.iml" filepath="$PROJECT_DIR$/lhj-blog-model/lhj-blog-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhj-blog-mybatis/lhj-blog-mybatis.iml" filepath="$PROJECT_DIR$/lhj-blog-mybatis/lhj-blog-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhj-blog-service/lhj-blog-service.iml" filepath="$PROJECT_DIR$/lhj-blog-service/lhj-blog-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhj-blog-system/lhj-blog-system.iml" filepath="$PROJECT_DIR$/lhj-blog-system/lhj-blog-system.iml" />
       <module fileurl="file://$PROJECT_DIR$/lhj-model/lhj-model.iml" filepath="$PROJECT_DIR$/lhj-model/lhj-model.iml" />
     </modules>
   </component>

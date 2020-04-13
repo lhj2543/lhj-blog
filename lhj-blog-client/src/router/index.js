@@ -177,11 +177,12 @@ router.beforeEach((to, from, next) => {
         next({...to, replace: false});
 
       }else{
-        alert(response.data.message);
+        Vue.prototype.$Modal.info({title: '异常',content: data.message});
       }
+      
     })
     .catch((err)=>{
-      alert(err);
+      Vue.prototype.$Modal.error({title: '异常',content: err});
     });
     
   }else{

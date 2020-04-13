@@ -1,6 +1,5 @@
 package com.lhj.test;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,16 +25,16 @@ public class JdbcTest {
     @Test
     public  void  jdbcTets()  {
 
-        Connection con = null;
+        /*Connection con = null;
         PreparedStatement ps = null;
         try {
             con = dataSource.getConnection();
             String sql = "select * from sys_user" ;
 
-            /*PreparedStatement的优点：
+            *//*PreparedStatement的优点：
                 1、其使用参数设置，可读性好，不易记错。在statement中使用字符串拼接，可读性和维护性比较差。
                 2、其具有预编译机制，性能比statement更快。
-                3、其能够有效防止SQL注入攻击。*/
+                3、其能够有效防止SQL注入攻击。*//*
 
             ps = con.prepareStatement(sql);
 
@@ -63,7 +62,7 @@ public class JdbcTest {
                     e.printStackTrace();
                 }
             }
-        }
+        }*/
     }
 
     @Test

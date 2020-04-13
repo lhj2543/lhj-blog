@@ -6,11 +6,35 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lhj-blog-manage" />
+        <module name="lhj-blog-model" />
+        <module name="lhj-blog-service" />
+        <module name="lhj-blog-api" />
+        <module name="lhj-blog-core" />
+        <module name="lhj-blog-system" />
+        <module name="lhj-blog-mybatis" />
+        <module name="lhj-blog-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="lhj-blog-manage" target="1.5" />
+      <module name="lhj-blog-api" target="1.8" />
+      <module name="lhj-blog-common" target="1.8" />
+      <module name="lhj-blog-core" target="1.8" />
+      <module name="lhj-blog-manage" target="1.8" />
+      <module name="lhj-blog-model" target="1.8" />
+      <module name="lhj-blog-mybatis" target="1.8" />
+      <module name="lhj-blog-service" target="1.8" />
+      <module name="lhj-blog-system" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="lhj-blog-api" options="-parameters" />
+      <module name="lhj-blog-common" options="-parameters" />
+      <module name="lhj-blog-core" options="-parameters" />
+      <module name="lhj-blog-model" options="-parameters" />
+      <module name="lhj-blog-mybatis" options="-parameters" />
+      <module name="lhj-blog-service" options="-parameters" />
+      <module name="lhj-blog-system" options="-parameters" />
+    </option>
   </component>
 </project>

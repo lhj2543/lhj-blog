@@ -1,6 +1,6 @@
 /* ==================首页布局========================= */
 .manage-header{
-    background: #373B3A;
+    background: #373B3A !important;
     border-radius: 0 !important;
 }
 .layout{
