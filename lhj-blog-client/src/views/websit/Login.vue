@@ -1,30 +1,88 @@
+<style scoped>
+  .login{
+    background: url('/static/index/login_bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .login *{
+    color: #3498db;
+  }
+  .login-title{
+    text-align:center;padding:10px 0;
+  }
+  .login-button-panel{
+    margin-top: 60px;
+  }
+  .login-button{
+    font-size: 16px;
+    padding: 10px 30px;
+    border:1px solid #3498db;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  .login-input-panel{
+    padding: 20px 0 ;
+  }
+  .login-input-label{
+    
+  }
+  .login-input{
+    background:none;border-top:none;border-left:none;border-right:none;border-bottom:2px solid #3498db;width:100%;height:40px;
+  }
+  .login-input.error{
+    border-bottom:2px solid red !important; 
+  }
+</style>
 <template>
 
-  <div id="login" class="index-body"  >
+  <div id="login" class="index-body login"  >
 
     <!-- 头部 -->
     <!--或者这种写法也行<AppHeader/> -->
     <app-header :contentActiveTheme="contentActiveTheme" />
 
     <!-- =============登录=============== -->
-    <div class="lgin-panel plan-centre">
+    <div class="login-panel">
+      <h2 class="login-title">系统登录</h2>
       
-      <Form ref="loginForm" :model="loginForm" :rules="loginFormValidate" :label-width="80">
-          <FormItem label="用户名" prop="userCd">
+      <div class="login-input-panel">
+        <span class="login-input-label" >账户：</span>
+        <input :class="{'login-input':true,'error':usercdError}" ref="usercd" v-model="loginForm.userCd"  /> 
+      </div>
+
+      <div class="login-input-panel">
+        <span class="login-input-label" >密码：</span>
+        <input type="password" ref="password" v-model="loginForm.password" :class="{'login-input':true,'error':passwordError}" /> 
+      </div>
+
+      <div class="login-button-panel">
+        <span class="login-button" @click="login('loginForm')">
+          登 录
+        </span>
+
+        <span class="login-button">
+          注 册
+        </span>
+
+      </div>
+    
+      <!-- <Form ref="loginForm" :model="loginForm" :rules="loginFormValidate" :label-width="0">
+          <FormItem label="" prop="userCd" >
               <Input type="text" v-model="loginForm.userCd" placeholder="请输入用户名...">
                 <Icon type="ios-person-outline" slot="prepend"></Icon>
               </Input>
           </FormItem>
-          <FormItem label="密码"  prop="password">
+         
+          <FormItem label=""  prop="password">
               <Input type="password" v-model="loginForm.password" placeholder="请输入密码...">
                 <Icon type="ios-lock-outline" slot="prepend"></Icon>
               </Input>
           </FormItem>
-          <FormItem>
+          <FormItem style="text-align:center;">
               <Button type="primary" @click="login('loginForm')">登录</Button>
               <Button @click="loginReset('loginForm')" style="margin-left: 8px">重置</Button>
           </FormItem>
-      </Form>
+      </Form> -->
 
     </div>
     <!-- =============登录=============== -->
@@ -47,13 +105,15 @@ export default {
   name: 'Login',
   data () {
           return {
-             contentActiveTheme:'theme-0',//主题
+             contentActiveTheme:'theme-1',//主题
              loginForm:{//登录表单
                 userCd:'',//用户名
                 password:'',//密码
                 captcha:'',//验证码
                 isForceLogin:'0' //是否强制登录 0=否 1=是
               },
+              usercdError:false,
+              passwordError:false,
               loginFormValidate:{//登录表单验证
                 userCd: [
                     { required: true,message:'请输入用户名',validator: '', trigger: 'blur' }
@@ -82,11 +142,30 @@ export default {
   methods:{//el 已被初始化，数据已加载完成，阔以篡改数据，并更新，并且触发，，在这发起后端请求，拿回数据，配合路由钩子做一些事情，ref属性可以访问
     
     login (refName) {//登录方法
-        this.$refs[refName].validate((valid) => {
+
+        let usercd = this.$refs.usercd;
+        let password = this.$refs.password;
+
+        if(!usercd.value){
+          this.usercdError = true;
+        }else{
+          this.usercdError = false;
+        }
+        if(!password.value){
+          this.passwordError = true;
+        }else{
+          this.passwordError = false;
+        }
+        if(this.usercdError || this.passwordError){
+          return;
+        }
+
+
+        //this.$refs[refName].validate((valid) => {
 
             let _this = this;
-
-            if (valid) {
+            
+            //if (valid) {
               this.axios.post('/login', JSON.stringify(_this.loginForm),{headers: {'Content-Type': 'application/json;charset=UTF-8'}})
               .then(function (response) {
                 let data = response.data;
@@ -115,8 +194,8 @@ export default {
                 //_this.$Message.error(error);
               });
               
-            } 
-        })
+            //} 
+        //})
     },
     loginReset (refName) {//登录表单重置
         this.$refs[refName].resetFields();
@@ -127,35 +206,6 @@ export default {
 
     let _this = this;
 
-    /* this.axios.post('/site/index/test',_this.$qs.stringify({id:"231312"}),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-    alert(error);
-    //_this.$Message.error(error);
-    });
-
-    this.axios({
-      method: 'post',
-      url: '/site/index/test',
-      data: {
-        id: '11111',
-      },
-      headers: {"Content-Type": "application/x-www-form-urlencoded"},
-      transformRequest: [function (data) {
-        // 对 data 进行任意转换处理
-        return _this.$qs.stringify(data);
-      }],
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      alert(error);
-    //_this.$Message.error(error);
-    }); */
-    
   },
   destroyed(){
    
