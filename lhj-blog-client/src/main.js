@@ -2,7 +2,9 @@ import Vue from 'vue'
 import App from './App'
 
 // 配置
-import Setting from './setting';
+import setting from './setting';
+Vue.prototype.$globSetting = setting;
+
 
 // 导入共用组件
 import common from './components/common.js'

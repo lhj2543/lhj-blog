@@ -3,7 +3,10 @@ package com.baidu.ueditor.upload;
 import com.baidu.ueditor.define.AppInfo;
 import com.baidu.ueditor.define.BaseState;
 import com.baidu.ueditor.define.State;
+import com.lhj.blog.configuration.OtherConfig;
+import com.lhj.system.support.SpringContextSupport;
 import org.apache.commons.io.FileUtils;
+import org.apache.tomcat.jni.Directory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -86,15 +89,38 @@ public class StorageManager {
 			 * 此处调用文件上传服务，并获取返回结果返回
 			 */
 //			UploadResult result = baseFileService.upload(dataBuf, picName, "OM", null);
-			
-			boolean success = true;
+			boolean success = false;
+			FileOutputStream fos = null;
+
+			OtherConfig otherConfig = SpringContextSupport.getBean(OtherConfig.class);
+
+			String root = otherConfig.getMap().get("attach_path")==null?"C:":(String) otherConfig.getMap().get("attach_path");
+			String relativePath = path.replace("null","");
+			String filePath = root + relativePath +"/"+picName;
+			try {
+				File dicr = new File(root + relativePath);
+				if(!dicr .exists()) {
+					dicr.mkdirs();
+				}
+				fos = new FileOutputStream(filePath);
+				fos.write(dataBuf);
+				success = true;
+			}catch (Exception e){
+				e.printStackTrace();
+			}finally {
+				if(fos!=null){
+					fos.close();
+				}
+			}
+
 			//如果上传成功
 			if (success) {
+				String url = otherConfig.getMap().get("attach_url")==null?"/attach":(String) otherConfig.getMap().get("attach_url");
 				state = new BaseState(true);
 				state.putInfo( "size", tmpFile.length() );
-				state.putInfo( "title", "test");//文件名填入此处
+				state.putInfo( "title", picName);//文件名填入此处
 				state.putInfo( "group", "");//所属group填入此处
-				state.putInfo( "url", "http://127.0.0.1:9090/river/images/ueditor/test.png");//文件访问的url填入此处
+				state.putInfo( "url", url+relativePath+"/"+picName);//文件访问的url填入此处
 				tmpFile.delete();
 			}else{
 				state = new BaseState(false, 4);

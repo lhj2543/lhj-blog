@@ -2,221 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e2fa2ac-24c7-40f3-a99d-c5225a70b870" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_10_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_9_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_9_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_9_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_9_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_cache_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_ogdl_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_cipher_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_hash_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_event_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_lang_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_spring_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_web_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_31.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_31.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_31.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_11_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_18_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_3_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20180813.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_23_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_1_13_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_1_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_6_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/assets/css/manage/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/assets/css/manage/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/components/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/components/Common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/config/axiosConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/config/axiosConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lhj-blog-system/src/main/java/com/lhj/system/support/SpringContextSupport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/views/manage/notebookManage/notebook/Modify.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/views/manage/notebookManage/notebook/Modify.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/hs_err_pid16488.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/lhj-blog-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/lhj-blog-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/replay_pid11168.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/replay_pid16488.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/replay_pid4920.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/configuration/OtherConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/configuration/OtherConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/configuration/WebMvcConfg.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/configuration/WebMvcConfg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/upload/StorageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/upload/StorageManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/application-test.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/otherConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/otherConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/test/java/com/lhj/test/JdbcTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/test/java/com/lhj/test/JdbcTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/test/java/com/lhj/test/MyBatisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/test/java/com/lhj/test/MyBatisTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/ActionEnter.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/ActionEnter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/ConfigManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/Encoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/PathFormat.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/PathFormat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/ActionMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/ActionMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/ActionState.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/ActionState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/AppInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/AppInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/BaseState.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/BaseState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/FileType.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/FileType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/MIMEType.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/MIMEType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/MultiState.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/MultiState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/define/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/hunter/FileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/hunter/FileManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/hunter/ImageHunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/hunter/ImageHunter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/Base64Uploader.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/Base64Uploader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/BinaryUploader.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/BinaryUploader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/StorageManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/StorageManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/Uploader.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/Uploader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/MainAppliction.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/MainAppliction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/configuration/ControllerApiRequestMappingHandlerMapping.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/configuration/ControllerApiRequestMappingHandlerMapping.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/configuration/MyBatisConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/configuration/MyBatisConfig$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/configuration/OtherConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/configuration/OtherConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/configuration/WebMvcConfg.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/configuration/WebMvcConfg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/NotebookCategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/NotebookCategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/NotebookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/NotebookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/UeditorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/UeditorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/site/Index.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/site/Index.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/mapper/annotation/SysUserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/mapper/annotation/SysUserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/otherConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/otherConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.ConfigurationPropertiesTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.ConfigurationPropertiesTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.ConfigurationPropertiesTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.ConfigurationPropertiesTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/test-classes/com/lhj/test/JdbcTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/test-classes/com/lhj/test/JdbcTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-common/lhj-blog-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/lhj-blog-common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/exception/BusinessServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/exception/BusinessServiceException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/model/Pages.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/model/Pages.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/model/Pojo.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/model/Pojo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/support/DateSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/support/DateSupport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/support/JsonSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/target/classes/com/lhj/common/support/JsonSupport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-common/target/lhj-blog-common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/target/lhj-blog-common-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-core/lhj-blog-core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-core/lhj-blog-core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-manage.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-manage.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/lhj-blog-model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/lhj-blog-model.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/blog/NotebookCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/blog/NotebookCategory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/blog/NotebookMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/blog/NotebookMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysAccountAttr.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysAccountAttr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysAttachs.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysAttachs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysItemCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysItemCategory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysRole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysRoleMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysRoleMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysUserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/classes/com/lhj/model/system/SysUserRole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/lhj-blog-model-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/lhj-blog-model-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/lhj-blog-mybatis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/lhj-blog-mybatis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/DB2Dialect.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/DB2Dialect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/DefaultDialect.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/DefaultDialect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/DefaultDialectManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/DefaultDialectManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/IDialect.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/IDialect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/IDialectManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/IDialectManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/MySQLDialect.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/MySQLDialect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/OracleDialect.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/OracleDialect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/SQLServer2005Dialect.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/SQLServer2005Dialect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/SQLServerDialect.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/SQLServerDialect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/limit/OffsetLimitInterceptor$BoundSqlSqlSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/limit/OffsetLimitInterceptor$BoundSqlSqlSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/limit/OffsetLimitInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/dialect/limit/OffsetLimitInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/service/DataBaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/service/DataBaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/support/GeneratorIdSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/support/GeneratorIdSupport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/support/IdUtils$DigestUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/support/IdUtils$DigestUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/support/IdUtils$MathUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/support/IdUtils$MathUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/support/IdUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/classes/com/lhj/mybatis/support/IdUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-service/lhj-blog-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-service/lhj-blog-service.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/lhj-blog-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/lhj-blog-system.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/ShiroController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/ShiroController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysItemCategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysItemCategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysRoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysRoleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysRoleMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysRoleMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/controller/SysUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/CustomPassThruAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/CustomPassThruAuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/CustomSessionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/CustomSessionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/CustomShiroRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/CustomShiroRealm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/CustomUsernamePasswordToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/CustomUsernamePasswordToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/GlobalDefaultExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/GlobalDefaultExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/shiro/ShiroConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/support/Md5Supper.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/classes/com/lhj/system/support/Md5Supper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/test-classes/com/lhj/test/MyBatisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/test-classes/com/lhj/test/MyBatisTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -228,6 +25,13 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -246,7 +50,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1aOrSn5VcpdvU1pX5G0zMLlwLE2" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -367,6 +173,8 @@
       <workItem from="1582816186967" duration="690000" />
       <workItem from="1586617490106" duration="8057000" />
       <workItem from="1586662725570" duration="4167000" />
+      <workItem from="1586784391894" duration="723000" />
+      <workItem from="1586871207388" duration="5779000" />
     </task>
     <servers />
   </component>
