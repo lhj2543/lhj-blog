@@ -4,6 +4,7 @@ import com.baidu.ueditor.define.AppInfo;
 import com.baidu.ueditor.define.BaseState;
 import com.baidu.ueditor.define.State;
 import com.lhj.blog.configuration.OtherConfig;
+import com.lhj.blog.define.UeditorConfig;
 import com.lhj.system.support.SpringContextSupport;
 import org.apache.commons.io.FileUtils;
 import org.apache.tomcat.jni.Directory;
@@ -92,9 +93,9 @@ public class StorageManager {
 			boolean success = false;
 			FileOutputStream fos = null;
 
-			OtherConfig otherConfig = SpringContextSupport.getBean(OtherConfig.class);
+			UeditorConfig ueditorConfig = SpringContextSupport.getBean(UeditorConfig.class);
 
-			String root = otherConfig.getMap().get("attach_path")==null?"C:":(String) otherConfig.getMap().get("attach_path");
+			String root = ueditorConfig.ueditor_attach_path;
 			String relativePath = path.replace("null","");
 			String filePath = root + relativePath +"/"+picName;
 			try {
@@ -115,7 +116,7 @@ public class StorageManager {
 
 			//如果上传成功
 			if (success) {
-				String url = otherConfig.getMap().get("attach_url")==null?"/attach":(String) otherConfig.getMap().get("attach_url");
+				String url = ueditorConfig.ueditor_attach_url;
 				state = new BaseState(true);
 				state.putInfo( "size", tmpFile.length() );
 				state.putInfo( "title", picName);//文件名填入此处

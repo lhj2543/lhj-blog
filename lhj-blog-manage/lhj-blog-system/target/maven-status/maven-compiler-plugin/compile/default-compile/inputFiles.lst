@@ -1,6 +1,7 @@
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\shiro\CustomUsernamePasswordToken.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\shiro\GlobalDefaultExceptionHandler.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\controller\SysUserController.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\support\SpringContextSupport.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\controller\SysItemController.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\shiro\CustomShiroRealm.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\controller\SysItemCategoryController.java

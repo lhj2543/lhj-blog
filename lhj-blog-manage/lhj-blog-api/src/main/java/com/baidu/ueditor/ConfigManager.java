@@ -1,6 +1,8 @@
 package com.baidu.ueditor;
 
 import com.baidu.ueditor.define.ActionMap;
+import com.lhj.blog.define.UeditorConfig;
+import com.lhj.system.support.SpringContextSupport;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,7 +21,7 @@ public final class ConfigManager {
     private final String rootPath;
     private final String originalPath;
     private final String contextPath;
-    private static final String configFileName = "config.json";
+    private static final String configFileName = "ueditor_config.json";
     private String parentPath = null;
     private JSONObject jsonConfig = null;
     // 涂鸦上传filename定义
@@ -153,7 +155,10 @@ public final class ConfigManager {
 
         this.parentPath = file.getParent();
 
-        String configContent = this.readFile( this.getConfigPath() );
+        //String configContent = this.readFile2();
+        //String configContent = this.readFile(this.getConfigPath());
+        UeditorConfig ueditorConfig  = SpringContextSupport.getBean(UeditorConfig.class);
+        String configContent = this.readFile(ueditorConfig.ueditor_config_path);
 
         try{
             JSONObject jsonConfig = new JSONObject( configContent );
@@ -169,7 +174,7 @@ public final class ConfigManager {
         //return this.parentPath + File.separator + ConfigManager.configFileName;
         try {
             //获取classpath下的config.json路径
-            return this.getClass().getClassLoader().getResource("config.json").toURI().getPath();
+            return this.getClass().getClassLoader().getResource("ueditor_config.json").toURI().getPath();
         } catch (URISyntaxException e) {
             return null;
         }

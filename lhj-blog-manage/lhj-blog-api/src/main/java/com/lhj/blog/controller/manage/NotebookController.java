@@ -47,14 +47,14 @@ public class NotebookController {
             result.setTotal(NotebookMain.getTotal());
 
             if(StringUtils.isBlank(param.getOrderby())){
-                param.setOrderby("update_date desc");
+                param.setOrderby("created_date desc");
             }
 
             if(StringUtils.isNotBlank(param.getSearchValue())){
                 param.setCustomWhere(" and (title like '%"+param.getSearchValue()+"%' or bodys like '%"+param.getSearchValue()+"%') ");
             }
 
-            List<NotebookMain> rows = dataBaseService.selectListByPage("findNotebookMain", param);
+            List<NotebookMain> rows = dataBaseService.selectListByPage("findNotebookMainByList", param);
 
             result.setRows(rows);
             result.setSuccess(true);

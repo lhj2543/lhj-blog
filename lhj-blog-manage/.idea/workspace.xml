@@ -2,18 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e2fa2ac-24c7-40f3-a99d-c5225a70b870" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lhj-blog-system/src/main/java/com/lhj/system/support/SpringContextSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/views/manage/notebookManage/notebook/Modify.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/views/manage/notebookManage/notebook/Modify.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/define/UeditorConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/ConfigManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/upload/StorageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/upload/StorageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/controller/manage/NotebookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/controller/manage/NotebookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/ueditor_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/mapper/noteBook/NotebookMain.mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/mapper/noteBook/NotebookMain.mapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/otherConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/otherConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/test/java/com/lhj/test/MyBatisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/test/java/com/lhj/test/MyBatisTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/ConfigManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/StorageManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/StorageManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/NotebookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/NotebookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/mapper/noteBook/NotebookMain.mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/mapper/noteBook/NotebookMain.mapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/otherConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/otherConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/test-classes/com/lhj/test/MyBatisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/test-classes/com/lhj/test/MyBatisTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.ConfigurationPropertiesTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.ConfigurationPropertiesTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.JdbcTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.JdbcTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.Md5Test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.Md5Test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.MyBatisTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.MyBatisTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.ConfigurationPropertiesTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.ConfigurationPropertiesTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.JdbcTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.JdbcTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.Md5Test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.Md5Test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.MyBatisTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.MyBatisTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-common/target/lhj-blog-common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/target/lhj-blog-common-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/lhj-blog-model-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/lhj-blog-model-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/lhj-blog-mybatis-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/lhj-blog-mybatis-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/lhj-blog-system-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/lhj-blog-system-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../发布/lhj-blog-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../发布/lhj-blog-api-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +94,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -174,7 +196,7 @@
       <workItem from="1586617490106" duration="8057000" />
       <workItem from="1586662725570" duration="4167000" />
       <workItem from="1586784391894" duration="723000" />
-      <workItem from="1586871207388" duration="5779000" />
+      <workItem from="1586871207388" duration="13750000" />
     </task>
     <servers />
   </component>
@@ -198,19 +220,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/controller/site/Index.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/lhj-blog-system/src/main/java/com/lhj/system/controller/SysItemController.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/lhj-blog-system/src/main/java/com/lhj/system/controller/SysItemController.java</url>
-          <line>132</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/ConfigManager.java</url>
+          <line>163</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

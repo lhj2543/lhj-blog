@@ -134,6 +134,25 @@
 		<!-- 通用查询排序 -->
 		<include refid="com.lhj.system.orderby"/>
 	</select>
+
+	<select id="findNotebookMainByList" resultType="NotebookMain">
+		SELECT
+		sid  ,
+		category_id  ,
+		title  ,
+		LEFT(fnStripTags(bodys),250)  as bodys  ,
+		notes  ,
+		created_by  ,
+		created_date  ,
+		update_by  ,
+		update_date
+		FROM  NOTEBOOK_MAIN
+		<where>
+			<include refid="NotebookMain_where" />
+		</where>
+		<!-- 通用查询排序 -->
+		<include refid="com.lhj.system.orderby"/>
+	</select>
 	
 	<!-- NOTEBOOK_MAIN  数量查询SQL -->
 	<select id="countNotebookMain" resultType="NotebookMain">

@@ -61,7 +61,7 @@
                                 </span>
                                <span class="right-tool"> 
                                    <Icon type="ios-contact-outline" size="17" /> {{item.createdBy}}  &nbsp; 
-                                   <Icon type="ios-time-outline" size="17" /> {{item.updateDate}}
+                                   <Icon type="ios-time-outline" size="17" /> {{item.createdDate}}
                                 </span>
                             </div>
                         </div>
