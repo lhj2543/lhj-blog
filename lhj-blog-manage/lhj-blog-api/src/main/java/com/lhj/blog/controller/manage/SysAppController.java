@@ -2,7 +2,6 @@ package com.lhj.blog.controller.manage;
 
 import com.lhj.common.support.JsonSupport;
 import com.lhj.model.system.SysApp;
-import com.lhj.model.system.SysUser;
 import com.lhj.mybatis.service.DataBaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -4,11 +4,22 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lhj-blog-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lhj-blog-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lhj-blog-consumer-feign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lhj-blog-consumer-ribbon" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lhj-blog-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lhj-blog-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lhj-blog-eureka2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lhj-blog-eureka3" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lhj-blog-model" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lhj-blog-mybatis" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lhj-blog-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lhj-blog-system" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lhj-blog-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lhj-java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../代码生成/pojofactory" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../代码生成/pojofactory/pojofactory-builder" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../代码生成/pojofactory/pojofactory-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../代码生成/pojofactory/pojofactory-jdbc" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -25,6 +25,13 @@
             <version>${project.version}</version>
         </dependency>
 
+        <!-- feign 负载均衡相关依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!-- feign 负载均衡相关依赖 -->
+
     </dependencies>
 
 

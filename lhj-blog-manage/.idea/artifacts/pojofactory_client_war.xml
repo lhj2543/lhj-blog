@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pojofactory-client:war">
+    <output-path>$PROJECT_DIR$/../代码生成/pojofactory/pojofactory-client/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>pojofactory-client</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="pojofactory-client-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="pojofactory-client:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,31 +1,21 @@
 package com.lhj.blog.configuration;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-
-import javax.validation.Valid;
-import java.util.List;
 
 /*
 *@EnableWebMvc 该注解springMvc配置全部自己配置，不使用springBoot默认配置
 *继承WebMvcConfigurerAdapter可以来扩展SpringMVC的功能
 **/
 @Configuration
-
 //这个注解很重要啊，不写不生效
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebMvcConfg extends WebMvcAutoConfiguration implements WebMvcRegistrations, WebMvcConfigurer {

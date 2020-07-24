@@ -17,7 +17,7 @@ public class ${table.className} extends Pages<${table.className}>{
 	
 	// fields start
 	<#list table.fields as field>
-	<#if field.name?lower_case!="createddate" && field.name?lower_case!="createdby" &&
+	<#if field.name?lower_case!="sid" && field.name?lower_case!="createddate" && field.name?lower_case!="createdby" &&
 		 field.name?lower_case!="updatedate" && field.name?lower_case!="updateby"
 	>
 	/**
@@ -33,7 +33,7 @@ public class ${table.className} extends Pages<${table.className}>{
 	
 	// get,set methods
 	<#list table.fields as field>
-	<#if field.name?lower_case!="createddate" && field.name?lower_case!="createdby" &&
+	<#if field.name?lower_case!="sid" &&  field.name?lower_case!="createddate" && field.name?lower_case!="createdby" &&
 	 	 field.name?lower_case!="updatedate" && field.name?lower_case!="updateby"
 	 >
 	public ${field.type} get${field.methodName}(){

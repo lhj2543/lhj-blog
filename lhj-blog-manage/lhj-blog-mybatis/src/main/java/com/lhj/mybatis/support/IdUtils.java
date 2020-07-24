@@ -12,6 +12,7 @@ import java.util.UUID;
 
 /**
  *  用于生产各种各样的ID
+ * @author 17822
  */ 
 public class IdUtils { 
 	

@@ -2,39 +2,72 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lhj-blog-model" />
-        <module name="lhj-blog-service" />
         <module name="lhj-blog-api" />
-        <module name="lhj-blog-core" />
-        <module name="lhj-blog-system" />
-        <module name="lhj-blog-mybatis" />
+        <module name="lhj-blog-consumer-ribbon" />
+        <module name="lhj-blog-consumer-feign" />
+        <module name="pojofactory-client" />
         <module name="lhj-blog-common" />
+        <module name="lhj-java" />
+        <module name="pojofactory-builder" />
+        <module name="lhj-blog-eureka" />
+        <module name="lhj-blog-eureka3" />
+        <module name="lhj-blog-eureka2" />
+        <module name="pojofactory-jdbc" />
+        <module name="lhj-blog-zuul" />
+        <module name="lhj-blog-mybatis" />
+        <module name="lhj-blog-model" />
+        <module name="lhj-blog-system" />
+        <module name="lhj-blog-core" />
+        <module name="lhj-blog-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="lhj-blog-api" target="1.8" />
       <module name="lhj-blog-common" target="1.8" />
+      <module name="lhj-blog-consumer-feign" target="1.8" />
+      <module name="lhj-blog-consumer-ribbon" target="1.8" />
       <module name="lhj-blog-core" target="1.8" />
+      <module name="lhj-blog-eureka" target="1.8" />
+      <module name="lhj-blog-eureka2" target="1.8" />
+      <module name="lhj-blog-eureka3" target="1.8" />
       <module name="lhj-blog-manage" target="1.8" />
       <module name="lhj-blog-model" target="1.8" />
       <module name="lhj-blog-mybatis" target="1.8" />
       <module name="lhj-blog-service" target="1.8" />
       <module name="lhj-blog-system" target="1.8" />
+      <module name="lhj-blog-zuul" target="1.8" />
+      <module name="lhj-java" target="1.8" />
+      <module name="lhj-java-thread" target="1.8" />
+      <module name="lhjblogeureka2" target="1.8" />
+      <module name="pojofactory" target="1.5" />
+      <module name="pojofactory-builder" target="1.5" />
+      <module name="pojofactory-client" target="1.5" />
+      <module name="pojofactory-jdbc" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="lhj-blog-api" options="-parameters" />
       <module name="lhj-blog-common" options="-parameters" />
+      <module name="lhj-blog-consumer-feign" options="-parameters" />
+      <module name="lhj-blog-consumer-ribbon" options="-parameters" />
       <module name="lhj-blog-core" options="-parameters" />
+      <module name="lhj-blog-eureka" options="-parameters" />
+      <module name="lhj-blog-eureka2" options="-parameters" />
+      <module name="lhj-blog-eureka3" options="-parameters" />
       <module name="lhj-blog-model" options="-parameters" />
       <module name="lhj-blog-mybatis" options="-parameters" />
       <module name="lhj-blog-service" options="-parameters" />
       <module name="lhj-blog-system" options="-parameters" />
+      <module name="lhj-blog-zuul" options="-parameters" />
+      <module name="lhj-java" options="-parameters" />
+      <module name="lhj-java-thread" options="-parameters" />
+      <module name="lhjblogeureka2" options="-parameters" />
     </option>
   </component>
 </project>

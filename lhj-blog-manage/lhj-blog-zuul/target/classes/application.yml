@@ -1,0 +1,32 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: lhj-blog-zuul
+
+#==================================== eureka 服务注册配置========================================
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/ #客户端注册进eureka服务列表内
+    instance:
+      instance-id: lhj-blog-zuul #主机名称
+      prefer-ip-address: true #访问路径可以显示IP地址
+
+info:
+  app.name: lhj-blog-zuul #服务名称
+  company.name: www.river.top
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+#==================================== eureka 服务注册配置========================================
+
+#==================================== zuul 路由网关========================================
+zuul:
+  prefix: /lhj-blog #加访问前缀
+  ignored-services: "*" #所有真实服务名忽略
+  routes:
+    mydept.serviceId: lhj-blog-manage #要代理的服务名称
+    mydept.path: /** #代理路径
+#==================================== zuul 路由网关========================================

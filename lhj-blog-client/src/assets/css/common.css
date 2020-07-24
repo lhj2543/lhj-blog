@@ -163,3 +163,11 @@ pre,.pre {
 
 
 /*============== 滚动条美化 =============*/
+
+/*============== ueditor =============*/
+.ueditor-pre{
+    background: #F4F4F4;
+    padding: 15px;
+    border-radius: 3px;
+}
+/*============== ueditor =============*/

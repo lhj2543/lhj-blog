@@ -1,1 +1,15 @@
+com\lhj\model\blog\NotebookCategory.class
+com\lhj\model\system\SysItem.class
+com\lhj\model\system\SysApp.class
+com\lhj\model\system\SysAccount.class
 com\lhj\model\system\SysAttachs.class
+com\lhj\model\system\SysRole.class
+com\lhj\model\system\SysRoleMenu.class
+com\lhj\model\blog\SiteAttrs.class
+com\lhj\model\system\SysAccountAttr.class
+com\lhj\model\blog\NotebookMain.class
+com\lhj\model\other\Test.class
+com\lhj\model\system\SysUserRole.class
+com\lhj\model\system\SysUser.class
+com\lhj\model\system\SysMenu.class
+com\lhj\model\system\SysItemCategory.class

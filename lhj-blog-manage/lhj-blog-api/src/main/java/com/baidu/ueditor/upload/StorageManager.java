@@ -3,11 +3,9 @@ package com.baidu.ueditor.upload;
 import com.baidu.ueditor.define.AppInfo;
 import com.baidu.ueditor.define.BaseState;
 import com.baidu.ueditor.define.State;
-import com.lhj.blog.configuration.OtherConfig;
 import com.lhj.blog.define.UeditorConfig;
 import com.lhj.system.support.SpringContextSupport;
 import org.apache.commons.io.FileUtils;
-import org.apache.tomcat.jni.Directory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 

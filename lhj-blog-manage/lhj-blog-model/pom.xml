@@ -20,6 +20,12 @@
             <version>${project.version}</version>
         </dependency>
 
+        <!--POJO的getter/setter/toString；异常处理；I/O流的关闭操作等等，Lombok 通过注解-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
 

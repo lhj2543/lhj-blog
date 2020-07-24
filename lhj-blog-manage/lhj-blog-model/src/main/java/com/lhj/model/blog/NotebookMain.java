@@ -17,12 +17,6 @@ public class NotebookMain extends Pages<NotebookMain>{
 	
 	// fields start
 	/**
-	 * colNameCn 	主键
-	 * type 		String
-	 * len 		50
-	 */
-	private String sid;
-	/**
 	 * colNameCn 	区域
 	 * type 		String
 	 * len 		20
@@ -47,6 +41,12 @@ public class NotebookMain extends Pages<NotebookMain>{
 	 */
 	private String bodys;
 	/**
+	 * colNameCn 	是否公开
+	 * type 		String
+	 * len 		2,147,483,647
+	 */
+	private String status;
+	/**
 	 * colNameCn 	排序
 	 * type 		BigDecimal
 	 * len 		10
@@ -65,13 +65,7 @@ public class NotebookMain extends Pages<NotebookMain>{
 	
 	
 	// get,set methods
-	public String getSid(){
-		return sid;
-	}
-	public void setSid(String sid){
-		this.sid=sid;
-	}
-	
+
 	public String getLocaleId(){
 		return localeId;
 	}
@@ -122,6 +116,13 @@ public class NotebookMain extends Pages<NotebookMain>{
 		this.searchValue = searchValue;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	//get,set methods end
 	

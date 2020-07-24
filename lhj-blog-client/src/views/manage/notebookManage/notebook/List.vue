@@ -18,7 +18,7 @@
 
                     <span v-if="showPage == 'modify' && (thisRow.pageType=='modify' || thisRow.pageType=='add' )" >
                         <Button  type="info" ghost @click="$refs.modifyPage.save()"   :icon="$common.icon.save" size="small" >保存</Button>
-                        <Button  type="info" ghost @click="showPage='list'"   :icon="$common.icon.cancel" size="small" >取消</Button>
+                        <Button  type="info" ghost @click="showPage='list'"   :icon="$common.icon.cancel" size="small" >关闭</Button>
                     </span>
 
                     <Button v-if="thisRow.pageType=='detail' && showPage == 'modify'" type="info" ghost @click="showPage='list'"   :icon="$common.icon.cancel" size="small" >返回</Button>
@@ -34,7 +34,7 @@
 
                     </div>
                     
-                    <div slot="right" v-if="showPage == 'list'"  class="menus-split-pane" :style="{padding:'40px 120px'}">
+                    <div slot="right" v-show="showPage == 'list'"  class="menus-split-pane" :style="{padding:'40px 120px'}">
                         
                         <div style="width:200px;margin:0 auto;padding-top:100px;" v-if="row.rows.length <=0 ">
                             <h3>暂无数据</h3>
@@ -68,13 +68,17 @@
                
                         <!-- ============列表================== -->
 
+                        <!-- 分页 -->
+                        <Page v-if="row.rows.length >0 " class="content-page" :total="row.total" :current="row.page" :page-size="row.pageSize" :page-size-opts="pageSizeOpts"
+                        @on-change="pageChange" @on-page-size-change="pageSizeChange" 
+                        show-total show-sizer show-elevator :transfer="true" />
+
                     </div>
 
                     <div slot="right" v-if="showPage == 'modify'"  class="menus-split-pane" style="padding:0px;padding-left:6px;">
                         <!-- 新增/修改/详情 共同页面 -->
                         <modify v-if="showPage == 'modify'" ref="modifyPage" v-bind:thisRow="thisRow" v-on:chindrenChangeData="chindrenChangeData" />
                     </div>
-                    
                     
 
                 </Split>
@@ -111,6 +115,7 @@ export default {
             row:{
                 rows:[]
             },
+            pageSizeOpts:[5,10, 20, 50, 100],//列表每页显示多少条数据下拉框
             isDisabled:false,//表单按钮是否不可点击
             showPage:'list',//显示页面，默认显示列表
             searchForm:{searchValue:''},//检索表单
@@ -199,21 +204,34 @@ export default {
             console.log(node);
             if(selectNodes.length>0){
                 this.checkSid = node.sid;
+                this.row.page = 1;
                 this.loadNoteBooks({categoryId:node.sid});//加载分类下所有笔记
             }else{
                 this.checkSid = '';
+                this.row.page = 1;
                 this.search();
             }
 
             this.showPage='list';
             
         },
+        pageChange(page){
+            this.row.page = page;
+            this.search();
+        },
+        pageSizeChange(pageSize){
+            this.row.pageSize = pageSize;
+            this.search();
+        },
         search(params){//检索
             this.loadNoteBooks({categoryId:this.checkSid,searchValue:this.searchForm.searchValue});
         },
         loadNoteBooks(params){
             let _this = this;
-            
+
+            params.page = this.row.page;
+            params.pageSize = this.row.pageSize?this.row.pageSize:20;
+
             this.axios.get('/noteBook/query',{params:params})
             .then((response)=>{
                 let row = response.data;

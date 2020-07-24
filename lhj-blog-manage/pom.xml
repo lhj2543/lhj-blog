@@ -17,7 +17,25 @@
         <module>lhj-blog-common</module>
         <module>lhj-blog-mybatis</module>
         <module>lhj-blog-system</module>
+        <module>lhj-java</module>
+        <module>lhj-blog-eureka</module>
+        <module>lhj-blog-eureka2</module>
+        <module>lhj-blog-eureka3</module>
+        <module>lhj-blog-consumer-ribbon</module>
+        <module>lhj-blog-consumer-feign</module>
+        <module>lhj-blog-zuul</module>
     </modules>
+    <properties>
+        <springBoot.version>2.1.13.RELEASE</springBoot.version>
+        <springCloud.version>Greenwich.SR1</springCloud.version>
+        <java.version>1.8</java.version>
+        <!--<mysql.version>8.0.15</mysql.version>-->
+        <shiro.version>1.4.0</shiro.version>
+        <shiro-redis.version>2.4.2.1-RELEASE</shiro-redis.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <commons-collections4.version>4.1</commons-collections4.version>
+        <lombok-version>1.16.18</lombok-version>
+    </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -26,14 +44,6 @@
         <version>2.1.13.RELEASE</version>
     </parent>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <!--<mysql.version>8.0.15</mysql.version>-->
-        <shiro.version>1.4.0</shiro.version>
-        <shiro-redis.version>2.4.2.1-RELEASE</shiro-redis.version>
-        <commons-lang3.version>3.9</commons-lang3.version>
-        <commons-collections4.version>4.1</commons-collections4.version>
-    </properties>
 
     <!--里只是声明依赖，并不实现引入，因此子项目需要显示的声明需要用的依赖。如果不在子项目中声明依赖，
     是不会从父项目中继承下来的；只有在子项目中写了该依赖项，并且没有指定具体版本，
@@ -42,11 +52,38 @@
     <dependencyManagement>
         <dependencies>
 
+            <!--<dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--POJO的getter/setter/toString；异常处理；I/O流的关闭操作等等，Lombok 通过注解-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok-version}</version>
+                <!--说明它只在编译阶段生效，不需要打入包中-->
+                <scope>provided</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <!--dependencies即使在子项目中不写该依赖项，那么子项目仍然会从父项目中继承该依赖项（全部继承-->
     <dependencies>
+
+
 
         <!--引入web 模块-->
         <dependency>
@@ -121,6 +158,28 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <finalName>lhjblogservicecloud</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimit>$</delimit>
+                    </delimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 
 </project>

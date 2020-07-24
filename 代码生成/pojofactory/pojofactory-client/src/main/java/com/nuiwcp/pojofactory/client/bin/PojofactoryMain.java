@@ -18,8 +18,8 @@ public class PojofactoryMain {
 	private static String url="jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8";
 	private static String username="root";
 	private static String password="123456";
-	private static String outputdir="./target";
-	private static String pojopackage="com.lhj.model.system";
+	private static String outputdir="D:\\lhj-blog\\代码生成\\pojofactory\\pojofactory-client\\target";
+	private static String pojopackage="com.lhj.model.blog";
 
 	public static void main(String[] args) {
 		

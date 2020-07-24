@@ -7,6 +7,7 @@ import com.lhj.model.system.SysRole;
 import com.lhj.model.system.SysUser;
 import com.lhj.model.system.SysUserRole;
 import com.lhj.mybatis.service.DataBaseService;
+import com.lhj.system.service.SysUserService;
 import com.lhj.system.support.Md5Supper;
 import com.lhj.system.support.SessionSupport;
 import org.apache.commons.lang3.StringUtils;
@@ -15,6 +16,7 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -28,7 +30,7 @@ import java.util.*;
 public class SysUserController {
 
     /*日志*/
-    Logger logger = LoggerFactory.getLogger(getClass());
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     DataBaseService dataBaseService;
@@ -38,6 +40,9 @@ public class SysUserController {
 
     @Autowired
     SessionSupport sessionSupport;
+
+    @Autowired
+    SysUserService sysUserService;
 
     //@CrossOrigin /*跨域请求支持*/
     @RequestMapping(value = "/query")
@@ -170,65 +175,7 @@ public class SysUserController {
         SysUser result = param;
         try {
 
-            String ssuserCd = sessionSupport.getUserCd();
-            Date systemDate = DateSupport.getSystemDate();
-
-            param.setUpdateBy(ssuserCd);
-            param.setUpdateDate(systemDate);
-
-            SysAccount sysAccount = param.getSysAccount();
-            sysAccount.setUpdateBy(ssuserCd);
-            sysAccount.setUpdateDate(systemDate);
-            sysAccount.setUserCd(userCd);
-
-            if(!StringUtils.equals(sysAccount.getPassword(),sysAccount.getOldPassword())){
-                String md5Password = Md5Supper.getMd5Value(sysAccount.getPassword(), 2, userCd);
-                sysAccount.setPassword(md5Password);
-            }
-            /*新增用户*/
-            if(StringUtils.isBlank(param.getSid())){
-
-                SysAccount acc = this.userCdIsExist(userCd);
-                if(acc!=null && StringUtils.isNotBlank(acc.getSid())){
-                    result.setSuccess(false);
-                    result.setMessage(userCd+"该用户名已存在！");
-                    return  result;
-                }
-
-                param.setCreatedBy(ssuserCd);
-                param.setCreatedDate(systemDate);
-                dataBaseService.insert("addSysUser",param);
-
-                sysAccount.setCreatedBy(ssuserCd);
-                sysAccount.setCreatedDate(systemDate);
-                dataBaseService.insert("addSysAccount",sysAccount);
-
-            }else{
-                //修改用户
-                dataBaseService.update("updateSysUser",param);
-
-                dataBaseService.update("updateSysAccountByUserCd",sysAccount);
-
-                result.setAccountStatus(sysAccount.getLicence());
-            }
-
-            //用户角色
-            Set<SysUserRole> userRoles = param.getUserRoles();
-            for(SysUserRole ur: userRoles){
-                ur.setUpdateBy(ssuserCd);
-                ur.setUpdateDate(systemDate);
-                ur.setUserCd(userCd);
-                if(StringUtils.isNotBlank(ur.getSid())){
-                    dataBaseService.update("updateSysUserRole",ur);
-                }else {
-                    ur.setCreatedBy(ssuserCd);
-                    ur.setCreatedDate(systemDate);
-                    dataBaseService.insert("addSysUserRole",ur);
-                }
-            }
-
-            result.setSuccess(true);
-            result.setMessage("保存成功");
+            result = sysUserService.modify(param);
 
         } catch(Exception e) {
             result.setSuccess(false);

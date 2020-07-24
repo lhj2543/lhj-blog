@@ -1,41 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2fa2ac-24c7-40f3-a99d-c5225a70b870" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/define/UeditorConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/dto/IndexDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/assets/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/assets/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/assets/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/assets/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/views/websit/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/views/websit/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/src/views/websit/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/src/views/websit/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lhj-blog-client/static/index/login_bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/../lhj-blog-client/static/index/login_bg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/ConfigManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/upload/StorageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/upload/StorageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/controller/manage/NotebookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/controller/manage/NotebookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/ueditor_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/mapper/noteBook/NotebookMain.mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/mapper/noteBook/NotebookMain.mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/otherConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/resources/otherConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/ConfigManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/StorageManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/baidu/ueditor/upload/StorageManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/NotebookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/com/lhj/blog/controller/manage/NotebookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/mapper/noteBook/NotebookMain.mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/mapper/noteBook/NotebookMain.mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/classes/otherConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/classes/otherConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/lhj-blog-api-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.ConfigurationPropertiesTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.ConfigurationPropertiesTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.JdbcTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.JdbcTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.Md5Test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.Md5Test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.MyBatisTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/TEST-com.lhj.test.MyBatisTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.ConfigurationPropertiesTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.ConfigurationPropertiesTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.JdbcTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.JdbcTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.Md5Test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.Md5Test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.MyBatisTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/target/surefire-reports/com.lhj.test.MyBatisTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-common/target/lhj-blog-common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-common/target/lhj-blog-common-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-model/target/lhj-blog-model-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-model/target/lhj-blog-model-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-mybatis/target/lhj-blog-mybatis-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-mybatis/target/lhj-blog-mybatis-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/lhj-blog-system-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/lhj-blog-system-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lhj-blog-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../发布/lhj-blog-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../发布/lhj-blog-api-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/controller/site/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/controller/site/Index.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../代码生成/pojofactory/pojofactory-builder/pojofactory-builder.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../代码生成/pojofactory/pojofactory-client/pojofactory-client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../代码生成/pojofactory/pojofactory-jdbc/pojofactory-jdbc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../代码生成/pojofactory/pojofactory.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../文档/数据库设计/lhj-blog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../文档/数据库设计/lhj-blog.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../文档/数据库设计/lhj-blog.pdm" beforeDir="false" afterPath="$PROJECT_DIR$/../文档/数据库设计/lhj-blog.pdm" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,9 +31,27 @@
       <executable />
     </execution>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="lhj-blog-manage" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -62,12 +63,13 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="C:\Users\17822\.m2\repository" />
-        <option name="userSettingsFile" value="C:\Users\17822\.m2\settings.xml" />
+        <option name="userSettingsFile" value="C:\Users\17822\.m2\setting.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
@@ -83,7 +85,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lhj-blog-zuul/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -91,10 +93,31 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.ignored.files" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\lhj-blog\lhj-blog-manage\lhj-blog-zuul\src\main\resources" />
+      <recent name="D:\lhj-blog\lhj-blog-manage\lhj-blog-consumer-feign\src\main\resources" />
+      <recent name="D:\lhj-blog\lhj-blog-manage\lhj-blog-consumer\src\main\resources" />
+      <recent name="D:\lhj-blog\lhj-blog-manage\lhj-blog-eureka3\src\main\resources" />
+      <recent name="D:\lhj-blog\lhj-blog-manage\lhj-blog-eureka2\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lhj.zuul" />
+      <recent name="com.lhj.feign.feignService" />
+      <recent name="com.lhj.feign.controller" />
+      <recent name="com.lhj.feign" />
+      <recent name="com.lhj.consumer" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\lhj-blog\lhj-blog-manage\lhj-java\src\main\java\com\lhj\java\design" />
+      <recent name="D:\lhj-blog\lhj-blog-manage\lhj-java- design-pattern\src\main\java\com\lhj\java\design" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -108,7 +131,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MainAppliction">
+  <component name="RunManager" selected="Spring Boot.ZuulMainAppliction">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -121,22 +144,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JdbcTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lhj-blog-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lhj.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lhj.test" />
-      <option name="MAIN_CLASS_NAME" value="com.lhj.test.JdbcTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -144,15 +151,74 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainAppliction" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="lhj-blog-api" />
+    <configuration name="ConsumerMainAppliction (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="lhj-blog-consumer-feign" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lhj.*" />
+          <option name="PATTERN" value="com.lhj.feign.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lhj.feign.ConsumerMainAppliction" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConsumerMainAppliction" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="lhj-blog-consumer-ribbon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lhj.consumer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lhj.consumer.ConsumerMainAppliction" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaAppliction (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="lhj-blog-eureka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lhj.eureak.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lhj.eureak.EurekaAppliction" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaAppliction (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="lhj-blog-eureka2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lhj.eureak2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lhj.eureak2.EurekaAppliction" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainAppliction" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="lhj-blog-api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lhj.MainAppliction" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZuulMainAppliction" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="lhj-blog-zuul" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lhj.zuul.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lhj.zuul.ZuulMainAppliction" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -177,13 +243,20 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.MainAppliction" />
-        <item itemvalue="JUnit.JdbcTest" />
+        <item itemvalue="Spring Boot.ZuulMainAppliction" />
+        <item itemvalue="Spring Boot.ConsumerMainAppliction (1)" />
+        <item itemvalue="Spring Boot.EurekaAppliction (2)" />
+        <item itemvalue="Spring Boot.EurekaAppliction (1)" />
+        <item itemvalue="Spring Boot.ConsumerMainAppliction" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_NON_PUBLIC" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\17822\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -196,7 +269,19 @@
       <workItem from="1586617490106" duration="8057000" />
       <workItem from="1586662725570" duration="4167000" />
       <workItem from="1586784391894" duration="723000" />
-      <workItem from="1586871207388" duration="13750000" />
+      <workItem from="1586871207388" duration="13752000" />
+      <workItem from="1587272431110" duration="6464000" />
+      <workItem from="1587798936173" duration="153042000" />
+      <workItem from="1588943809639" duration="48753000" />
+      <workItem from="1589461666656" duration="6439000" />
+      <workItem from="1589472573248" duration="8287000" />
+      <workItem from="1589706772140" duration="7518000" />
+      <workItem from="1589810884781" duration="8775000" />
+      <workItem from="1594907175215" duration="5418000" />
+      <workItem from="1595167924233" duration="2471000" />
+      <workItem from="1595170555175" duration="2902000" />
+      <workItem from="1595332830864" duration="22432000" />
+      <workItem from="1595514133344" duration="21459000" />
     </task>
     <servers />
   </component>
@@ -223,6 +308,81 @@
           <url>file://$PROJECT_DIR$/lhj-blog-api/src/main/java/com/baidu/ueditor/ConfigManager.java</url>
           <line>163</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/controller/site/Index.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lhj-java/src/main/java/com/lhj/java/design/builder/ConcreteBuider.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lhj-java/src/main/java/com/lhj/java/thread/ThreadApi.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lhj-java/src/main/java/com/lhj/java/thread/DataCollectionDemo.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lhj-java/src/main/java/com/lhj/java/thread/ThreadException.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lhj-java/src/main/java/com/lhj/java/thread/observer/thread/ObserverThreadAImp.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lhj-java/src/main/java/com/lhj/java/collection/CustomLinkedList.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lhj-blog-api/src/test/java/com/lhj/test/MyBatisTest.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lhj-blog-api/src/main/java/com/lhj/blog/controller/site/Index.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/lhj-java/src/main/java/com/lhj/java/design/state/Test.java</url>
+          <line>6</line>
+          <properties class="com.lhj.java.design.state.Test" method="main">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/lhj-java/src/main/java/com/lhj/java/collection/CollectionTest.java</url>
+          <line>12</line>
+          <properties class="com.lhj.java.collection.CollectionTest" method="main">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/lhj-blog-api/src/test/java/com/lhj/test/MyBatisTest.java</url>
+          <line>78</line>
+          <properties class="com.lhj.test.MyBatisTest" method="myBaitsXmlTestInster">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/lhj-blog-consumer-ribbon/src/main/java/com/lhj/consumer/config/ConfigBean.java</url>
+          <line>14</line>
+          <properties class="com.lhj.consumer.config.ConfigBean" method="restTemplate" />
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

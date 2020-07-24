@@ -5,6 +5,7 @@ D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\support
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\controller\SysItemController.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\shiro\CustomShiroRealm.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\controller\SysItemCategoryController.java
+D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\service\SysUserService.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\support\SessionSupport.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\support\Md5Supper.java
 D:\lhj-blog\lhj-blog-manage\lhj-blog-system\src\main\java\com\lhj\system\shiro\CustomSessionManager.java

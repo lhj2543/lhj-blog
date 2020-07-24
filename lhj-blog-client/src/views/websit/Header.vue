@@ -107,7 +107,7 @@ export default {
   }
 
   #index-header{
-    padding: 0.5rem 2rem;
+    padding: 0rem 2rem;
     position: absolute;
     width: 100%;
     top: 0;

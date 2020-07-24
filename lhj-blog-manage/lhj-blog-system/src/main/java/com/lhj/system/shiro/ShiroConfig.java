@@ -55,6 +55,8 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/login", "anon");//不拦截
         filterChainDefinitionMap.put("/site/**", "anon");//不拦截
         filterChainDefinitionMap.put("/images/**", "anon");//不拦截
+        filterChainDefinitionMap.put("/actuator/info", "anon");//不拦截
+        filterChainDefinitionMap.put("/hystrix.stream", "anon");//不拦截
 
         filterChainDefinitionMap.put("/**", "authc");//拦截所有
 

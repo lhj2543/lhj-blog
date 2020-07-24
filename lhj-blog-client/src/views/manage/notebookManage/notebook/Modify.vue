@@ -1,3 +1,4 @@
+
 <template>
   
   <div class="" >
@@ -7,7 +8,9 @@
          <Form ref="formRef" :model="row" :rules="formValidate" :label-width="0" :readonly="isDisabled" class="notebook-form">
 
             <FormItem label="" prop="title">
-                <Input v-model="row.title" :readonly="isDisabled" placeholder="请输入标题..."></Input>
+                <Input v-model="row.title" :readonly="isDisabled" placeholder="请输入标题..." >
+                </Input>
+                <span class="isPublic" v-if="!isDisabled || isPublic=='active'"><Icon type="ios-lock" title="是否私有" :class="['ios-lock',isPublic]" size="25" @click="isPublicChange" /></span>
             </FormItem>
         </Form>
 
@@ -40,6 +43,7 @@ import VueUeditorWrap from 'vue-ueditor-wrap'//vue 百度富文本编辑器
       return {
         detailUrl:'/noteBook/detail',
         saveUrl:'/noteBook/modify',
+        isPublic:'',
         isDisabled:this.thisRow.pageType=='detail'?true:false,
         loading:false,//laoding 标识
         items:{},//字典数据
@@ -93,6 +97,9 @@ import VueUeditorWrap from 'vue-ueditor-wrap'//vue 百度富文本编辑器
           let row = response.data;
           if(row.success){
             _this.row = row;
+            if(row.status=='1'){
+              _this.isPublic = 'active';
+            }
           }else{
             _this.$Message.info(row.message);
           }
@@ -116,9 +123,10 @@ import VueUeditorWrap from 'vue-ueditor-wrap'//vue 百度富文本编辑器
               _this.loading=false;
               _this.$Message.info(row.message);
               if(row.success){
+                _this.row = row;
                 let isReFresh = _this.thisRow.pageType=='add'?true:false;
                 let updateData = _this.thisRow.pageType=='modify'?{row:row}:false;
-                _this.$emit('chindrenChangeData',{showPage:"list",updateData:{row:row},isReFresh:isReFresh});//调用父级方法
+                //_this.$emit('chindrenChangeData',{showPage:"list",updateData:{row:row},isReFresh:isReFresh});//调用父级方法
               }
             })
             .catch((error)=>{
@@ -133,6 +141,19 @@ import VueUeditorWrap from 'vue-ueditor-wrap'//vue 百度富文本编辑器
         });
         
       },
+      isPublicChange(){//是否公开
+        if(this.isDisabled){
+          return;
+        }
+        
+        if(!this.isPublic){
+          this.isPublic = 'active';
+          this.row.status = '1';
+        }else{
+          this.isPublic = '';
+          this.row.status = '2';
+        }
+      }
     
     },
     mounted(){
@@ -156,6 +177,16 @@ import VueUeditorWrap from 'vue-ueditor-wrap'//vue 百度富文本编辑器
 .edui-editor-iframeholder .edui-default,#edui1_iframeholder{
     width: 100% !important;
     height: 100% !important;
+}
+.ios-lock{
+  position: relative;
+  top:-40px;
+  right:-97%;
+  cursor: pointer;
+  color: #ccc;
+}
+.ios-lock.active{
+  color:#f60;
 }
 /* =====================重写iview 样式================= */
 </style>

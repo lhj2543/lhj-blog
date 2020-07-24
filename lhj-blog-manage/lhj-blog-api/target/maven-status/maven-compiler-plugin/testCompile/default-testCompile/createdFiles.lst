@@ -1,1 +1,4 @@
 com\lhj\test\ConfigurationPropertiesTest.class
+com\lhj\test\Md5Test.class
+com\lhj\test\MyBatisTest.class
+com\lhj\test\JdbcTest.class

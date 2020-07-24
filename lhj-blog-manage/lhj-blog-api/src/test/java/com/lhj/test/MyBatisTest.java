@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -75,24 +75,26 @@ public class MyBatisTest {
     }
 
     @Test
+    @Transactional
     public  void  myBaitsXmlTestInster(){
 
-        try{
-            /*for (int i = 1; i < 100; i++) {
-                SysUser sysUser=new SysUser();
-                sysUser.setUserCd("admin_" + (i+1));
+        /*try{
+            SysUser sysUser=new SysUser();
+            sysUser.setUserCd("admin_" + (1));
+            sysUser.setCreatedBy("lhj");
+            sysUser.setCreatedDate(new Date());
+            int flag = dataBaseService.insert("addSysUser", sysUser);
+            System.err.println("myBaitsXmlTestInster==flag="+flag);
 
-                sysUser.setCreatedBy("lhj");
-                sysUser.setCreatedDate(new Date());
-
-                int flag = dataBaseService.insert("addSysUser", sysUser);
-
-                System.err.println("myBaitsXmlTestInster==flag="+flag);
-            }*/
+            //int a = 10/0;
+            sysUser.setSid(null);
+            sysUser.setUserCd("hahhahaha");
+            int flag2 = dataBaseService.insert("addSysUser", sysUser);
+            System.err.println("myBaitsXmlTestInster==flag="+flag2);
 
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
 
     }
 }

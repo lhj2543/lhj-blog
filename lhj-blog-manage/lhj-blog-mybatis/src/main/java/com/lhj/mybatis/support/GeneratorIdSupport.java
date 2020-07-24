@@ -19,7 +19,9 @@ public class GeneratorIdSupport
 
   private String increment = "1";
 
-  /*日志*/
+  /**
+   * 日志
+   */
   Logger logger = LoggerFactory.getLogger(getClass());
 
   public void setSqlSession(SqlSessionTemplate sqlSession)

@@ -1,0 +1,33 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="pojofactory-client:war exploded">
+    <output-path>$PROJECT_DIR$/../代码生成/pojofactory/pojofactory-client/target/pojofactory-client-1.0.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>pojofactory-client</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="pojofactory-client" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="pojofactory-jdbc-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="pojofactory-jdbc" />
+          </element>
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.30" />
+          <element id="archive" name="pojofactory-builder-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="pojofactory-builder" />
+          </element>
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.20" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../代码生成/pojofactory/pojofactory-client/target/pojofactory-client-1.0.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="pojofactory-client/web/Web" />
+    </root>
+  </artifact>
+</component>
